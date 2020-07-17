@@ -52,8 +52,8 @@
 
 \begin{figure}[H]
 \centering
-	\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/chi2_NC_long_HadTop_mu.pdf}}
-    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/chi2_NC_long_HadTop_el.pdf}}\\
+	\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mjjb/chi2_NC_long_HadTop_mu.pdf}}
+    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mjjb/chi2_NC_long_HadTop_el.pdf}}\\
 \caption{}
 \label{EventSelReco:fig:chi2_SR_NC_Mjjb}
 \end{figure}
@@ -112,7 +112,7 @@
 	
 			The $\textbf{Receiver Operating Characteristic(ROC)}$ curve plot Fig.\ref{EventSelReco:fig:ROC_a04} can tell if it's given a cut on the output MVA score in separation distribution Fig.\ref{EventSelReco:fig:Sep_a04} to extract the $"$signal$"$, how the background rejection ratio vary when signal efficiency change. It can be infered that, the good performance is that when one rejects more ratio of background and at the same time reserves more ratio of signal(high signal efficiency). In other words, the bigger area under the ROC curve, the better the method is. However, the previous ROC criterion are just available and meaningful for the common case - one use MVA to separate the 2 different physics sample which are independent to each other, for example, use MVA to separate sigle $t$ and $t\bar{t}$ sample. In this analysis case, the signal and background are not separate like that kind in common. Being not independent 2 samples, signal and background are at the same time in one event instead. There are couple of complicated correlation between them. Therefore, the separation and ROC plots are not really fair anymore. As they going to not to be relative directly, there must be a standard to tell how MVA perform(That is the $b\bar{b}$ separation in \ref{ssec:bbsep}).
 
-			And also, it is better to use MVA with more variables than just $m_{jj}$ and $m_{jjb}$. Through there are 3 variables sets here to input and train. There are the variables of each combination in an event.
+			And also, it is better to use MVA with more variables than just $m_{jj}$ and $m_{jjb}$. There are 3 variables sets after a bunch of trials here to input and train. It's a remindful item that they are the variables of each combination in any event.
 
 			\begin{enumerate}
 			\item The first set: (2 variables)
@@ -166,12 +166,12 @@
 
 			This is shown that the MLP(ANN) training algorithm has the best performance under ROC criteria from training results. But as previous mentioning, the ROC performance cannot totally represent the training performance completely in these analysis case.
 
-	\subsection{$b\bar{b}$ separation}
+	\subsection{$b\bar{b}$ separation and distinguishment}
 	\label{ssec:bbsep}
 
 		The good correctness of chosen physical objects is necessary in this analysis. By the basis for discovering new physics, the observables require precise identification of particles. And the important is, in our selected observables, to distinguish $b$- between $\bar{b}$ -quark which are both b-tagged jets detected from smashing and hadronizatoin of b-flavor quarks. For example, the identification is highly correlated with observable $O_{6}$ which is $q_{l}(\vec{p_{b}}-\vec{p_{\bar{b}}})\cdot(\vec{p_{l}}\times\vec{p_{j_{1}}})$, the mis-ordered $b$/($\bar{b}$) will cause the wrong sign on this observable. On the other hand, it is not requirement for us to correctly pick up the 2 jets from hadronically decaying top quark in this analysis. In this way, the identification between $b$ and $\bar{b}$ is the most critical implication. And that is also what we need to test the performance of reconstruction algorithm($\chi^2_{min}$,MVA). 
 
-		The study is worked under the signal simulation sample($t$$\bar{t}$ Monte Carlo). All the selected physical objects include jets and leptons will be matched to particle with the generator-level information in MC sample with the same $\Delta R$ < 0.4 method.(Eq.\ref{eq:gen_matching})
+		The study is worked under the signal simulation sample($t$$\bar{t}$ Monte Carlo). All the selected physical objects include jets and leptons will be matched to particle with the generator-level information in MC sample with $\Delta R$ < 0.4 method.(Eq.\ref{eq:gen_matching})
 
 		To standardlize the $b$/$\bar{b}$ distinguishment, there are 3 classifications listed:
 		\begin{itemize}
@@ -180,13 +180,35 @@
   		\item $\textbf{Mistag}$: non $b$$(\bar{b})$-quark is identified as $b$$(\bar{b})$-jet
 		\end{itemize}
 
-		With these 3 classification as a criteria of goodness, there are the result 
+		With applying the various algorithm on signal simulation sample($t\bar{t}$ MC), there are the $b/\bar{b}$-distinguishment of $\chi^2_{min}$ and MVA methods:
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c c c }			% add the [H] can make it listed in table list!!
+		\caption{fff}\\
+		\hline
+		[\%] & & Correct & $b\bar{b}$ mis-identified & Mistag  \\ 
+		\hline
+		$\chi^2_{min}$ &  & XXX & 1 & CCCCCC \\
+		\hline
+		\multirow{3}{5em}{2 variables} & MLP & XXX & 2 & CCCCCC \\
+		& BDT & XXX & 2 & CCCCCC \\
+		& BDTG & XXX & 2 & CCCCCC \\
+		\hline
+		\multirow{3}{5em}{8 variables} & MLP & XXX & 2 & CCCCCC \\
+		& BDT & XXX & 2 & CCCCCC \\
+		& BDTG & XXX & 2 & CCCCCC \\
+		\hline
+		\multirow{3}{5em}{20 variables} & MLP & XXX & 2 & CCCCCC \\
+		& BDT & XXX & 2 & CCCCCC \\
+		& BDTG & XXX & 2 & CCCCCC \\
+		\hline  
+		\end{longtable}
+		\end{center}
 
 
 
-
-
-
+	\subsection{Control Region}
+	\label{ssec:CR}
 
 
 		Those are seen nice after training. Since we will use the spectrum of leptonic top's invariant mass($M_{lb}$) to estimate our signal($t\bar{t}$) and background in Chapter****, it is necessary to retain the isolation of information about $M_{lb}$ when reconstructing the hadronic top mass $M_{jjb}$. There is a check to see if a cut on mva score is given, whether the $M_{lb}$'s pdf(probability density function) shape change. If the cut on mva score which is designed and trained for reconstructing $M_{jjb}$ would vary the $M_{lb}$ shape, there are some obvious interference from reconstructing $M_{jjb}$ to information of $M_{lb}$. That is what we need to circumvent for following analysis strategy.
