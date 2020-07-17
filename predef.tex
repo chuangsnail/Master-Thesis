@@ -1,0 +1,23 @@
+%%% \usepackage{xspace} is needed in premeable
+
+%%% Predefined environments
+\renewcommand{\thesection}{\Roman{section}}
+\let\oldref\ref
+\renewcommand\ref[1]{\textcolor{red}{\oldref{#1}}}
+\let\oldcite\cite
+\renewcommand\cite[1]{\textcolor{blue}{\oldcite{#1}}}
+
+%%% Predefined commands
+\newcommand\newemptypage{\newpage\thispagestyle{empty}\newpage}
+\newcommand\aline{\rule{\textwidth}{0.4pt}}
+
+%%% Predefined objects
+
+% Some software programs (alphabetized)
+%\providecommand{\ACERMC} {\textsc{AcerMC}\xspace}
+
+%  Experiments
+%\newcommand {\DZERO}{D\O\xspace}
+
+% Units
+%\newcommand{\ten}[1]{\ensuremath{\times \text{10}^\text{#1}}}

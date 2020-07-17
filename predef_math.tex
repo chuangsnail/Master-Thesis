@@ -1,0 +1,49 @@
+%%% {amsmath}, {amsthm} are needed in premeable
+
+%%% Predefined commands
+%%% amsthm settings %
+\theoremstyle{plain}% default
+    %\newtheorem*{thm}{Theorem}
+    %\newtheorem*{lem}{Lemma}
+    %\newtheorem*{prop}{Proposition}
+    %\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+    %\newtheorem*{defn}{Definition}
+    %\newtheorem*{conj}{Conjecture}
+    %\newtheorem*{exmp}{Example}
+\theoremstyle{remark}
+    \newtheorem*{rem}{Remark}
+    \newtheorem*{note}{Note}
+    \newtheorem*{case}{Case}
+
+\newtheoremstyle{mymathplain}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}
+{\newline}
+{%
+    \thmname{#1}\thmnote{\ -\ #3}\\*[-1.5ex]%
+}%
+\theoremstyle{mymathplain}
+    \newtheorem*{thm}{Theorem}
+    \newtheorem*{lem}{Lemma}
+    \newtheorem*{prop}{Proposition}
+    \newtheorem*{cor}{Corollary}
+
+\newtheoremstyle{mymathdefinition}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}
+{\newline}
+{%
+    \rule{\textwidth}{0.4pt}\\*%
+    \thmname{#1}\thmnote{\ -\ #3}\\*[-1.5ex]%
+    \rule{\textwidth}{0.4pt}
+}%
+\theoremstyle{mymathdefinition}
+    \newtheorem*{defn}{Definition}
+    \newtheorem*{conj}{Conjecture}
+    \newtheorem*{exmp}{Example}
+
+
+%%% Predefined objects (alphabetized)

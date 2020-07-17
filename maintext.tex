@@ -1,0 +1,61 @@
+% !TEX root = main.tex
+%%% put the watermark back only in last step.
+%\centerwallpaper{0.35}{figures/logo/watermark.eps}
+
+%%% cover in Chinese
+%\input{chtfront.tex}
+\fontsize{12pt}{17.28}
+
+%%% cover in English
+\input{abstract}
+
+\pagenumbering{roman} %%% for index
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\pagenumbering{arabic} %%% for main text
+%%%\linenumbers
+\input{section_Introduction}
+\newpage
+\input{section_ExperimentalApparatus}	%including apparatus and simulator(mg5,pyhtia,delphes)
+\newpage
+\input{section_PhysObject}
+\newpage
+\input{section_DataAndMC}
+\newpage
+\input{section_EventSelReco}
+\newpage
+\input{section_AsymmetryBias}
+\newpage
+\input{section_Systematic}
+\newpage
+\input{section_TopAcpModel}
+\newpage
+\input{section_Observable}
+\newpage
+\input{section_Results}
+\newpage
+
+%\input{section_BkgEstimation}
+%\input{section_DataMCValidation}
+
+\appendix
+%\input{appendix_index}
+%\input{appendix_pixelAlignment}
+%\input{appendix_pixelUpgrade}
+%\input{appendix_bTagCommissioning}
+%\input{appendix_HWWAnalysis}
+%\input{appendix_StatReview}
+%\input{appendix_BToKstMuMuInTheory}
+
+\printindex
+
+%%% run pdflatex after running bibtex.
+\clearpage
+\addcontentsline{toc}{section}{references}
+\bibliographystyle{auto_generated} %%% order by appearing.
+\bibliography{ref}

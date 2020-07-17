@@ -1,0 +1,87 @@
+%%% CMS ptdr-definitions(partial)
+%%% \usepackage{xspace} is needed in premeable
+\usepackage{braket}
+
+%%% Predefined commands
+
+%%% Predefined objects
+
+% Some software programs
+\providecommand{\ACERMC} {\textsc{AcerMC}\xspace}
+\providecommand{\ALPGEN} {{\textsc{alpgen}}\xspace}
+\providecommand{\CHARYBDIS} {{\textsc{charybdis}}\xspace}
+\providecommand{\CMKIN} {\textsc{cmkin}\xspace}
+\providecommand{\CMSIM} {{\textsc{cmsim}}\xspace}
+\providecommand{\CMSSW} {{\textsc{cmssw}}\xspace}
+\providecommand{\COBRA} {{\textsc{cobra}}\xspace}
+\providecommand{\COCOA} {{\textsc{cocoa}}\xspace}
+\providecommand{\COMPHEP} {\textsc{CompHEP}\xspace}
+\providecommand{\EVTGEN} {{\textsc{evtgen}}\xspace}
+\providecommand{\FAMOS} {{\textsc{famos}}\xspace}
+\providecommand{\GARCON} {\textsc{garcon}\xspace}
+\providecommand{\GARFIELD} {{\textsc{garfield}}\xspace}
+\providecommand{\GEANE} {{\textsc{geane}}\xspace}
+\providecommand{\GEANTfour} {{\textsc{geant4}}\xspace}
+\providecommand{\GEANTthree} {{\textsc{geant3}}\xspace}
+\providecommand{\GEANT} {{\textsc{geant}}\xspace}
+\providecommand{\HDECAY} {\textsc{hdecay}\xspace}
+\providecommand{\HERWIG} {{\textsc{herwig}}\xspace}
+\providecommand{\HIGLU} {{\textsc{higlu}}\xspace}
+\providecommand{\HIJING} {{\textsc{hijing}}\xspace}
+\providecommand{\IGUANA} {\textsc{iguana}\xspace}
+\providecommand{\ISAJET} {{\textsc{isajet}}\xspace}
+\providecommand{\ISAPYTHIA} {{\textsc{isapythia}}\xspace}
+\providecommand{\ISASUGRA} {{\textsc{isasugra}}\xspace}
+\providecommand{\ISASUSY} {{\textsc{isasusy}}\xspace}
+\providecommand{\ISAWIG} {{\textsc{isawig}}\xspace}
+\providecommand{\MADGRAPH} {\textsc{MadGraph}\xspace}
+\providecommand{\MCATNLO} {\textsc{mc@nlo}\xspace}
+\providecommand{\MCFM} {\textsc{mcfm}\xspace}
+\providecommand{\MILLEPEDE} {{\textsc{millepede}}\xspace}
+\providecommand{\ORCA} {{\textsc{orca}}\xspace}
+\providecommand{\OSCAR} {{\textsc{oscar}}\xspace}
+\providecommand{\PHOTOS} {\textsc{photos}\xspace}
+\providecommand{\PROSPINO} {\textsc{prospino}\xspace}
+\providecommand{\PYTHIA} {{\textsc{pythia}}\xspace}
+\providecommand{\SHERPA} {{\textsc{sherpa}}\xspace}
+\providecommand{\TAUOLA} {\textsc{tauola}\xspace}
+\providecommand{\TOPREX} {\textsc{TopReX}\xspace}
+\providecommand{\XDAQ} {{\textsc{xdaq}}\xspace}
+
+%  Experiments
+\newcommand{\DZERO}{D\O\xspace}     %etc.
+\newcommand{\LHCb}{LHCb\xspace}
+\newcommand{\CDF}{CDF\xspace}
+\newcommand{\CMS}{CMS\xspace}
+\newcommand{\ATLAS}{ATLAS\xspace}
+
+% Units
+\newcommand{\de}{\ensuremath{^\circ}}
+\newcommand{\ten}[1]{\ensuremath{\times \text{10}^\text{#1}}}
+\newcommand{\unit}[1]{\ensuremath{\text{\,#1}}\xspace}
+\newcommand{\meter}{\ensuremath{\,\text{m}}\xspace}
+\newcommand{\cm}{\ensuremath{\,\text{cm}}\xspace}
+\newcommand{\mm}{\ensuremath{\,\text{mm}}\xspace}
+\newcommand{\mum}{\ensuremath{\,\mu\text{m}}\xspace}
+\newcommand{\micron}{\ensuremath{\,\mu\text{m}}\xspace}
+\newcommand{\second}{\ensuremath{\,\text{s}}\xspace}
+\newcommand{\mus}{\ensuremath{\,\mu\text{s}}\xspace}
+\newcommand{\keV}{\ensuremath{\,\text{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\MeV}{\ensuremath{\,\text{Me\hspace{-.08em}V}}\xspace}
+\newcommand{\GeV}{\ensuremath{\,\text{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\TeV}{\ensuremath{\,\text{Te\hspace{-.08em}V}}\xspace}
+\newcommand{\PeV}{\ensuremath{\,\text{Pe\hspace{-.08em}V}}\xspace}
+\newcommand{\keVc}{\ensuremath{{\,\text{ke\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\MeVc}{\ensuremath{{\,\text{Me\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\GeVc}{\ensuremath{{\,\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\TeVc}{\ensuremath{{\,\text{Te\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c}}\xspace}
+\newcommand{\keVcc}{\ensuremath{{\,\text{ke\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\MeVcc}{\ensuremath{{\,\text{Me\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\GeVcc}{\ensuremath{{\,\text{Ge\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\TeVcc}{\ensuremath{{\,\text{Te\hspace{-.08em}V\hspace{-0.16em}/\hspace{-0.08em}}c^\text{2}}}\xspace}
+\newcommand{\pbinv} {\mbox{\ensuremath{\,\text{pb}^\text{$-$1}}}\xspace}
+\newcommand{\fbinv} {\mbox{\ensuremath{\,\text{fb}^\text{$-$1}}}\xspace}
+\newcommand{\nbinv} {\mbox{\ensuremath{\,\text{nb}^\text{$-$1}}}\xspace}
+\newcommand{\percms}{\ensuremath{\,\text{cm}^\text{$-$2}\,\text{s}^\text{$-$1}}\xspace}
+\newcommand{\lumi}{\ensuremath{\mathcal{L}}\xspace}
+\newcommand{\Lumi}{\ensuremath{\mathcal{L}}\xspace}%both upper and lower

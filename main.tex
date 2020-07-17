@@ -1,0 +1,101 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt,a4paper]{article}
+
+%%% define general packages and path
+% typesetting
+\usepackage{geometry}
+    % Text
+\usepackage{indentfirst}                                %autoindent for sections in {article}.
+\usepackage{multirow}
+\usepackage{afterpage}                                  %for \clearpage
+\usepackage{changepage}                                 %for \adjustwidth to indent a specified lines
+    % Tables and plots
+\usepackage{float}                                      %for 'H' option
+\floatplacement{figure,table}{H}                        %set 'H' option by default
+\usepackage{enumerate}                                  %for \begin{enumerate}
+\usepackage{longtable}
+\usepackage{graphicx}                                   %for \includegraphics,\graphicspath
+\graphicspath{{Figures/},{other/}}
+\usepackage{subfigure}                                  %for subfigure
+\usepackage{wallpaper}                                  %for watermark
+\usepackage{placeins}                                   %for \FloatBarrier
+    % font
+%\usepackage{lmodern}                                   %Remove annoying font shape warning
+\usepackage{cmbright}
+\usepackage{xcolor}                                     %colored text even in math mode
+\usepackage{realscripts}                                %for otf fonts
+\usepackage{fontspec}                                   %for detailed fontspec tuning
+\usepackage{xeCJK}                                      %for CJK font
+\usepackage{ruby}                                       %for furigana in Japanese
+\usepackage{bm}                                         %for better boldsymbol
+\usepackage{romannum}                                   %for \Romannum
+    % Other tools
+\usepackage{url}
+\urlstyle{same}
+\usepackage[nospace]{cite}                              %citation
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}   %hyperlink reference
+\usepackage[colorinlistoftodos]{todonotes}              %for todo comments
+\usepackage{makeidx}                                    %create alphabetical index
+\makeindex
+%%\usepackage{lineno}
+    %Physics and math tools
+\usepackage{xspace}                                     %for specific names
+\usepackage{amsmath}                                    %for \begin{align}
+\usepackage{amsthm}                                     %for defition/lemma/proof
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%%% define layout style, \usepackage{layout}
+% See: https://en.wikibooks.org/wiki/LaTeX/Page_Layout
+\textwidth      6.5  in
+\textheight     9.0  in
+\topmargin     -0.50 in
+\oddsidemargin  0.0  in
+\evensidemargin 0.0  in
+\setlength{\parindent}{4ex}
+\setlength{\parskip}{1.5ex}
+
+%%% font settings
+%\setmainfont[
+    %Ligatures=TeX,
+    %Path=../002Font/NotoSans/,
+    %UprightFont=*-Regular.ttf,
+    %ItalicFont=*-Italic.ttf,
+    %BoldFont=*-Bold.ttf,
+    %BoldItalicFont=*-BoldItalic.ttf]{NotoSans}
+%\setromanfont{Times New Roman}
+%\setsansfont{Arial}
+%\setmonofont[Scale=1.0, Color={0019D4}]{Courier New}
+    % CJK, query by fc-list :lang=ja
+%\setCJKmainfont{Heiti TC}
+%\setCJKmainfont[Path=../002Font/NotoSansCJK/,Scale=1.0]{NotoSansCJKtc-Regular.otf}
+    % Math support
+%\setmathrm{}
+%\setmathsf{}
+%\setmathtt{}
+%\setboldmathrm{}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+%%% define default environments, commands and variables
+\input{predef}
+\input{predef_phys}
+\input{predef_math}
+\input{predef_this}
+
+%%% define document-specified commands and variables
+%\newcommand{\cmdname}{\cmdcontent}
+%\renewcommand{\cmdname}{\cmdcontent}
+%\providecommand{\cmdname}{\cmdcontent}
+%\def \varname {varcontent}
+%\input{predef_this}
+
+%=================================================
+%%% Main body
+\begin{document}
+
+\input{maintext}
+
+\end{document}
