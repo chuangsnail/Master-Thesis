@@ -9,10 +9,13 @@
 
 	To calculate the asymmetry from top quark in $t\bar{t}$, there must be some selections to extract the $t\bar{t}$ sample from other background samples. Also, there would be several analysis strategies to recognize physical objects and pick them out. The chapter will do these discussion and make some comparison and organization.
 	
+	\subsection{Trigger}
+	\label{ssec:EvtSel_trg}
+
 	\subsection{Events Selection : Signal Region}
 	\label{ssec:EvtSel_SR}
 
-		In this analysis, doing reasearch by the channel of lepton + jets, which means 2 tops have different decay modes. One decays leptonically, and another decays hadronically. It is expected that the hadronically decay top can be constructed with 1 b-tagged jet and 2 non b-tagged jets and the other top can be constructed imcompletely with 1 b-tagged jet, 1 lepton with missing neutrino 4-momentum by detector issue. For the $\textbf{Signal Region(SR)}$, the region with selection cut to extract signal in an analysis, there are the selection cuts below:
+		In this analysis, doing reasearch by the channel of lepton + jets, which means 2 tops have different decay modes. One decays leptonically, and another decays hadronically(they will be called $\emph{hadronic top}$ and $\emph{leptonic top}$ in following context). It is expected that the hadronic top can be constructed with 1 b-tagged jet and 2 non b-tagged jets and the other top can be constructed imcompletely with 1 b-tagged jet, 1 lepton with missing neutrino 4-momentum by detector issue. For the $\textbf{Signal Region(SR)}$, the region with selection cut to extract signal in an analysis, there are the selection cuts below:
 
 		\begin{itemize}
   		\item 1 selected lepton which are a tight muon or a tight electron
@@ -28,6 +31,8 @@
 		\Delta R = \sqrt{ (\eta_{jet} - \eta_{lep})^2 - (\phi_{jet} - \phi_{lep})^2 } > 0.4
 		\end{equation}
 
+		Under SR selection to extract the semi-leptonic $t\bar{t}$(signal), and also following the high level trigger, they are shown in muon and electron channels to classify the selected sample in the following analysis.
+
 		%%% also put on the diagrams of N_Jets N_BJets N_TightLep before selection to valify the selection cut!
 
 		%%% --- TODO --- %%%
@@ -36,12 +41,12 @@
 	\subsection{Events Reconstruction}
 	\label{ssec:EvtReco}
 
-		To reconstruct the semi-leptonic $t\bar{t}$ system, it is suggested that to reconstruct the top quark which decays hadronically. It's an advantage that we can avoid dealing with missing 4-momentum from neutrino decays from leptonic top. And under the SR selection, if we can reconstruct the top which decays hadronically, the decay objects of leptonic decay top would be picked up simultaneously. This is a direct and common way to correctly identify selected candidates.
+		To reconstruct the semi-leptonic $t\bar{t}$ system, it is suggested that to reconstruct the hadronic top quark. It's an advantage that we can avoid dealing with missing 4-momentum from neutrino decays from leptonic top. And under the SR selection, if we can reconstruct the top which decays hadronically, the decay objects of leptonic decay top would be picked up simultaneously. This is a direct and common way to correctly identify selected candidates.
 
 		\subsubsection{$\chi^2_{min}$ Method}
 		\label{sssec:minchi2_intro} 
 
-			There are multiple combinations of 1 b-tagged jet and 2 non b-tagged jet in an event. And how do we reconstruct hadronically decay top? In known and published analysis, based on the reco-level invariant mass of top quark itself and the intermediate particle in decay - W boson, they are used as constraints to invariant mass which is reconstructed from each combination. With the defined $\chi^2_{min}$ value, which shows below:
+			There are multiple combinations of 1 b-tagged jet and 2 non b-tagged jet in an event. And how do we reconstruct hadronic top? In known and published analysis, based on the reco-level invariant mass of top quark itself and the intermediate particle in decay - W boson, they are used as constraints to invariant mass which is reconstructed from each combination. With the defined $\chi^2_{min}$ value, which shows below:
 
 			\begin{equation}
 			\chi^2 = (\frac{m_{jjb}-m_{t}}{\sigma_{t}})^2 + (\frac{m_{jj}-m_{W}}{\sigma_{W}})^2
@@ -52,9 +57,9 @@
 
 \begin{figure}[H]
 \centering
-	\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mjjb/chi2_NC_long_HadTop_mu.pdf}}
-    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mjjb/chi2_NC_long_HadTop_el.pdf}}\\
-\caption{}
+	\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/chi2/chi2_NC_long_HadTop_mu.pdf}}
+    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/chi2/chi2_NC_long_HadTop_el.pdf}}\\
+\caption{Reconstructed $M_{jjb}$ with $\chi^2_{min}$ algorithm (w/o cut)}
 \label{EventSelReco:fig:chi2_SR_NC_Mjjb}
 \end{figure}
 \FloatBarrier
@@ -74,7 +79,7 @@
 				\item Randomly half for training sample, another half for testing sample
 				\item In each event,
 				\begin{enumerate}
-					\item $\textbf{Signal}$ is recognized as the correct combination of objects hadronically decaying from t($\bar{t}$)-quark in an event
+					\item $\textbf{Signal}$ is recognized as the correct combination of objects hadronically decaying from $t$($\bar{t}$)-quark in an event
 					\item $\textbf{Background}$ are all the other incorrect combinations in an event
 				\end{enumerate}
 			\end{itemize}
@@ -92,25 +97,36 @@
 
 \begin{figure}[H]
 \centering
-	\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a04_all_BDT_sep.pdf}}
-    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a04_all_BDTG_sep.pdf}}\\
-    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a04_all_MLP_sep.pdf}}\\
+	\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDT_sep.pdf}}
+    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDTG_sep.pdf}}\\
+    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_MLP_sep.pdf}}\\
 \caption{The seperating distribution on signal and background}
 \label{EventSelReco:fig:Sep_a04}
 \end{figure}
 \FloatBarrier
 
-			The separation plots Fig.\ref{EventSelReco:fig:Sep_a04} shows the machine learning methods' separating ability. The distributions in these plots are the seperation performance between $"$signal$"$ and $"$background$"$(right and wrong objects combination) under training sample and testing sample with given machine learning method. As we can see that if we want to pick out $"$signal$"$(right combination), just choose the jjb combination who has the higher MVA score as the right one.
+			The separation plots Fig.\ref{EventSelReco:fig:Sep_a04} shows the machine learning methods' separating ability. The distributions in these plots are the seperation performance between $"$signal$"$ and $"$background$"$(right and wrong objects combination) under training sample and testing sample with given machine learning method. As we can see that if we want to pick out $"$signal$"$(right combination), just choose the jjb combination who has the $\emph{highist MVA score}$ as the right one.
 
 \begin{figure}[H]
 \centering{}
-    \includegraphics[width=0.6\textwidth]{Figures/EventSelReco/a04_all_ROC.pdf}\\
+    \includegraphics[width=0.6\textwidth]{Figures/EventSelReco/mva/a04_all_ROC.pdf}\\
 \caption{Receiver Operating Characteristic(ROC) curve of various machine learning method}
 \label{EventSelReco:fig:ROC_a04}
 \end{figure}
 \FloatBarrier
 	
 			The $\textbf{Receiver Operating Characteristic(ROC)}$ curve plot Fig.\ref{EventSelReco:fig:ROC_a04} can tell if it's given a cut on the output MVA score in separation distribution Fig.\ref{EventSelReco:fig:Sep_a04} to extract the $"$signal$"$, how the background rejection ratio vary when signal efficiency change. It can be infered that, the good performance is that when one rejects more ratio of background and at the same time reserves more ratio of signal(high signal efficiency). In other words, the bigger area under the ROC curve, the better the method is. However, the previous ROC criterion are just available and meaningful for the common case - one use MVA to separate the 2 different physics sample which are independent to each other, for example, use MVA to separate sigle $t$ and $t\bar{t}$ sample. In this analysis case, the signal and background are not separate like that kind in common. Being not independent 2 samples, signal and background are at the same time in one event instead. There are couple of complicated correlation between them. Therefore, the separation and ROC plots are not really fair anymore. As they going to not to be relative directly, there must be a standard to tell how MVA perform(That is the $b\bar{b}$ separation in \ref{ssec:bbsep}).
+
+			There are also the reconstructed $M_{jjb}$ with MVA algorithm.($m_{jjb}$, $m_{jj}$) There is just MLP (instead of BDT/BDTG)results shown here.
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a04/a04_MLP_NC_long_HadTop_mu.pdf}}
+			    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a04/a04_MLP_NC_long_HadTop_el.pdf}}\\
+			\caption{Reconstructed $M_{jjb}$ with 2 variables MLP algorithm (w/o cut)}
+			\label{EventSelReco:fig:a04_MLP_SR_NC_Mjjb}
+			\end{figure}
+			\FloatBarrier
 
 			And also, it is better to use MVA with more variables than just $m_{jj}$ and $m_{jjb}$. There are 3 variables sets after a bunch of trials here to input and train. It's a remindful item that they are the variables of each combination in any event.
 
@@ -138,16 +154,17 @@
 				\item hadronic W(j+j) and MET's $\emph{sum of}$ $P_{T}$, $|\Delta P_{T}|$, $\Delta \phi$
 				\item hadronic b-jet and MET's $\emph{sum of}$ $P_{T}$, $|\Delta P_{T}|$, $\Delta \phi$
 				\end{itemize}
+			\label{itm:mva_var}
 			\end{enumerate}
 
 			Besides the training result of the 2 variables' set have been shown(Fig.\ref{EventSelReco:fig:Sep_a04}, Fig.\ref{EventSelReco:fig:ROC_a04}), there are also the training results of 8 variables and 20 variables' cases:
 
 			\begin{figure}[H]
 			\centering
-				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/t13_BDT_sep.pdf}}
-			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/t13_BDTG_sep.pdf}}\\
-			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/t13_MLP_sep.pdf}}
-			    \subfigure[ROC curve]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/t13_ROC.pdf}}\\
+				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_BDT_sep.pdf}}
+			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_BDTG_sep.pdf}}\\
+			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_MLP_sep.pdf}}
+			    \subfigure[ROC curve]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_ROC.pdf}}\\
 			\caption{The training result of 8 variables set}
 			\label{EventSelReco:fig:Sep_ROC_t13}
 			\end{figure}
@@ -155,10 +172,10 @@
 
 			\begin{figure}[H]
 			\centering
-				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a05_all_BDT_sep.pdf}}
-			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a05_all_BDTG_sep.pdf}}\\
-			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a05_all_MLP_sep.pdf}}
-			    \subfigure[ROC curve]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/a05_all_ROC.pdf}}\\
+				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_BDT_sep.pdf}}
+			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_BDTG_sep.pdf}}\\
+			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_MLP_sep.pdf}}
+			    \subfigure[ROC curve]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_ROC.pdf}}\\
 			\caption{The training result of 20 variables set}
 			\label{EventSelReco:fig:Sep_ROC_a05}
 			\end{figure}
@@ -166,12 +183,32 @@
 
 			This is shown that the MLP(ANN) training algorithm has the best performance under ROC criteria from training results. But as previous mentioning, the ROC performance cannot totally represent the training performance completely in these analysis case.
 
+			There are results of reconstructed $M_{jjb}$ by 8 variables' and 20 variables' MLP algorithm.
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/t13/t13_MLP_NC_long_HadTop_mu.pdf}}
+			    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/t13/t13_MLP_NC_long_HadTop_el.pdf}}\\
+			\caption{Reconstructed $M_{jjb}$ with 8 variables MLP algorithm (w/o cut)}
+			\label{EventSelReco:fig:t13_MLP_SR_NC_Mjjb}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[muon channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/a05_MLP_NC_long_HadTop_mu.pdf}}
+			    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/a05_MLP_NC_long_HadTop_el.pdf}}\\
+			\caption{Reconstructed $M_{jjb}$ with 20 variables MLP algorithm (w/o cut)}
+			\label{EventSelReco:fig:a05_MLP_SR_NC_Mjjb}
+			\end{figure}
+			\FloatBarrier
+
 	\subsection{$b\bar{b}$ separation and distinguishment}
 	\label{ssec:bbsep}
 
-		The good correctness of chosen physical objects is necessary in this analysis. By the basis for discovering new physics, the observables require precise identification of particles. And the important is, in our selected observables, to distinguish $b$- between $\bar{b}$ -quark which are both b-tagged jets detected from smashing and hadronizatoin of b-flavor quarks. For example, the identification is highly correlated with observable $O_{6}$ which is $q_{l}(\vec{p_{b}}-\vec{p_{\bar{b}}})\cdot(\vec{p_{l}}\times\vec{p_{j_{1}}})$, the mis-ordered $b$/($\bar{b}$) will cause the wrong sign on this observable. On the other hand, it is not requirement for us to correctly pick up the 2 jets from hadronically decaying top quark in this analysis. In this way, the identification between $b$ and $\bar{b}$ is the most critical implication. And that is also what we need to test the performance of reconstruction algorithm($\chi^2_{min}$,MVA). 
+		The good correctness of chosen physical objects is necessary in this analysis. By the basis for discovering new physics, the observables require precise identification of particles. And the important is, in our selected observables, to distinguish $b$- between $\bar{b}$ -quark which are both b-tagged jets detected from smashing and hadronizatoin of b-flavor quarks. For example, the identification is highly correlated with observable $O_{6}$ which is $q_{l}(\vec{p_{b}}-\vec{p_{\bar{b}}})\cdot(\vec{p_{l}}\times\vec{p_{j_{1}}})$, the mis-ordered $b$/($\bar{b}$) will cause the wrong sign on this observable. On the other hand, it is not requirement for us to correctly pick up the 2 jets from hadronic top quark in this analysis. Also, the long tail in reconstructed hadronic top invariant mass($M_{jjb}$, Fig.\ref{EventSelReco:fig:a04_MLP_SR_NC_Mjjb}, Fig.\ref{EventSelReco:fig:t13_MLP_SR_NC_Mjjb}, Fig.\ref{EventSelReco:fig:a05_MLP_SR_NC_Mjjb}) deviated too much from known top mass 172.5GeV. And the source of this tail is infered coming from $b/\bar{b}$ wrong identified cases. In this way, the identification between $b$ and $\bar{b}$ is the most critical implication. And that is also what we need to test the performance of reconstruction algorithm($\chi^2_{min}$,MVA). 
 
-		The study is worked under the signal simulation sample($t$$\bar{t}$ Monte Carlo). All the selected physical objects include jets and leptons will be matched to particle with the generator-level information in MC sample with $\Delta R$ < 0.4 method.(Eq.\ref{eq:gen_matching})
+		All the following study in \ref{ssec:bbsep} is worked only under the signal simulation sample($t$$\bar{t}$ Monte Carlo). All the selected physical objects include jets and leptons will be matched to particle with the generator-level information in MC sample with $\Delta R$ < 0.4 method.(Eq.\ref{eq:gen_matching})
 
 		To standardlize the $b$/$\bar{b}$ distinguishment, there are 3 classifications listed:
 		\begin{itemize}
@@ -180,31 +217,271 @@
   		\item $\textbf{Mistag}$: non $b$$(\bar{b})$-quark is identified as $b$$(\bar{b})$-jet
 		\end{itemize}
 
-		With applying the various algorithm on signal simulation sample($t\bar{t}$ MC), there are the $b/\bar{b}$-distinguishment of $\chi^2_{min}$ and MVA methods:
+		With applying the various algorithm on signal simulation sample($t\bar{t}$ MC), there are the $b/\bar{b}$-distinguishment results after reconstructed the hadronic top and make a identification of physical objects via $\chi^2_{min}$ and MVA methods:
 
 		\begin{center}
-		\begin{longtable}[H]{ c c c c c }			% add the [H] can make it listed in table list!!
-		\caption{fff}\\
+		\begin{longtable}[H]{ c c | c c c }			% add the [H] can make it listed in table list!!
+		\caption{$b/\bar{b}$ disdinguishment under different algorithm (w/o cut)}\\
 		\hline
 		[\%] & & Correct & $b\bar{b}$ mis-identified & Mistag  \\ 
 		\hline
-		$\chi^2_{min}$ &  & XXX & 1 & CCCCCC \\
+		$\chi^2_{min}$ &  & 61.18 & 25.21 & 13.38 \\
 		\hline
-		\multirow{3}{5em}{2 variables} & MLP & XXX & 2 & CCCCCC \\
-		& BDT & XXX & 2 & CCCCCC \\
-		& BDTG & XXX & 2 & CCCCCC \\
+		\multirow{3}{5em}{2 variables} & MLP & 63.18 & 23.22 & 13.60 \\
+		& BDT & 60.89 & 25.49 & 13.60 \\
+		& BDTG & 63.02 & 23.37 & 13.61 \\
 		\hline
-		\multirow{3}{5em}{8 variables} & MLP & XXX & 2 & CCCCCC \\
-		& BDT & XXX & 2 & CCCCCC \\
-		& BDTG & XXX & 2 & CCCCCC \\
+		\multirow{3}{5em}{8 variables} & MLP & 72.36 & 14.02 & 13.62 \\
+		& BDT & 72.02 & 14.37 & 13.60 \\
+		& BDTG & 71.00 & 15.39 & 13.61 \\
 		\hline
-		\multirow{3}{5em}{20 variables} & MLP & XXX & 2 & CCCCCC \\
-		& BDT & XXX & 2 & CCCCCC \\
-		& BDTG & XXX & 2 & CCCCCC \\
-		\hline  
+		\multirow{3}{5em}{20 variables} & MLP & 71.27 & 15.13 & 13.61 \\
+		& BDT & 71.07 & 15.32 & 13.61 \\
+		& BDTG & 69.59 & 16.79 & 13.61 \\
+		\hline
+		\label{EventSelReco:tb:nocut_bbsep}
 		\end{longtable}
 		\end{center}
 
+		This is shown that the MLP algorithm have the best performance under these 3 training variables sets. As our expected, the 2 variables training result is close to $\chi^2_{min}$ method's because of their same variables input to be deduced. And the 8 variables set and 20 variables set are both good at discreminate $b/\bar{b}$, which can lead us to choose these to be optimized one. It is also known that $\emph{Mistag}$'s ratio in Table.\ref{EventSelReco:tb:nocut_bbsep} are almost the same since it is primarily pre-decided by the b-tagged selection.
+
+		In addition to applying algorithm to reconstruct $M_{jjb}$ and identify the physical objects, there are also some optimization cut done on this step. In the concept of $\chi^2_{min}$ method, the smaller the $\chi^2$ value(Eq.\ref{eq:chi2}), the less possibility that this combination is the one we want. So we can apply cut on $\chi^2$ value. If in an event the chosen combination whose $\chi^2_{min}$ is still bigger than the cut, the event will be threw away. These thrown away events are identified as the events which come from the mis-tag objects from detector or some events come from other physics decay(background) not $t\bar{t}$. The most important is that, it can cut out the events which are not $b/\bar{b}$-correct distinguished. So the cut is set to be at $\chi^2_{min}$ < 20, and to standardize the optimization, there are also use the $b/\bar{b}$ distinguishment results to see the performance.
+
+		There is the cross-check plot(Fig.\ref{EventSelReco:fig:chi2_2D}) which shows that the high $\chi^2$ value correspond to the $m_{jjb}$ distant from the expected $m_{jjb}$ in Eq.\ref{eq:chi2}.
+
+		\begin{figure}[H]
+		\centering{}
+    		\includegraphics[width=0.65\textwidth]{Figures/EventSelReco/bbsep/chi2_2D.pdf}\\
+		\caption{$\chi^2_{min}$-reco $m_{jjb}$}
+		\label{EventSelReco:fig:chi2_2D}
+		\end{figure}
+		\FloatBarrier
+
+		To check that the cut on the $\chi^2_{min}$ really rule out incorrect $b/\bar{b}$-identified more effeciently than correct case. This plot(Fig.\ref{EventSelReco:fig:chi2_bbsep_pdf}) shows that the incorrect cases(exchange-identified and mistag) do have more ratio at the higher $\chi^2_{min}$ score than the correct case. It make the $\chi^2_{min}$ cut more persuasive.
+
+		\begin{figure}[H]
+		\centering
+		    \includegraphics[width=0.65\textwidth]{Figures/EventSelReco/bbsep/chi2_bbsep.pdf}\\
+		\caption{$b/\bar{b}$ identified result related to $\chi^2_{min}$(pdf)}
+		\label{EventSelReco:fig:chi2_bbsep_pdf}
+		\end{figure}
+		\FloatBarrier
+
+		There is the result that if we cut on the $\chi^2_{min}$ value and how the 3 $b/\bar{b}$-identified classifications' ratios vary. It is also shown that the events efficiency which is the ratio of events survived under this optimized cut.
+
+		\begin{figure}[H]
+		\centering
+		    \includegraphics[width=0.65\textwidth]{Figures/EventSelReco/bbsep/chi2_eff_t.pdf}\\ 
+		\caption{cut on $\chi^2_{min}$ and ratio of 3 classification}
+		\label{EventSelReco:fig:chi2_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{center}
+		\begin{longtable}[H]{ c c | c c c }
+		\caption{$b/\bar{b}$ disdinguishment under $\chi^2_{min}$ method (w/ $\chi^2_{min}$ < 20 cut)}\\
+		\hline
+		[\%] & Channel & Correct & $b\bar{b}$ mis-identified & Mistag  \\ 
+		\hline{}
+		\multirow{2}{2em}{$\chi^2_{min}$} & Electron Channel & 65.47 & 22.29 & 12.24 \\
+		& Muon Channel & 65.65 & 22.29 & 12.06 \\
+		\hline
+		\label{EventSelReco:tb:chi2_algocut_bbsep}
+		\end{longtable}
+		\end{center}
+
+		And as same concept as the optimized cut on $\chi^2_{min}$ value in $\chi^2_{min}$ method, there would be also optimization cut applied on MVA method. In comparison with that low $\chi^2$ value is better choice, combination with high MVA score is the better one in MVA method. It also can have a cut on MVA score to subtract incorrect $b/\bar{b}$-identified selection. Same scenario as $\chi^2_{min}$ method, if in an event the maximum MVA score(which belongs to the chosen combination) is still lower than the cut, the event will be threw away. To check the relation between MVA score and $M_{jjb}$, and also check the ratio of 3 $b/\bar{b}$-classifications that the incorrect cases has more ratio at lower MVA score. There are the plots of 2 variables/8 variables/20 variables sets with MLP/BDT/BDTG training method:
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_2D.pdf}}
+			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_bbsep3.pdf}}\\
+			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_2D.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_bbsep3.pdf}}\\
+			\subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_2D.pdf}}
+		    \subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_bbsep3.pdf}}\\
+		\caption{MVA score-reco $m_{jjb}$ plots and $b/\bar{b}$ identified result related to MVA value (2 variables training)}
+		\label{EventSelReco:fig:a04_bbsep}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_2D.pdf}}
+			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_bbsep3.pdf}}\\
+			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_2D.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_bbsep3.pdf}}\\
+			\subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_2D.pdf}}
+		    \subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_bbsep3.pdf}}\\
+		\caption{MVA score-reco $m_{jjb}$ plots and $b/\bar{b}$ identified result related to MVA value (8 variables training)}
+		\label{EventSelReco:fig:t13_bbsep}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_2D.pdf}}
+			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_bbsep3.pdf}}\\
+			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_2D.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_bbsep3.pdf}}\\
+			\subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_2D.pdf}}
+		    \subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_bbsep3.pdf}}\\
+		\caption{MVA score-reco $m_{jjb}$ plots and $b/\bar{b}$ identified result related to MVA value (20 variables training)}
+		\label{EventSelReco:fig:a05_bbsep}
+		\end{figure}
+		\FloatBarrier
+
+		There are also the effeciency plots shows that if it's given a cut on MVA score, how these 3 $b/\bar{b}$-identified cases' ratio vary.
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_eff_t.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_eff_t.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_eff_t.pdf}}\\
+		\caption{cut on MVA score and ratio of 3 classification (2 variables training)}
+		\label{EventSelReco:fig:a04_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_eff_t.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_eff_t.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_eff_t.pdf}}\\
+		\caption{cut on MVA score and ratio of 3 classification (8 variables training)}
+		\label{EventSelReco:fig:t13_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_eff_t.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_eff_t.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_eff_t.pdf}}\\
+		\caption{cut on MVA score and ratio of 3 classification (20 variables training)}
+		\label{EventSelReco:fig:a05_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		The correct ratio increase when the MVA score-cut is applied on higher value. Based on the target to optimized from $\chi^2_{min}$ method, we have cut on the same events efficiency as $\chi^2_{min}$ method when cutting on $\chi^2_{min}$ < 20, which is $\sim$$75\%$, to get the better ratio of correct-$b/\bar{b}$ case. There are the MVA-score cut at events efficiency $\sim$$75\%$:
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c c c }
+		\caption{MVA-score cut at events efficiency $\sim$75\%}\\
+		\hline
+		MVA score cut & BDT & BDTG & MLP(ANN)  \\ 
+		\hline{}
+		2 variables & -0.21 & -0.57 & 0.2 \\
+		8 variables & -0.1 & -0.28 & 0.16 \\
+		20 variables & -0.1 & -0.5 & 0.22 \\
+		\hline
+		\label{EventSelReco:tb:algocut_value}
+		\end{longtable}
+		\end{center}
+
+		There are the $b/\bar{b}$-identified classifications' ratio after cut on events efficiency at $\sim 75\%$(cut value in Table.\ref{EventSelReco:tb:algocut_value}), test by signal simulation sample($t\bar{t}$ MC):
+
+		\begin{center}
+		\begin{longtable}[H]{ c c | c c c }
+		\caption{$b/\bar{b}$ disdinguishment under different algorithm (w/ MVA cut)}\\
+		\hline
+		[\%] & & Correct & $b\bar{b}$ mis-identified & Mistag  \\ 
+		\hline
+		$\chi^2_{min}$ & & 65.58 & 22.33 & 12.09 \\
+		\hline
+		\multirow{3}{5em}{2 variables} & MLP & 69.22 & 19.43 & 11.35 \\
+		& BDT & 68.26 & 20.95 & 10.79 \\
+		& BDTG & 68.95 & 19.69 & 11.36 \\
+		\hline
+		\multirow{3}{5em}{8 variables} & MLP & 76.88 & 12.35 & 10.77 \\
+		& BDT & 75.98 & 13.08 & 10.94 \\
+		& BDTG & 75.37 & 13.68 & 10.95 \\
+		\hline
+		\multirow{3}{5em}{20 variables} & MLP & 76.41 & 12.34 & 11.25 \\
+		& BDT & 75.13 & 13.20 & 11.67 \\
+		& BDTG & 74.72 & 13.76 & 11.52 \\
+		\hline
+		\label{EventSelReco:tb:algocut_bbsep}
+		\end{longtable}
+		\end{center}
+
+		Comparing Table.\ref{EventSelReco:tb:nocut_bbsep} to Table.\ref{EventSelReco:tb:algocut_bbsep}, it really make progress on the $b/\bar{b}$ separation with cut on algorithm value. 
+
+		Besides the hadronic top's mass spectrum, there would be checked that the leptonic top's invariant mass($M_{lb}$) shows. Even though the missing neutrino's 4-momentum cause the leptonic top reconstructed incompletely, it's also valuable of $M_{lb}$ to be an independent information for other analysis strategy. Exactly, the $M_{lb}$ is the primary variable to be analyzed for the relation between signal/background and between data/simulation in this analysis! For instatnce, the following background estimation(Chapter ****).
+
+		And for the $b/\bar{b}$ part, $b/\bar{b}$-identified types can also be shown under $M_{lb}$, they are also separated obviously with $\chi^2_{min}$ method:
+
+		\begin{figure}[H]
+		\centering
+			\includegraphics[width=0.7\textwidth]{Figures/EventSelReco/bbsep/chi2_bbsep_leptop_t.pdf}
+		\caption{The $M_{lb}$ and corresponding $b/\bar{b}$-seperation under $\chi^2_{min}$ method.}
+		\label{EventSelReco:fig:chi2_bbsep_leptop}
+		\end{figure}
+		\FloatBarrier
+
+		It's decide to cut on $M_{lb}$ = 150 GeV and leave the events below the value. It can effectively eliminate the high ratio of events whose decay objects are wrong-identified. And follow the same reason as $\chi^2_{min}$ method, the MVA methods are also check with $M_{lb}$ spectrum:
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_bbsep_leptop_t.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_bbsep_leptop_t.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_bbsep_leptop_t.pdf}}\\
+		\caption{Relation between $M_{lb}$ and $b/\bar{b}$ with MVA reconstruction result.(2 variables)}
+		\label{EventSelReco:fig:a05_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_bbsep_leptop_t.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_bbsep_leptop_t.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_bbsep_leptop_t.pdf}}\\
+		\caption{Relation between $M_{lb}$ and $b/\bar{b}$ with MVA reconstruction result.(8 variables)}
+		\label{EventSelReco:fig:a05_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_bbsep_leptop_t.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_bbsep_leptop_t.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_bbsep_leptop_t.pdf}}\\
+		\caption{Relation between $M_{lb}$ and $b/\bar{b}$ with MVA reconstruction result.(20 variables)}
+		\label{EventSelReco:fig:a05_bbsep_eff}
+		\end{figure}
+		\FloatBarrier
+
+		In 8 variables and 20 variables cases, the $M_{lb}$ looks not to be seperated by $b/\bar{b}$-identification obviously, that is, it may not improve when applying $M_{lb}$ cut at 150 GeV. However, there are the $b/\bar{b}$-identified ratio after MVA(or $\chi^2$) cut and $M_{lb}$ cut.
+
+		%% show the bbsep ratio after leptop cut 
+
+		\begin{center}
+		\begin{longtable}[H]{ c c | c c c | c }
+		\caption{$b/\bar{b}$ disdinguishment under different algorithm (w/ MVA cut and $M_{lb}$ cut)}\\
+		\hline
+		[\%] & & Correct & $b\bar{b}$ mis-identified & Mistag & Events efficiency  \\ 
+		\hline
+		$\chi^2_{min}$ & & 75.56 & 14.70 & 9.74 & 65.39 \\
+		\hline
+		\multirow{3}{5em}{2 variables} & MLP & 78.03 & 12.92 & 9.00 & 64.84  \\
+		& BDT & 77.66 & 13.69 & 8.65 & 64.92 \\
+		& BDTG & 77.91 & 13.01 & 9.08 & 64.57  \\
+		\hline
+		\multirow{3}{5em}{8 variables} & MLP & 78.77 & 11.50 & 9.73 & 71.55 \\
+		& BDT & 78.12 & 12.05 & 9.83 & 71.44 \\
+		& BDTG & 77.05 & 12.94 & 10.01 & 71.29 \\
+		\hline
+		\multirow{3}{5em}{20 variables} & MLP & 80.51 & 10.24 & 9.25 & 69.26 \\
+		& BDT & 79.34 & 11.01 & 9.65 & 69.09 \\
+		& BDTG & 78.67 & 11.76 & 9.57 & 69.99 \\
+		\hline{}
+		\label{EventSelReco:tb:algocut_mlbcut_bbsep}
+		\end{longtable}
+		\end{center}
+
+		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the best algorithm after these test. The 8 variables case will be eliminated for the reason explained at ref**** in \ref{ssec:CR}, so the final decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: The first is with MVA cut at 0.22 (events efficiency $\sim 75\%$) and also cut on $M_{lb}$ at 150GeV. The correct $b/\bar{b}$ ratio is $\sim 5 \%$($80.51 \%/75.56 \%$) better and the events efficiency is $\sim 4 \%$($69.26 \%/65.39 \%$) more than $\chi^2_{min}$ strategy; The second is only with MVA cut at 0.22 but $M_{lb}$ cut, though the correct $b/\bar{b}$ ratio is just $\sim 1 \%$($76.88 \%/75.56 \%$) better than $\chi^2_{min}$ strategy, the events efficiency would be reserve $\sim 9.5 \%$($74.97 \%/65.39 \%$) more than $\chi^2_{min}$ strategy. The advantage of the second strategy is that the more statistics we retain, the precise the calculation of asymmetry eventually because the statistical and systematic uncertainty would be smaller.(Explained at Chapter****)
+
+		%% show the final sample ratio after full-cut (chi2, t13_MLP, a05_MLP)
 
 
 	\subsection{Control Region}
