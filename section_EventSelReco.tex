@@ -18,11 +18,12 @@
 		In this analysis, doing reasearch by the channel of lepton + jets, which means 2 tops have different decay modes. One decays leptonically, and another decays hadronically(they will be called $\emph{hadronic top}$ and $\emph{leptonic top}$ in following context). It is expected that the hadronic top can be constructed with 1 b-tagged jet and 2 non b-tagged jets and the other top can be constructed imcompletely with 1 b-tagged jet, 1 lepton with missing neutrino 4-momentum by detector issue. For the $\textbf{Signal Region(SR)}$, the region with selection cut to extract signal in an analysis, there are the selection cuts below:
 
 		\begin{itemize}
-  		\item 1 selected lepton which are a tight muon or a tight electron
-  		\item 0 lepton pass veto criteria which are loose muon and loose electron criterion
-  		\item $\geq$ 4 selected jets with passing medium jet criteria
-  		\item exact 2 btagged jets in these selected jets
-  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
+	  		\item 1 selected lepton which are a tight muon or a tight electron
+	  		\item 0 lepton pass veto criteria which are loose muon and loose electron criterion
+	  		\item $\geq$ 4 selected jets with passing medium jet criteria
+	  		\item exact 2 btagged jets in these selected jets
+	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
+	  	\label{EventSelReco:itm:full_sel}
 		\end{itemize}
 
 		The $\Delta R$ criteria here means the angle distribution between selected jets and selected lepton in $\phi - \eta$ phase space with $\Delta R$ > 0.4. This would avoid the confusing cases that the lepton is really coming from jets or that the jets have some correlation with lepton in reconstruction process... etc.
@@ -71,7 +72,7 @@
 
 			The concept of MVA is to use basic machine learning method to classify signal and background, we'll take advantage of MVA discriminating ability to improve the correctness rate of selection compared with $\chi^2_{min}$ method.
 				
-			As the usage of classification, one should define the "signal" and "background" in MVA configuration. In most particle physics analysis with MVA, $"$signal$"$ means the new physics which is expected to be discovered and the $"$background$"$ means samples from the other known physics. Different as usual, in this analysis,
+			As the usage of classification, one should define the $"$signal$"$ and $"$background$"$ in MVA configuration. In most particle physics analysis with MVA, $"$signal$"$ means the physics sample which is expected to be analyzed and as a target sample and the $"$background$"$ means samples from the other known physics. Different as usual, in this analysis,
 
 			\begin{itemize}
 
@@ -91,29 +92,39 @@
 			\label{eq:gen_matching}
 			\end{equation}
 		
-			With concept of machine learning, we need to train with informations of classes( $"$signal$"$ and $"$backgroud$"$ in this case ) and get out an algorithm to make distinguishment. Following the original $\chi^2_{min}$ method's variables, we started MVA with inputting 2 variables : $m_{jj}$, $m_{jjb}$, as informations to be used for distinguishment. There are three machine learning methods I used for testing: $\textbf{MLP}$(ANN, Artificial Neuro-Network), $\textbf{BDT}$(Boosted Decision Tree), $\textbf{BDTG}$(Boosted Decision Tree Gradient). 
+			With concept of machine learning, we need to train with informations of classes( $"$signal$"$ and $"$backgroud$"$ in this case ) and get out an algorithm to make distinguishment. Following the original $\chi^2_{min}$ method's variables, we started MVA with inputting 2 variables : $m_{jj}$, $m_{jjb}$, as informations to be used for distinguishment. There are three machine learning methods I used for testing: $\textbf{MLP}$(ANN, Artificial Neuro-Network), $\textbf{BDT}$(Boosted Decision Tree), $\textbf{BDTG}$(Boosted Decision Tree Gradient).
 
-			The training result shows below:
+			With respect to the input variables for distinguishment training, we can check the seperation shows on input variables originally in advance:
 
-\begin{figure}[H]
-\centering
-	\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDT_sep.pdf}}
-    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDTG_sep.pdf}}\\
-    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_MLP_sep.pdf}}\\
-\caption{The seperating distribution on signal and background}
-\label{EventSelReco:fig:Sep_a04}
-\end{figure}
-\FloatBarrier
+			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.85\textwidth]{Figures/EventSelReco/mva/a04_VarSep.pdf}\\
+			\caption{Input training variables separation between $"$signal$"$ and $"$background$"$.(2 variables)}
+			\label{EventSelReco:fig:a04_varsep}
+			\end{figure}
+			\FloatBarrier
 
-			The separation plots Fig.\ref{EventSelReco:fig:Sep_a04} shows the machine learning methods' separating ability. The distributions in these plots are the seperation performance between $"$signal$"$ and $"$background$"$(right and wrong objects combination) under training sample and testing sample with given machine learning method. As we can see that if we want to pick out $"$signal$"$(right combination), just choose the jjb combination who has the $\emph{highist MVA score}$ as the right one.
+			And the training result shows below:
 
-\begin{figure}[H]
-\centering{}
-    \includegraphics[width=0.6\textwidth]{Figures/EventSelReco/mva/a04_all_ROC.pdf}\\
-\caption{Receiver Operating Characteristic(ROC) curve of various machine learning method}
-\label{EventSelReco:fig:ROC_a04}
-\end{figure}
-\FloatBarrier
+			\begin{figure}[H]
+			\centering
+				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDT_sep.pdf}}
+			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDTG_sep.pdf}}\\
+			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_MLP_sep.pdf}}\\
+			\caption{The seperating distribution on signal and background}
+			\label{EventSelReco:fig:Sep_a04}
+			\end{figure}
+			\FloatBarrier
+
+			The separation plots Fig.\ref{EventSelReco:fig:Sep_a04} shows the machine learning methods' separating ability through the input training variables. The distributions in these plots are the final separation performance between $"$signal$"$ and $"$background$"$(right and wrong objects combination) with the training values which is propagated from separations of all input variables(Fig.\ref{EventSelReco:fig:a04_varsep}). It is also the separation performance under training sample and testing sample with given machine learning method. As we can see that if we want to pick out $"$signal$"$(right combination), just choose the jjb combination who has the $\emph{highist MVA score}$ as the right one.
+
+			\begin{figure}[H]
+			\centering{}
+			    \includegraphics[width=0.6\textwidth]{Figures/EventSelReco/mva/a04_all_ROC.pdf}\\
+			\caption{Receiver Operating Characteristic(ROC) curve of various machine learning method}
+			\label{EventSelReco:fig:ROC_a04}
+			\end{figure}
+			\FloatBarrier
 	
 			The $\textbf{Receiver Operating Characteristic(ROC)}$ curve plot Fig.\ref{EventSelReco:fig:ROC_a04} can tell if it's given a cut on the output MVA score in separation distribution Fig.\ref{EventSelReco:fig:Sep_a04} to extract the $"$signal$"$, how the background rejection ratio vary when signal efficiency change. It can be infered that, the good performance is that when one rejects more ratio of background and at the same time reserves more ratio of signal(high signal efficiency). In other words, the bigger area under the ROC curve, the better the method is. However, the previous ROC criterion are just available and meaningful for the common case - one use MVA to separate the 2 different physics sample which are independent to each other, for example, use MVA to separate sigle $t$ and $t\bar{t}$ sample. In this analysis case, the signal and background are not separate like that kind in common. Being not independent 2 samples, signal and background are at the same time in one event instead. There are couple of complicated correlation between them. Therefore, the separation and ROC plots are not really fair anymore. As they going to not to be relative directly, there must be a standard to tell how MVA perform(That is the $b\bar{b}$ separation in \ref{ssec:bbsep}).
 
@@ -154,28 +165,73 @@
 				\item hadronic W(j+j) and MET's $\emph{sum of}$ $P_{T}$, $|\Delta P_{T}|$, $\Delta \phi$
 				\item hadronic b-jet and MET's $\emph{sum of}$ $P_{T}$, $|\Delta P_{T}|$, $\Delta \phi$
 				\end{itemize}
-			\label{itm:mva_var}
+			\label{EventSelReco:itm:mva_var}
 			\end{enumerate}
 
-			Besides the training result of the 2 variables' set have been shown(Fig.\ref{EventSelReco:fig:Sep_a04}, Fig.\ref{EventSelReco:fig:ROC_a04}), there are also the training results of 8 variables and 20 variables' cases:
+			Besides the training result of the 2 variables' set have been shown(Fig.\ref{EventSelReco:fig:a04_varsep}, Fig.\ref{EventSelReco:fig:Sep_a04}, Fig.\ref{EventSelReco:fig:ROC_a04}), there are also the training results of 8 variables and 20 variables' cases:
+
+			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.8\textwidth]{Figures/EventSelReco/mva/t13_VarSep1.pdf}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.528\textwidth]{Figures/EventSelReco/mva/t13_VarSep2.pdf}\\
+    		\caption{Input training variables separation between $"$signal$"$ and $"$background$"$.(8 variables)}
+			\label{EventSelReco:fig:t13_varsep}
+			\end{figure}
+			\FloatBarrier
 
 			\begin{figure}[H]
 			\centering
-				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_BDT_sep.pdf}}
-			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_BDTG_sep.pdf}}\\
-			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_MLP_sep.pdf}}
-			    \subfigure[ROC curve]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/t13_ROC.pdf}}\\
+				\subfigure[BDT's separation result (8 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/t13_BDT_sep.pdf}}
+			    \subfigure[BDTG's separation result (8 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/t13_BDTG_sep.pdf}}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering
+			    \subfigure[MLP's separation result (8 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/t13_MLP_sep.pdf}}
+			    \subfigure[ROC curve (8 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/t13_ROC.pdf}}\\
 			\caption{The training result of 8 variables set}
 			\label{EventSelReco:fig:Sep_ROC_t13}
 			\end{figure}
 			\FloatBarrier
 
 			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.8\textwidth]{Figures/EventSelReco/mva/a05_VarSep1.pdf}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.8\textwidth]{Figures/EventSelReco/mva/a05_VarSep2.pdf}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.8\textwidth]{Figures/EventSelReco/mva/a05_VarSep3.pdf}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering{}
+    			\includegraphics[width=0.528\textwidth]{Figures/EventSelReco/mva/a05_VarSep4.pdf}\\
+    		\caption{Input training variables separation between $"$signal$"$ and $"$background$"$.(20 variables)}
+			\label{EventSelReco:fig:a05_varsep}
+			\end{figure}
+			\FloatBarrier
+
+
+			\begin{figure}[H]
 			\centering
-				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_BDT_sep.pdf}}
-			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_BDTG_sep.pdf}}\\
-			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_MLP_sep.pdf}}
-			    \subfigure[ROC curve]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_all_ROC.pdf}}\\
+				\subfigure[BDT's separation result (20 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/a05_all_BDT_sep.pdf}}
+			    \subfigure[BDTG's separation result (20 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/a05_all_BDTG_sep.pdf}}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering
+			    \subfigure[MLP's separation result (20 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/a05_all_MLP_sep.pdf}}
+			    \subfigure[ROC curve (20 vars)]{\includegraphics[width=0.4\textwidth]{Figures/EventSelReco/mva/a05_all_ROC.pdf}}\\
 			\caption{The training result of 20 variables set}
 			\label{EventSelReco:fig:Sep_ROC_a05}
 			\end{figure}
@@ -200,6 +256,136 @@
 			    \subfigure[electron channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/a05_MLP_NC_long_HadTop_el.pdf}}\\
 			\caption{Reconstructed $M_{jjb}$ with 20 variables MLP algorithm (w/o cut)}
 			\label{EventSelReco:fig:a05_MLP_SR_NC_Mjjb}
+			\end{figure}
+			\FloatBarrier
+
+			There are the max MVA score's distribution with 2/8/20 variables and BDT/BDTG/MLP results.
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[BDT (2 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a04_BDT_SR_algo_mu.pdf}}
+			    \subfigure[BDTG (2 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a04_BDTG_SR_algo_mu.pdf}}
+			    \subfigure[MLP (2 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a04_MLP_SR_algo_mu.pdf}}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering
+			    \subfigure[BDT (2 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a04_BDT_SR_algo_el.pdf}}
+			    \subfigure[BDTG (2 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a04_BDTG_SR_algo_el.pdf}}
+			    \subfigure[MLP (2 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a04_MLP_SR_algo_el.pdf}}\\
+			\caption{max MVA score in each event, comparing Data and MC.(2 variables training)}
+			\label{EventSelReco:fig:a04_algo_DataMC}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[BDT (8 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/t13_BDT_SR_algo_mu.pdf}}
+			    \subfigure[BDTG (8 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/t13_BDTG_SR_algo_mu.pdf}}
+			    \subfigure[MLP (8 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/t13_MLP_SR_algo_mu.pdf}}\\			
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering
+			    \subfigure[BDT (8 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/t13_BDT_SR_algo_el.pdf}}
+			    \subfigure[BDTG (8 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/t13_BDTG_SR_algo_el.pdf}}
+			    \subfigure[MLP (8 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/t13_MLP_SR_algo_el.pdf}}\\
+			\caption{max MVA score in each event, comparing Data and MC.(8 variables training)}
+			\label{EventSelReco:fig:t13_algo_DataMC}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[BDT (20 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a05_BDT_SR_algo_mu.pdf}}
+			    \subfigure[BDTG (20 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a05_BDTG_SR_algo_mu.pdf}}
+			    \subfigure[MLP (20 vars, mu-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a05_MLP_SR_algo_mu.pdf}}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering
+			    \subfigure[BDT (20 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a05_BDT_SR_algo_el.pdf}}
+			    \subfigure[BDTG (20 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a05_BDTG_SR_algo_el.pdf}}
+			    \subfigure[MLP (20 vars, el-ch)]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_algo/a05_MLP_SR_algo_el.pdf}}\\
+			\caption{max MVA score in each event, comparing Data and MC.(20 variables training)}
+			\label{EventSelReco:fig:a05_algo_DataMC}
+			\end{figure}
+			\FloatBarrier
+
+			%%% In the Fig.\ref{EventSelReco:fig:a04_algo_DataMC_mu} $\sim$ Fig.\ref{EventSelReco:fig:a05_algo_DataMC_el}, we can see that at the low and high max MVA score region, there is a little discrecpancy. It probably comes from the jet characteristic of jets multiplicity between Data and MC. In real data, there would be more soft jets than simulation(MC) sample. On the basis of number of jets, there are more probable combinations of jjb in data. It means that the max MVA value is more probable at low value in data. That is a possibility of the discrepancy.
+
+			The training variables may have correlation with each other. If there are too much characteristic to be trained alike between variables, the most of input informations would duplicate. To check the variables' correlation score is necessary: (20 variables' case is shown)
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure[Variables in signal]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_sig_cor.pdf}}
+			    \subfigure[Variables in background]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a05_bkg_cor.pdf}}\\
+			\caption{Variables correlation with each other}
+			\label{EventSelReco:fig:a05_correlation}
+			\end{figure}
+			\FloatBarrier
+
+			No excess of correlation appear in training variables. The training variables would be also validated match between Data and MC:(20 variables MLP, muon channel is shown)
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_j1j2_delR_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_j1j2_absdelPt_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_j1j2_sumPt_NC_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_01}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_whadb_delR_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_whadb_delPt_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_whadb_sumPt_NC_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_02}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadblepton_delR_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadblepton_delPt_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadblepton_sumPt_NC_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_03}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwlepton_delR_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwlepton_delPt_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwlepton_sumPt_NC_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_04}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwmet_delPhi_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwmet_delPt_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwmet_sumPt_NC_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_05}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadbmet_delPhi_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadbmet_delPt_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadbmet_sumPt_NC_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_06}
+			\end{figure}
+			\FloatBarrier
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_mjj_NC_mu.pdf}}
+			    \subfigure{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/a05_MLP_NC_long_HadTop_mu.pdf}}\\
+			\label{EventSelReco:fig:a05_DataMC_vars_07}
 			\end{figure}
 			\FloatBarrier
 
@@ -294,12 +480,12 @@
 
 		\begin{figure}[H]
 		\centering
-			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_2D.pdf}}
-			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_bbsep3.pdf}}\\
-			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_2D.pdf}}
-			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_bbsep3.pdf}}\\
-			\subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_2D.pdf}}
-		    \subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_bbsep3.pdf}}\\
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_2D.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_2D.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_2D.pdf}}\\
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDT_bbsep3.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_BDTG_bbsep3.pdf}}
+		    \subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a04_MLP_bbsep3.pdf}}\\
 		\caption{MVA score-reco $m_{jjb}$ plots and $b/\bar{b}$ identified result related to MVA value (2 variables training)}
 		\label{EventSelReco:fig:a04_bbsep}
 		\end{figure}
@@ -307,12 +493,12 @@
 
 		\begin{figure}[H]
 		\centering
-			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_2D.pdf}}
-			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_bbsep3.pdf}}\\
-			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_2D.pdf}}
-			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_bbsep3.pdf}}\\
-			\subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_2D.pdf}}
-		    \subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_bbsep3.pdf}}\\
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_2D.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_2D.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_2D.pdf}}\\
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDT_bbsep3.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_BDTG_bbsep3.pdf}}
+		    \subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/t13_MLP_bbsep3.pdf}}\\
 		\caption{MVA score-reco $m_{jjb}$ plots and $b/\bar{b}$ identified result related to MVA value (8 variables training)}
 		\label{EventSelReco:fig:t13_bbsep}
 		\end{figure}
@@ -320,12 +506,12 @@
 
 		\begin{figure}[H]
 		\centering
-			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_2D.pdf}}
-			\subfigure[BDT]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_bbsep3.pdf}}\\
-			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_2D.pdf}}
-			\subfigure[BDTG]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_bbsep3.pdf}}\\
-			\subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_2D.pdf}}
-		    \subfigure[MLP]{\includegraphics[width=0.49\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_bbsep3.pdf}}\\
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_2D.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_2D.pdf}}
+			\subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_2D.pdf}}\\
+			\subfigure[BDT]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDT_bbsep3.pdf}}
+			\subfigure[BDTG]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_BDTG_bbsep3.pdf}}			
+		    \subfigure[MLP]{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/bbsep/a05_MLP_bbsep3.pdf}}\\
 		\caption{MVA score-reco $m_{jjb}$ plots and $b/\bar{b}$ identified result related to MVA value (20 variables training)}
 		\label{EventSelReco:fig:a05_bbsep}
 		\end{figure}
@@ -478,15 +664,188 @@
 		\label{EventSelReco:tb:algocut_mlbcut_bbsep}
 		\end{longtable}
 		\end{center}
+		\FloatBarrier
 
-		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the best algorithm after these test. The 8 variables case will be eliminated for the reason explained at ref**** in \ref{ssec:CR}, so the final decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: The first is with MVA cut at 0.22 (events efficiency $\sim 75\%$) and also cut on $M_{lb}$ at 150GeV. The correct $b/\bar{b}$ ratio is $\sim 5 \%$($80.51 \%/75.56 \%$) better and the events efficiency is $\sim 4 \%$($69.26 \%/65.39 \%$) more than $\chi^2_{min}$ strategy; The second is only with MVA cut at 0.22 but $M_{lb}$ cut, though the correct $b/\bar{b}$ ratio is just $\sim 1 \%$($76.88 \%/75.56 \%$) better than $\chi^2_{min}$ strategy, the events efficiency would be reserve $\sim 9.5 \%$($74.97 \%/65.39 \%$) more than $\chi^2_{min}$ strategy. The advantage of the second strategy is that the more statistics we retain, the precise the calculation of asymmetry eventually because the statistical and systematic uncertainty would be smaller.(Explained at Chapter****)
+		\begin{itemize}
+			\item Final $\chi^2_{min}$ strategy is decided to be with $\chi^2_{min}$ value cut at 20 and $M_{lb}$ cut at 150GeV.\\
+			It is called $\chi^{\textbf{2}}_{\textbf{min}}$ $\textbf{strategy}$ in the following content.
+		\end{itemize}
+		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the best algorithm after these test. The 8 variables case will be eliminated for the reason explained at ref**** in \ref{ssec:CR}, so the finally decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: 
 
-		%% show the final sample ratio after full-cut (chi2, t13_MLP, a05_MLP)
+		\begin{enumerate}
+			\item $\textbf{The first}$ is with MVA cut at 0.22 (events efficiency $\sim 75\%$) and also cut on $M_{lb}$ at 150GeV.\\ 
+			The correct $b/\bar{b}$ ratio is $\sim 5 \%$($80.51 \%/75.56 \%$) better and the events efficiency is $\sim 4 \%$($69.26 \%/65.39 \%$) more than $\chi^2_{min}$ strategy.\\
+			This MVA result would be called $\textbf{MVA-A}$ $\textbf{strategy}$ in the following content;
+			\item $\textbf{The second}$ is only with MVA cut at 0.22 but $M_{lb}$ cut. \\
+			Though the correct $b/\bar{b}$ ratio is just $\sim 1 \%$($76.88 \%/75.56 \%$) better, the events efficiency would be reserve $\sim 9.5 \%$($74.97 \%/65.39 \%$) more than $\chi^2_{min}$ strategy. The advantage of this is that the more statistics we retain, the precise the calculation of asymmetry eventually because the statistical and systematic uncertainty would be smaller.(Explained at Chapter****)\\
+			This MVA result would be called $\textbf{MVA-B}$ $\textbf{strategy}$ in the following content.
+		\label{EventSelReco:itm:a05_samples}
+		\end{enumerate}
+
+		%% show the final sample ratio after full-cut (chi2, a05_MLP) and their mjjb plots
+
+		There are the data events number passed full-selection(\ref{EventSelReco:itm:full_sel}) also with $\chi^{\textbf{2}}_{\textbf{min}}$ $\textbf{strategy}$ and the expected signal($t\bar{t}$) and background events number of simulation sample in Table.\ref{EventSelReco:tb:DataMC_expected_chi2}. The Table.\ref{EventSelReco:tb:MC_process_chi2} present the expected process ratio after full-selection cut and analysis strategy; The Data and MC comparison plots of hadronic top's invariant mass($M_{jjb}$) and leptonic top's invariant mass($M_{lb}$) are also shown(\r) with this criteria.
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Data and MC events number passing the full selection(w/ $\chi^2_{min}, M_{lb}$ cut)} \\
+		\hline
+		 & Muon Channel & Electron Channel \\ 
+		\hline
+		 Data & 243790 & 136151 \\
+		\hline
+		 Expected $t\bar{t}$ & 244680 & 135600 \\
+		 Expected background & 9877.63 & 5537.45 \\
+		\hline
+		\label{EventSelReco:tb:DataMC_expected_chi2}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Expected process ratio passing the full selection(w/ $\chi^2_{min}, M_{lb}$ cut)}\\
+		\hline
+		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
+		\hline
+		 $t\bar{t}+jets$ & 96.12 & 96.08 \\
+		 $Z/\gamma^{*}+jets$ & 0.17 &  0.31 \\
+		 $W+jets$ & 0.77 & 0.70 \\
+		 $ZZ/WW/WZ$ & 0.04 & 0.05 \\
+		 $Single$ $top$ & 2.91 & 2.86 \\
+		\hline
+		\label{EventSelReco:tb:MC_process_chi2}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/chi2/200803_SRmass_chi2_2C_HadTop_mu.pdf}}
+			\subfigure[Electron Channe]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/chi2/200803_SRmass_chi2_2C_HadTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of hadronic top's invariant mass($M_{jjb}$ w/ $\chi^2_{min}, M_{lb}$ cut)}
+		\label{EventSelReco:fig:chi2_SR_2C_Mjjb}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/chi2/200803_SRmass_chi2_2C_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/chi2/200803_SRmass_chi2_2C_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass($M_{lb}$ w/ $\chi^2_{min}, M_{lb}$ cut)}
+		\label{EventSelReco:fig:chi2_SR_2C_Mlb}
+		\end{figure}
+		\FloatBarrier
+
+		There are also the full selection results with $\textbf{MVA-A strategy}$(Table.\ref{EventSelReco:tb:DataMC_expected_a05_MLP_2C}, Table.\ref{EventSelReco:tb:MC_process_a05_MLP_2C}, Fig.\ref{EventSelReco:fig:a05_MLP_SR_2C_Mjjb}, Fig.\ref{EventSelReco:fig:a05_MLP_SR_2C_Mlb}) and $\textbf{MVA-B strategy}$(Table.\ref{EventSelReco:tb:DataMC_expected_a05_MLP_1C}, Table.\ref{EventSelReco:tb:MC_process_a05_MLP_1C}, Fig.\ref{EventSelReco:fig:a05_MLP_SR_1C_Mjjb}, Fig.\ref{EventSelReco:fig:a05_MLP_SR_1C_Mlb}):
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Data and MC events number passing the full selection(w/ MVA, $M_{lb}$ cut)} \\
+		\hline
+		 & Muon Channel & Electron Channel \\ 
+		\hline
+		 Data & 245436 & 139432 \\
+		\hline
+		 Expected $t\bar{t}$ & 251862 & 142211 \\
+		 Expected background & 9164.09 & 5238.32 \\
+		\hline
+		\label{EventSelReco:tb:DataMC_expected_a05_MLP_2C}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Expected process ratio passing the full selection(w/ MVA, $M_{lb}$ cut)}\\
+		\hline
+		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
+		\hline
+		 $t\bar{t}+jets$ & 96.49 & 96.45 \\
+		 $Z/\gamma^{*}+jets$ & 0.14 &  0.26 \\
+		 $W+jets$ & 0.67 & 0.62 \\
+		 $ZZ/WW/WZ$ & 0.03 & 0.05 \\
+		 $Single$ $top$ & 2.67 & 2.64 \\
+		\hline
+		\label{EventSelReco:tb:MC_process_a05_MLP_2C}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_2C_HadTop_mu.pdf}}
+			\subfigure[Electron Channe]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_2C_HadTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of hadronic top's invariant mass($M_{jjb}$ w/ MVA, $M_{lb}$ cut)}
+		\label{EventSelReco:fig:a05_MLP_SR_2C_Mjjb}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_2C_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_2C_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass($M_{lb}$ w/ MVA, $M_{lb}$ cut)}
+		\label{EventSelReco:fig:a05_MLP_SR_2C_Mlb}
+		\end{figure}
+		\FloatBarrier
+
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Data and MC events number passing the full selection(w/ MVA cut)} \\
+		\hline
+		 & Muon Channel & Electron Channel \\ 
+		\hline
+		 Data & 272583 & 157510 \\
+		\hline
+		 Expected $t\bar{t}$ & 273154 & 155766 \\
+		 Expected background & 14715.9 & 8957.06 \\
+		\hline
+		\label{EventSelReco:tb:DataMC_expected_a05_MLP_1C}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Expected process ratio passing the full selection(w/ MVA cut)}\\
+		\hline
+		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
+		\hline
+		 $t\bar{t}+jets$ & 94.89 & 94.56 \\
+		 $Z/\gamma^{*}+jets$ & 0.21 &  0.39 \\
+		 $W+jets$ & 1.22 & 1.17 \\
+		 $ZZ/WW/WZ$ & 0.05 & 0.06 \\
+		 $Single$ $top$ & 3.63 & 3.82 \\
+		\hline
+		\label{EventSelReco:tb:MC_process_a05_MLP_1C}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_1C_HadTop_mu.pdf}}
+			\subfigure[Electron Channe]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_1C_HadTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of hadronic top's invariant mass($M_{jjb}$ w/ MVA cut)}
+		\label{EventSelReco:fig:a05_MLP_SR_1C_Mjjb}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_1C_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/200803_SRmass_a05_MLP_1C_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass($M_{lb}$ w/ MVA cut)}
+		\label{EventSelReco:fig:a05_MLP_SR_1C_Mlb}
+		\end{figure}
+		\FloatBarrier
+
 
 
 	\subsection{Control Region}
 	\label{ssec:CR}
-
 
 		Those are seen nice after training. Since we will use the spectrum of leptonic top's invariant mass($M_{lb}$) to estimate our signal($t\bar{t}$) and background in Chapter****, it is necessary to retain the isolation of information about $M_{lb}$ when reconstructing the hadronic top mass $M_{jjb}$. There is a check to see if a cut on mva score is given, whether the $M_{lb}$'s pdf(probability density function) shape change. If the cut on mva score which is designed and trained for reconstructing $M_{jjb}$ would vary the $M_{lb}$ shape, there are some obvious interference from reconstructing $M_{jjb}$ to information of $M_{lb}$. That is what we need to circumvent for following analysis strategy.
 
