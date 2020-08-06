@@ -21,7 +21,7 @@
 	  		\item 1 selected lepton which are a tight muon or a tight electron
 	  		\item 0 lepton pass veto criteria which are loose muon and loose electron criterion
 	  		\item $\geq$ 4 selected jets with passing medium jet criteria
-	  		\item exact 2 btagged jets in these selected jets
+	  		\item exact 2 btagged jets(deepCSV Medium criteria) in these selected jets
 	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
 	  	\label{EventSelReco:itm:full_sel}
 		\end{itemize}
@@ -670,13 +670,13 @@
 			\item Final $\chi^2_{min}$ strategy is decided to be with $\chi^2_{min}$ value cut at 20 and $M_{lb}$ cut at 150GeV.\\
 			It is called $\chi^{\textbf{2}}_{\textbf{min}}$ $\textbf{strategy}$ in the following content.
 		\end{itemize}
-		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the best algorithm after these test. The 8 variables case will be eliminated for the reason explained at ref**** in \ref{ssec:CR}, so the finally decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: 
+		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the most suitable algorithm after these test. The 8 variables case will be eliminated for the reason explained at ref**** in \ref{ssec:CR}, so the finally decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: 
 
 		\begin{enumerate}
-			\item $\textbf{The first}$ is with MVA cut at 0.22 (events efficiency $\sim 75\%$) and also cut on $M_{lb}$ at 150GeV.\\ 
+			\item $\textbf{The first}$ is with MVA(MLP) cut at 0.22 (events efficiency $\sim 75\%$) and also cut on $M_{lb}$ at 150GeV.\\ 
 			The correct $b/\bar{b}$ ratio is $\sim 5 \%$($80.51 \%/75.56 \%$) better and the events efficiency is $\sim 4 \%$($69.26 \%/65.39 \%$) more than $\chi^2_{min}$ strategy.\\
 			This MVA result would be called $\textbf{MVA-A}$ $\textbf{strategy}$ in the following content;
-			\item $\textbf{The second}$ is only with MVA cut at 0.22 but $M_{lb}$ cut. \\
+			\item $\textbf{The second}$ is only with MVA(MLP) cut at 0.22 but $M_{lb}$ cut. \\
 			Though the correct $b/\bar{b}$ ratio is just $\sim 1 \%$($76.88 \%/75.56 \%$) better, the events efficiency would be reserve $\sim 9.5 \%$($74.97 \%/65.39 \%$) more than $\chi^2_{min}$ strategy. The advantage of this is that the more statistics we retain, the precise the calculation of asymmetry eventually because the statistical and systematic uncertainty would be smaller.(Explained at Chapter****)\\
 			This MVA result would be called $\textbf{MVA-B}$ $\textbf{strategy}$ in the following content.
 		\label{EventSelReco:itm:a05_samples}
@@ -741,7 +741,7 @@
 
 		\begin{center}
 		\begin{longtable}[H]{ c c c }
-		\caption{Data and MC events number passing the full selection(w/ MVA, $M_{lb}$ cut)} \\
+		\caption{Data and MC events number passing the full selection in SR(w/ MVA, $M_{lb}$ cut)} \\
 		\hline
 		 & Muon Channel & Electron Channel \\ 
 		\hline
@@ -757,7 +757,7 @@
 
 		\begin{center}
 		\begin{longtable}[H]{ c c c }
-		\caption{Expected process ratio passing the full selection(w/ MVA, $M_{lb}$ cut)}\\
+		\caption{Expected process ratio passing the full selection in SR(w/ MVA, $M_{lb}$ cut)}\\
 		\hline
 		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
 		\hline
@@ -793,7 +793,7 @@
 
 		\begin{center}
 		\begin{longtable}[H]{ c c c }
-		\caption{Data and MC events number passing the full selection(w/ MVA cut)} \\
+		\caption{Data and MC events number passing the full selection in SR(w/ MVA cut)} \\
 		\hline
 		 & Muon Channel & Electron Channel \\ 
 		\hline
@@ -809,7 +809,7 @@
 
 		\begin{center}
 		\begin{longtable}[H]{ c c c }
-		\caption{Expected process ratio passing the full selection(w/ MVA cut)}\\
+		\caption{Expected process ratio passing the full selection in SR(w/ MVA cut)}\\
 		\hline
 		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
 		\hline
@@ -842,10 +842,117 @@
 		\end{figure}
 		\FloatBarrier
 
+		As previously mentioned, the $M_{lb}$ instead of $M_{jjb}$ is the variable used to do background estimation and calculate the target asymmetry. This is because the $\chi^2_{min}$ method and MVA method are directly use the $M_{jjb}$ variables to distingush physical object, it is decided by us and being artificial. The $M_{jjb}$ is just used to validate the reconstruction and objects identification, relatively, the information-isolated variable $M_{lb}$ is appropriate to used in the following analysis.
 
 
 	\subsection{Control Region}
 	\label{ssec:CR}
+
+		In the calculation of asymmetry of $t\bar{t}$, there are some effect from non-$t\bar{t}$ background diving in and causing spurious result. To study the background asymmetry effects from detector and reconstruction, and to subtract these effects from $t\bar{t}$ asymmetry calculation, there are 2 $\textbf{Control Region(CR)}$ samples introduced. Control region usually means a region which is orthogonal to signal region and also usually used to study the background in an analysis. The background estimation and study part is set in Chapter****. In the analysis, the first CR is a $\textbf{W+jets-dominant CR}$ samples:
+
+		\begin{itemize}
+	  		\item 1 selected lepton which are a tight muon or a tight electron
+	  		\item 0 lepton pass veto criteria which are loose lepton criterion $\textbf{with NO isolation restriction}$*
+	  		\item $\geq$ 4 selected jets with passing medium jet criteria
+	  		\item $\textbf{NO}$ btagged jets(deepCSV Loose) in these selected jets*
+	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
+	  	\label{EventSelReco:itm:full_sel_CR1}
+		\end{itemize}
+
+		The selection of b-tagged jets and veto lepton criteria is set to have difference between SR(\ref{EventSelReco:itm:full_sel}) and W+jets-dominant CR(\ref{EventSelReco:itm:full_sel_CR1}). Zero jet passes deepCSV-Loose btagged criteria may enhance the fraction of background and diminish $t\bar{t}$ contribution, which is based on difference of efficiency of $t\bar{t}$ and background passing btagged algorithm(deepCSV); The modification of veto lepton criteria to release veto isolation restriction means tighten the leptons selection. It may eliminate the possibility of some lepton-like objects are the secondary lepton comes from b-quark jet's propagating, in other words, lessen the possibility of existence of b-jets.
+
+		Besides, the reconstruction method of $M_{jjb}$ is same with SR by $\chi^2_{min}$ method or MVA method(20 variables, MLP). However the $M_{lb}$ is the critical variable for this analysis to do background estimation, the reconstruction of $M_{lb}$ is necessary. In the W+jets-dominant CR sample, there are not 2 selected b jets in the beginning of reconstruction, it is 2 different criteria for $\chi^2_{min}$ method and MVA method to reconstruct $M_{jjb}$ and $M_{lb}$ in CR. For the $\chi^2_{min}$ method, we put in all the jets in $\chi^2$ equation Eq.\ref{eq:chi2} to pick out the ingredient of $M_{jjb(j)}$(one jet is seen as $"$b$"$). And for the $M_{lb(j)}$ part, there are >= 2 jets rest. The jet which is the most close to selected lepton by $\Delta$R is the jet seen as the b in $M_{lb}$; For the MVA method, there is already leptonic b's information input to be trained for the algorithm which reconstruct $M_{jjb}$, which means the product algorithm from training would distinguish leptonic b automatically not just hadronic jjb, so we just input all the selected jets in the training algorithm to see when the highest MVA score occur, which one is the role of hadronic b, which one is the role of leptonic b...,etc. It is used to study backgroound with $M_{lb}$ variable with CR sample, so there is not $M_{lb}$ cut for CR selection strategy. There are the $M_{lb}$ with $\chi^2_{min}$ reconstruction of W+jets-dominant CR:
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/WJets_CRmass_nDD_chi2_1C_long_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/WJets_CRmass_nDD_chi2_1C_long_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass(w/ $\chi^2_{min}$-reco) in W+jets-dominant CR}
+		\label{EventSelReco:fig:chi2_CR1_1C_Mlb_nDD}
+		\end{figure}
+		\FloatBarrier
+
+		There are more spike-shape happening in QCD MC samples shown in Fig.\ref{EventSelReco:fig:chi2_CR_1C_Mlb}. They come from the reason that QCD has much larger cross section than other simulation samples. In this case, if one QCD simulation event pass or fail the selection, it would be reweighed by a large value. The necessity to reweigh to luminosity leads to that one QCD simulation event's effect would cause an enormous variation showing on plots after selection. To make up this demonstration type, there is the second CR which is enriched with QCD samples:
+
+		\begin{itemize}
+	  		\item 1 selected lepton with tight lepton with $\textbf{inverse ISOlation criteria}$*
+	  		\item 0 lepton pass veto criteria which are loose lepton criterion $\textbf{with NO isolation restriction}$
+	  		\item $\geq$ 4 selected jets with passing medium jet criteria
+	  		\item $\textbf{NO}$ btagged jets(deepCSV Loose) in these selected jets
+	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
+	  	\label{EventSelReco:itm:full_sel_CR2}
+		\end{itemize}
+
+		We can see that between W+jets-dominant CR and QCD-dominant CR, there is just a deviation that the selected lepton is chosed as the non-isolated one because of the property of QCD sample. And below is the Data/MC comparison of $M_{lb}$ with $\chi^2_{min}$ reconstruction in QCD-dominant CR:
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/QCD_CRmass_chi2_1C_long_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/QCD_CRmass_chi2_1C_long_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass(w/ $\chi^2_{min}$-reco) in QCD-dominant CR}
+		\label{EventSelReco:fig:chi2_CR2_1C_Mlb}
+		\end{figure}
+		\FloatBarrier
+
+		This QCD-dominant CR which is exactly orthoganal to W+jets-dominant CR could be studied as one of the $"$background$"$ of W+jets-dominant CR. Therefore the shape of data in QCD-dominant CR may represent the shape of QCD in W+jets-dominant CR and also the number of events follows the events number of QCD MC. This method is called $\textbf{Data-Driven}$ method for using data's characteristic to supplant simulation's. There are the Data/MC comparison of $M_{lb}$ with $\chi^2_{min}$ reconstruction in W+jets-dominant CR after applying QCD's data-driven.
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/WJets_CRmass_DD_chi2_1C_long_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/WJets_CRmass_DD_chi2_1C_long_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass(w/ $\chi^2_{min}$-reco) in W+jets-dominant CR(w/ data-driven QCD)}
+		\label{EventSelReco:fig:chi2_CR1_1C_Mlb_DD}
+		\end{figure}
+		\FloatBarrier
+
+		And the CR comparison's plots of MVA method(20 variables, MLP) are also shown here(after data-driven of QCD):
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Muon Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/WJets_CRmass_DD_a05_MLP_1C_long_LepTop_mu.pdf}}
+			\subfigure[Electron Channel]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/WJets_CRmass_DD_a05_MLP_1C_long_LepTop_el.pdf}}\\
+		\caption{Data and MC comparison plots of leptonic top's invariant mass(w/ MVA-reco) in W+jets-dominant CR(w/ data-driven QCD)}
+		\label{EventSelReco:fig:a05_MLP_CR1_1C_Mlb_DD}
+		\end{figure}
+		\FloatBarrier
+
+		Furthermore, the process ratio and composition of W+jets-dominant CR are calculated:
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Expected process ratio passing the full selection and $\chi^2_{min}$-reconstruction in W+jets-dominant CR(w/ $\chi^2_{min}$ cut)}\\
+		\hline
+		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
+		\hline
+		 $t\bar{t}+jets$ & 10.70 & 9.60 \\
+		 $Z/\gamma^{*}+jets$ & 5.27 &  10.86 \\
+		 $W+jets$ & 70.16 & 58.32 \\
+		 $Single$ $top$ & 1.33 & 1.22 \\
+		 $QCD$ & 12.54 & 20.0 \\
+		\hline
+		\label{EventSelReco:tb:MC_process_CR_a05_MLP_1C}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{Expected process ratio passing the full selection and MVA-reconstruction in W+jets-dominant CR(w/ MVA cut)}\\
+		\hline
+		 Process & Muon Channel (\%) & Electron Channel (\%) \\ 
+		\hline
+		 $t\bar{t}+jets$ & 11.17 & 10.03 \\
+		 $Z/\gamma^{*}+jets$ & 5.26 &  10.82 \\
+		 $W+jets$ & 69.74 & 58.03 \\
+		 $Single$ $top$ & 1.35 & 1.24 \\
+		 $QCD$ & 12.48 & 19.87 \\
+		\hline
+		\label{EventSelReco:tb:MC_process_CR_a05_MLP_1C}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+
 
 		Those are seen nice after training. Since we will use the spectrum of leptonic top's invariant mass($M_{lb}$) to estimate our signal($t\bar{t}$) and background in Chapter****, it is necessary to retain the isolation of information about $M_{lb}$ when reconstructing the hadronic top mass $M_{jjb}$. There is a check to see if a cut on mva score is given, whether the $M_{lb}$'s pdf(probability density function) shape change. If the cut on mva score which is designed and trained for reconstructing $M_{jjb}$ would vary the $M_{lb}$ shape, there are some obvious interference from reconstructing $M_{jjb}$ to information of $M_{lb}$. That is what we need to circumvent for following analysis strategy.
 
