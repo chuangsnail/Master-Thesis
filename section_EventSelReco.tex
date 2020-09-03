@@ -8,14 +8,27 @@
 \label{sec:EventSelReco}
 
 	To calculate the asymmetry from top quark in $t\bar{t}$, there must be some selections to extract the $t\bar{t}$ sample from other background samples. Also, there would be several analysis strategies to recognize physical objects and pick them out. The chapter will do these discussion and make some comparison and organization.
+
+	In this analysis, doing reasearch by the channel of lepton + jets, which means 2 tops have different decay modes. One decays leptonically, and another decays hadronically(they will be called $\emph{hadronic top}$ and $\emph{leptonic top}$ in following context). It is expected that the hadronic top can be constructed with 1 b-tagged jet and 2 non b-tagged jets and the other top can be constructed imcompletely with 1 b-tagged jet, 1 lepton with missing neutrino 4-momentum by detector issue. 
 	
 	\subsection{Trigger}
 	\label{ssec:EvtSel_trg}
 
+		In addition to L1 online trigger mentioned in \ref{ssec:PhysObj_trg}, there are also offline trigger here to filter specific events. It's called $\textbf{High Level Trigger(HLT)}$. It's a software trigger usually filter events with kinematics like energy($E$), invariant mass($M$), transverse momentum($p_{T}$), etc. With final states including one selected isolated lepton in this analysis, if they are unprescaled during the entire data collecting, single lepton triggers are chose. For both 2016 data and MC, there are the HLT we use on SingleMuon and SingleElectron sample individually:
+
+		\begin{itemize}
+	  		\item $\textbf{Single Muon}$: $\emph{HLT IsoMu24 \textbf{or} HLT IsoTkMu24}$, which pick out events whose muon with reconstructed $p_{T}$ > 24 GeV, or track reconstructed muons with reconstructed $p_{T}$ > 24 GeV.
+	  		\item $\textbf{Single Electron}$: $\emph{HLT Ele27 WPTight}$, which pick out events whose electron with reconstructed $p_{T}$ > 27 GeV.
+	  	\label{EventSelReco:itm:HLT}
+		\end{itemize}
+
+		% https://twiki.cern.ch/twiki/bin/view/CMS/MuonHLT
+		% https://twiki.cern.ch/twiki/bin/view/CMS/EgHLTRunIISummary
+
 	\subsection{Events Selection : Signal Region}
 	\label{ssec:EvtSel_SR}
 
-		In this analysis, doing reasearch by the channel of lepton + jets, which means 2 tops have different decay modes. One decays leptonically, and another decays hadronically(they will be called $\emph{hadronic top}$ and $\emph{leptonic top}$ in following context). It is expected that the hadronic top can be constructed with 1 b-tagged jet and 2 non b-tagged jets and the other top can be constructed imcompletely with 1 b-tagged jet, 1 lepton with missing neutrino 4-momentum by detector issue. For the $\textbf{Signal Region(SR)}$, the region with selection cut to extract signal in an analysis, there are the selection cuts below:
+		For the $\textbf{Signal Region(SR)}$, the region with selection cut to extract signal in an analysis, there are the selection cuts below:
 
 		\begin{itemize}
 	  		\item 1 selected lepton which are a tight muon or a tight electron
@@ -332,7 +345,6 @@
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_j1j2_delR_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_j1j2_absdelPt_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_j1j2_sumPt_NC_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_01}
 			\end{figure}
 			\FloatBarrier
 
@@ -341,7 +353,6 @@
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_whadb_delR_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_whadb_delPt_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_whadb_sumPt_NC_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_02}
 			\end{figure}
 			\FloatBarrier
 
@@ -350,7 +361,6 @@
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadblepton_delR_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadblepton_delPt_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadblepton_sumPt_NC_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_03}
 			\end{figure}
 			\FloatBarrier
 
@@ -359,7 +369,6 @@
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwlepton_delR_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwlepton_delPt_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwlepton_sumPt_NC_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_04}
 			\end{figure}
 			\FloatBarrier
 
@@ -368,7 +377,6 @@
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwmet_delPhi_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwmet_delPt_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadwmet_sumPt_NC_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_05}
 			\end{figure}
 			\FloatBarrier
 
@@ -377,7 +385,6 @@
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadbmet_delPhi_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadbmet_delPt_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.32\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_hadbmet_sumPt_NC_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_06}
 			\end{figure}
 			\FloatBarrier
 
@@ -385,7 +392,8 @@
 			\centering
 			    \subfigure{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva_vars/VarCheck_mjj_NC_mu.pdf}}
 			    \subfigure{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Mass/a05/a05_MLP_NC_long_HadTop_mu.pdf}}\\
-			\label{EventSelReco:fig:a05_DataMC_vars_07}
+			\label{EventSelReco:fig:a05_DataMC_vars}
+			\caption{20 variables' Data/MC comparison(MLP, mu-ch)}
 			\end{figure}
 			\FloatBarrier
 
@@ -593,7 +601,7 @@
 
 		Comparing Table.\ref{EventSelReco:tb:nocut_bbsep} to Table.\ref{EventSelReco:tb:algocut_bbsep}, it really make progress on the $b/\bar{b}$ separation with cut on algorithm value. 
 
-		Besides the hadronic top's mass spectrum, there would be checked that the leptonic top's invariant mass($M_{lb}$) shows. Even though the missing neutrino's 4-momentum cause the leptonic top reconstructed incompletely, it's also valuable of $M_{lb}$ to be an independent information for other analysis strategy. Exactly, the $M_{lb}$ is the primary variable to be analyzed for the relation between signal/background and between data/simulation in this analysis! For instatnce, the following background estimation(Chapter ****).
+		Besides the hadronic top's mass spectrum, there would be checked that the leptonic top's invariant mass($M_{lb}$) shows. Even though the missing neutrino's 4-momentum cause the leptonic top reconstructed incompletely, it's also valuable of $M_{lb}$ to be an independent information for other analysis strategy. Exactly, the $M_{lb}$ is the primary variable to be analyzed for the relation between signal/background and between data/simulation in this analysis! For instatnce, the following background estimation(Chapter.\ref{sec:BkgEst}).
 
 		And for the $b/\bar{b}$ part, $b/\bar{b}$-identified types can also be shown under $M_{lb}$, they are also separated obviously with $\chi^2_{min}$ method:
 
@@ -670,7 +678,7 @@
 			\item Final $\chi^2_{min}$ strategy is decided to be with $\chi^2_{min}$ value cut at 20 and $M_{lb}$ cut at 150GeV.\\
 			It is called $\chi^{\textbf{2}}_{\textbf{min}}$ $\textbf{strategy}$ in the following content.
 		\end{itemize}
-		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the most suitable algorithm after these test. The 8 variables case will be eliminated for the reason explained at ref**** in \ref{ssec:CR}, so the finally decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: 
+		The improvement is still shown with $M_{lb}$ cut in all MVA method by comparing Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}. The MLP is the most suitable algorithm after these test. The 8 variables case will be eliminated for the reason explained at Fig.\ref{EventSelReco:fig:CR_shape_MVAcut} in \ref{ssec:CR}, so the finally decided method which is the most optimized is 20 variables treaining with MLP algorithm. There are 2 choice of analysis strategy with this 20 variables MLP training result: 
 
 		\begin{enumerate}
 			\item $\textbf{The first}$ is with MVA(MLP) cut at 0.22 (events efficiency $\sim 75\%$) and also cut on $M_{lb}$ at 150GeV.\\ 
@@ -848,7 +856,7 @@
 	\subsection{Control Region}
 	\label{ssec:CR}
 
-		In the calculation of asymmetry of $t\bar{t}$, there are some effect from non-$t\bar{t}$ background diving in and causing spurious result. To study the background asymmetry effects from detector and reconstruction, and to subtract these effects from $t\bar{t}$ asymmetry calculation, there are 2 $\textbf{Control Region(CR)}$ samples introduced. Control region usually means a region which is orthogonal to signal region and also usually used to study the background in an analysis. The background estimation and study part is set in Chapter****. In the analysis, the first CR is a $\textbf{W+jets-dominant CR}$ samples:
+		In the calculation of asymmetry of $t\bar{t}$, there are some effect from non-$t\bar{t}$ background diving in and causing spurious result. To study the background asymmetry effects from detector and reconstruction, and to subtract these effects from data's asymmetry calculation, there are 2 $\textbf{Control Region(CR)}$ samples introduced. Control region usually means a region which is orthogonal to signal region and also usually used to study the background in an analysis. The background estimation and study part is set in Chapter.\ref{sec:BkgEst}. In the analysis, the first CR is a $\textbf{W+jets-dominant CR}$ samples:
 
 		\begin{itemize}
 	  		\item 1 selected lepton which are a tight muon or a tight electron
@@ -861,7 +869,7 @@
 
 		The selection of b-tagged jets and veto lepton criteria is set to have difference between SR(\ref{EventSelReco:itm:full_sel}) and W+jets-dominant CR(\ref{EventSelReco:itm:full_sel_CR1}). Zero jet passes deepCSV-Loose btagged criteria may enhance the fraction of background and diminish $t\bar{t}$ contribution, which is based on difference of efficiency of $t\bar{t}$ and background passing btagged algorithm(deepCSV); The modification of veto lepton criteria to release veto isolation restriction means tighten the leptons selection. It may eliminate the possibility of some lepton-like objects are the secondary lepton comes from b-quark jet's propagating, in other words, lessen the possibility of existence of b-jets.
 
-		Besides, the reconstruction method of $M_{jjb}$ is same with SR by $\chi^2_{min}$ method or MVA method(20 variables, MLP). However the $M_{lb}$ is the critical variable for this analysis to do background estimation, the reconstruction of $M_{lb}$ is necessary. In the W+jets-dominant CR sample, there are not 2 selected b jets in the beginning of reconstruction, it is 2 different criteria for $\chi^2_{min}$ method and MVA method to reconstruct $M_{jjb}$ and $M_{lb}$ in CR. For the $\chi^2_{min}$ method, we put in all the jets in $\chi^2$ equation Eq.\ref{eq:chi2} to pick out the ingredient of $M_{jjb(j)}$(one jet is seen as $"$b$"$). And for the $M_{lb(j)}$ part, there are >= 2 jets rest. The jet which is the most close to selected lepton by $\Delta$R is the jet seen as the b in $M_{lb}$; For the MVA method, there is already leptonic b's information input to be trained for the algorithm which reconstruct $M_{jjb}$, which means the product algorithm from training would distinguish leptonic b automatically not just hadronic jjb, so we just input all the selected jets in the training algorithm to see when the highest MVA score occur, which one is the role of hadronic b, which one is the role of leptonic b...,etc. It is used to study backgroound with $M_{lb}$ variable with CR sample, so there is not $M_{lb}$ cut for CR selection strategy. There are the $M_{lb}$ with $\chi^2_{min}$ reconstruction of W+jets-dominant CR:
+		Besides, the reconstruction method of $M_{jjb}$ is same with SR by $\chi^2_{min}$ method or MVA method(20 variables, MLP). However the $M_{lb}$ is the critical variable for this analysis to do background estimation, the reconstruction of $M_{lb}$ is necessary. In the W+jets-dominant CR sample, there are not 2 selected b jets in the beginning of reconstruction, it is 2 different criteria for $\chi^2_{min}$ method and MVA method to reconstruct $M_{jjb}$ and $M_{lb}$ in CR. For the $\chi^2_{min}$ method, we put in all the jets in $\chi^2$ equation Eq.\ref{eq:chi2} to pick out the combination with minimum $\chi^2$ value as the ingredients of $M_{jjb(j)}$(one jet is seen as $"$b$"$). And for the $M_{lb(j)}$ part, there are >= 2 jets rest. The jet which is the most close to selected lepton by $\Delta$R is the jet seen as the b in $M_{lb}$; For the MVA method, there is already leptonic b's information input to be trained for the algorithm which reconstruct $M_{jjb}$, which means the product algorithm from training would distinguish leptonic b automatically not just hadronic jjb, so we just input all the selected jets in the training algorithm to see when the highest MVA score occur, which one is the role of hadronic b, which one is the role of leptonic b...,etc. It is used to study background with $M_{lb}$ variable with CR sample, so there is not $M_{lb}$ cut for CR selection strategy. There are the $M_{lb}$ with $\chi^2_{min}$ reconstruction of W+jets-dominant CR:
 
 		\begin{figure}[H]
 		\centering
@@ -952,13 +960,31 @@
 		\end{center}
 		\FloatBarrier
 
+		Though the non-$t\bar{t}$ background in SR is minority relative to $t\bar{t}$, there must be eliminated for the precision measurement. Because of little ratio of non-$t\bar{t}$ background, there may be much fluctuation and bias to study low statistics samples. For improvement, there is also a data-driven method to make W+jets-dominant CR's data as the role of background simulation sample in SR. It can smooth the issue of low MC statistics. And for the analysis, the W+jets-dominant CR's data is used to do template fit to estimate signal and background yields by its $M_{lb}$ shape. At the same time, the effect of asymmetry from background is also studied with W+jets-dominant CR's data.
 
-
-		Those are seen nice after training. Since we will use the spectrum of leptonic top's invariant mass($M_{lb}$) to estimate our signal($t\bar{t}$) and background in Chapter****, it is necessary to retain the isolation of information about $M_{lb}$ when reconstructing the hadronic top mass $M_{jjb}$. There is a check to see if a cut on mva score is given, whether the $M_{lb}$'s pdf(probability density function) shape change. If the cut on mva score which is designed and trained for reconstructing $M_{jjb}$ would vary the $M_{lb}$ shape, there are some obvious interference from reconstructing $M_{jjb}$ to information of $M_{lb}$. That is what we need to circumvent for following analysis strategy.
+		For the following template fit(\ref{ssec:TemplateFit}), it is necessary to retain the isolation of information about $M_{lb}$ when reconstructing the hadronic top mass $M_{jjb}$. There is a check to see if a cut on mva score is given, whether the $M_{lb}$'s pdf(probability density function) shape change. If the cut on mva score which is designed and trained for reconstructing $M_{jjb}$ would vary the $M_{lb}$ shape, there are some obvious interference from reconstructing $M_{jjb}$ to information of $M_{lb}$. That is what we need to circumvent for following analysis strategy. There are the W+jets-dominant CR's data's $M_{lb}$ shape with MVA score cuts below(Fig.\ref{EventSelReco:fig:CR_shape_MVAcut}). The 8 variables training case obviosly vary when mva-cut applied. It is because for the 8 training variables(\ref{EventSelReco:itm:mva_var}), there are leptonic b and lepton's information(selected lepton and leptonic b-jet's $\emph{sum of}$ $P_{T}$, $\Delta \phi$, $\Delta \eta$) input for training. These informations can directly use the $M_{lb}$'s information to distinguish objects, making the product algorithm is $M_{lb}$-related. So this is the reason why the 8 variables training case was abandoned.
 
 		\begin{figure}[H]
+		\centering
+			\subfigure[2 variables, MLP, mu-ch]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/a04_MLP_CRshape_mu.pdf}}
+			\subfigure[2 variables, MLP, el-ch]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/a04_MLP_CRshape_el.pdf}}\\
+		\end{figure}
+		\FloatBarrier
+		\begin{figure}[H]
+		\centering
+			\subfigure[8 variables, MLP, mu-ch]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/t13_MLP_CRshape_mu.pdf}}
+			\subfigure[8 variables, MLP, el-ch]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/t13_MLP_CRshape_el.pdf}}\\
+		\end{figure}
+		\FloatBarrier
+		\begin{figure}[H]
+		\centering
+			\subfigure[20 variables, MLP, mu-ch]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/a05_MLP_CRshape_mu.pdf}}
+			\subfigure[20 variables, MLP, el-ch]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/CR/a05_MLP_CRshape_el.pdf}}\\
+		\caption{Relation between $M_{lb}$ shape(W+jets-dominant CR's data) when cut on MVA score which leave different events efficiency}
+		\label{EventSelReco:fig:CR_shape_MVAcut}
 		\end{figure}
 		\FloatBarrier
 
+		Here is an arrangement of signal region and 2 control region as a table:
 
 \FloatBarrier
