@@ -27,19 +27,7 @@
 		\end{figure}
 		\FloatBarrier
 
-	\subsection{Template Fit}
-	\label{ssec:TemplateFit}
-
-		The method $\textbf{Template Fit}$ is used to estimate background yields and subtract them in this analysis. The template in this method means a pdf(probability density function) with unvaried shape under specific variable's spectrum. Also following pdf's characteristic, the template have to be normalized(integrated area of this shape is unity). This template fit is one of general fitting with $\textbf{Max-Likelihood Method}$. 
-
-		With respect to Max-Likelihood Method, it uses the likelihood function $\emph{L}$(Eq.****) and minimizes the $-2\ln{L}$ by computing resource to get the more appropriate parameters in function we want to predict. The signal and background yields in this analysis are both the target parameters in fitting.
-
-
-		There are $N$ times measurements in Max-Likelihood method. The $\{x^{i}_{1},x^{i}_{2},\ldots,x^{i}_{n}\}$ in Eq.**** is the the set of variable for $i$-th measurement.
-
-
-
-		As mentioned that the W+jets-dominant CR's data is used to data-driven background in SR, it must be checked that how the similarity of $M_{lb}$'s pdf shape they have:
+	As mentioned that the W+jets-dominant CR's data is used to data-driven background in SR, it must be checked that how the similarity of $M_{lb}$'s pdf shape they have:
 
 		\begin{figure}[H]
 		\centering
@@ -57,6 +45,53 @@
 		\FloatBarrier
 
 
+	\subsection{Template Fit}
+	\label{ssec:TemplateFit}
+
+		The method $\textbf{Template Fit}$ is used to estimate background yields and subtract them in this analysis. The template in this method means a pdf(probability density function) with unvaried shape under specific variable's spectrum. Also following pdf's characteristic, the template have to be normalized(integrated area of this shape is unity). This template fit is one of general fitting with $\textbf{Maximum-Likelihood Method}$. 
+
+		With respect to Maximum-Likelihood Method, it uses the likelihood function $\emph{L}$ and minimizes the $-2\ln{L}$ by computing resource to get the more appropriate parameters in function we want to predict. The signal and background yields in this analysis are both the target parameters in fitting. The likelihood function comes from joint pdf of N independent observation with $\emph{\textbf{X}}$ which is the set of observables, the joint pdf is Eq.\ref{eq:joint_eq}. 
+
+		\begin{equation}
+		P(X|\theta) = 􏱛 \prod_{i=1}^{N} f(X^i|\theta)
+		\label{eq:joint_eq}
+		\end{equation}
+
+		 Eq.\ref{eq:joint_eq} shows the product of all i-th observation's function and the $\theta$ is the set of parameters in the pdf. When we substitute the observed data $\emph{\textbf{X}}^{\emph{\textbf{0}}}$ for variables $\emph{\textbf{X}}$, the PDF becomes the $\textbf{Likelihood function L(} \theta \textbf{)}$:
+
+		\begin{equation}
+		L(\theta) = P(X^0|\theta) = 􏱛p(N|\theta) \prod_{i=1}^{N} f(X^i|\theta)
+		\label{eq:likelihood_fn}
+		\end{equation}
+
+		There are $N$ times measurements in likelihood function. Also, the $p(N|\theta)$ is usually a poisson distribution in most common case because of the common counting condition. In order to get the most appropriate parameters to match the observed data, the larger value of likelihood function $L(\theta)$, the more matched the parameters demonstrate. Therefore, the maximum $L(\theta)$ case should be the target for final decision of parameters. However, the modern technics are usually used to minimize some values, so it is turned to negative sign and being have to be minimized. On the other hand, it is convenient to calculate with addition instead of product, so doing the natural logarithm on likelihood function make it easier(Eq.\ref{eq:nature_log_L}). In conclusion, Maximum-Likelihood method minimizes the $-2\ln{L(\theta)}$ and get the fitting parameters.
+
+		\begin{equation}
+		L(\theta) \implies \ln{L(\theta)} \; \; \; \; , \; \prod_{i=1}^{N} f(X^i|\theta) \implies \sum_{i=1}^{N} \ln{L(\theta)}
+		\label{eq:nature_log_L}
+		\end{equation}
+
+		In the cases that the number of observation is also the parameters and as random variables, the $\textbf{extended-likelihood function}$ is often adopted. The extended-likelihood function includes the poisson distribution $p(N|\theta)$ of Eq.\ref{eq:likelihood_fn} in. So the extended-likelihood function shows as the pattern in Eq.\ref{eq:ext_likelihood_fn}. 
+
+		\begin{equation}
+		L(\theta)_{ext} = 􏱛p(N|\theta) \prod_{i=1}^{N} f(X^i|\theta) = \frac{e^{-\mu(\theta)}\mu(\theta)^{N}}{N!} \prod_{i=1}^{N} f(X^i|\theta)
+		\label{eq:ext_likelihood_fn}
+		\end{equation}
+
+
+		In this analysis, there are signal and background templates being pdf shapes, and the only parameters of $\theta$ set are the event numbers of signal and background($n_{S}$, $n_{B}$). Thus the extended-likelihood function of this analysis is demonstrated as Eq.\ref{eq:ext_likelihood_fn_this}. The $f_{S}$, $f_{B}$ are the fraction of signal and background. That is to say, $f_{S}$ = $n_{S}/(n_{S}+n_{B})$, $f_{B}$ = $n_{B}/(n_{S}+n_{B})$, and the $P_{S}$ and $P_{B}$ are the templates of signal and background. Also, we just fit under the $M_{lb}$ variable(oboservable), so the $X^i$ in Eq.\ref{eq:ext_likelihood_fn} is $M_{lb}$.
+
+		
+		\begin{equation}
+		\begin{split}
+		L(n_{S},n_{B})_{ext} = \frac{e^{-(n_{S}+n_{B})}(n_{S}+n_{B})^{N}}{N!} \prod_{i=1}^{N} f(M_{lb}^i|n_{S},n_{B}) \\
+		= \frac{e^{-(n_{S}+n_{B})}(n_{S}+n_{B})^{N}}{N!} \prod_{i=1}^{N} [f_{S}P_{S}(M_{lb}^i) + f_{B}P_{B}(M_{lb}^i)] \\
+		 = \frac{e^{-(n_{S}+n_{B})}}{N!} \prod_{i=1}^{N} [n_{S}P_{S}(M_{lb}^i) + n_{B}P_{B}(M_{lb}^i)]
+		\end{split}
+		\label{eq:ext_likelihood_fn_this}
+		\end{equation}
+
+		Eventually, in our analysis we use binned-likelihood function as the observed mode. In other words, the $i=1,2,\ldots,N$ means that input observations are the results of N bins under the observable -- $M_{lb}$ spectrum. By contrast, the unbinned-likelihood method uses event-by-event as the observation, costing too much resource and time, so it has not been used.
 
 
 		\subsubsection{Fitting Result}
