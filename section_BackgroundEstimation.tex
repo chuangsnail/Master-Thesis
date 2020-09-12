@@ -57,7 +57,7 @@
 		\label{eq:joint_eq}
 		\end{equation}
 
-		 Eq.\ref{eq:joint_eq} shows the product of all i-th observation's function and the $\theta$ is the set of parameters in the pdf. When we substitute the observed data $\emph{\textbf{X}}^{\emph{\textbf{0}}}$ for variables $\emph{\textbf{X}}$, the PDF becomes the $\textbf{Likelihood function L(} \theta \textbf{)}$:
+		 Eq.\ref{eq:joint_eq} shows the product of all i-th observation's function and the $\theta$ is the set of parameters in the pdf. When we substitute the observed data $\emph{\textbf{X}}^{\emph{\textbf{0}}}$ for variables $\emph{\textbf{X}}$, the PDF becomes the $\textbf{Likelihood function L(} \boldsymbol{\theta} \textbf{)}$:
 
 		\begin{equation}
 		L(\theta) = P(X^0|\theta) = 􏱛p(N|\theta) \prod_{i=1}^{N} f(X^i|\theta)
@@ -97,6 +97,8 @@
 		\subsubsection{Fitting Result}
 		\label{sssec:FittingResult}
 
+		With the Maximum-Likelihood Method, there is the fitting result(Fig.\ref{BkgEst:fig:fit_result_yields}). The signal template is $t\bar{t}$ MC in SR and the background templatte is real data in CR, both are under $M_{lb}$ spectrum.
+
 		\begin{figure}[H]
 		\centering
 			\subfigure[$\chi^2_{min}$, mu-ch]{\includegraphics[width=0.45\textwidth]{Figures/BackgroundEstimation/[mu]new_chi2_fit.pdf}}
@@ -107,11 +109,12 @@
 		\centering
 			\subfigure[MVA(20 variables, MLP), mu-ch]{\includegraphics[width=0.45\textwidth]{Figures/BackgroundEstimation/[mu]new_a05_MLP_fit.pdf}}
 			\subfigure[MVA(20 variables, MLP), el-ch]{\includegraphics[width=0.45\textwidth]{Figures/BackgroundEstimation/[el]new_a05_MLP_fit.pdf}}\\
-		\caption{Comparison of $M_{lb}$ shape between SR's signal and background}
-		\label{BkgEst:fig:SR_sigbkg_Mlbshape}
+		\caption{Results of template fit, with fitted yields ccomparing data and MC.($\chi^2$, MVA methods are both shown)}
+		\label{BkgEst:fig:fit_result_yields}
 		\end{figure}
 		\FloatBarrier
 
+		Futhermore, the fitted yields of signal($t\bar{t}$) and background are shown under $\chi^2$ and MVA cases(Table.\ref{BkgEst:tb:DataMC_est_chi2}, \ref{BkgEst:tb:DataMC_est_MVAA}, \ref{BkgEst:tb:DataMC_est_MVAB}).
 
 		\begin{center}
 		\begin{longtable}[H]{ c c c }
@@ -164,10 +167,45 @@
 		\subsubsection{Goodness of Fit}
 		\label{sssec:GoF}
 
-	
+		It is necessary to check whether it is fine to use the fitting result. There is a common method to test the goodness of fit -- $\boldsymbol{\chi^2}$ $\textbf{test}$. In a set of 2 data histogram, we use the $\chi^2$ value between them to see the degree they match to each other. In general case, $\chi^2$ value are the sum of N independent normal variables distribution, shown below(Eq.\ref{eq:chi2_dis}). The $\chi^2(N)$ and $P(x)$ in Eq.\ref{eq:chi2_dis} is also a distribution called $\chi^2$ distribution. The only parameter of $\chi^2$ distribution is the N which also means $\emph{degree of freedom}$. Degree of freedom means the number of independent terms in one distribution which affect the variation of this distribution. 
+		The basic concept to apply $\chi^2$ to test goodness of fit is -- to see all the N independent variables in histogram as normal distribution and operate them to be standard, and then sum all of them to compare with the corresponding $\chi^2(N)$ distribution. Commonly, we see where the derived $\chi^2$ value drop on the corresponding $\chi^2$ distribution and take the p-value as the criteria. If p-value is large, and this means one data distribution is not so match to the other one, and vice versa. And for simlified one criteria, if 2 data point are well match to each, the derived $\chi^2$ value should be close to expectation value of corresponding $\chi^2(N)$ distribution -- N.
 
+		\begin{equation}
+		\begin{split}
+		Q = \sum_{i=1}^{N} X_i^2 \implies \chi^2(N) \\ %\; \; \; , \; X_i = Gaus(x)_{standard}\\
+		\chi^2(N) \implies P(x) = \frac{\frac{1}{2}(\frac{x}{2})^{\frac{N}{2} - 1}e^{-\frac{x}{2}}}{\Gamma (\frac{N}{2})} \\
+		Exp<P(x)> = N \; \; (D.o.F)
+		\label{eq:chi2_dis}
+		\end{split}
+		\end{equation}
 
+		For this analysis, to compare the 2 histogram under 1 variable's spectrum, it is usually taken the events number in any bins as independent variables. There are 1 set of real data points and 1 set of MC points which follows the fitting result. And then, to standardize all the bins' variables to be normal distribution variables, we operate them as Eq.\ref{eq:chi2_dis_this}'s first equation. After standardization, we just sum up all the bins' operated variables to be the $\chi^2$ value of these 2 set of data points (Eq.\ref{eq:chi2_dis_this}-2). The $x^d_i$ means the events number of real data in i-th bin, $x^s_i$ is the events number of MC in i-th bin. Also, the standard error for standardization is poisson error of counting events number of MC in i-th bin -- $\sqrt{x^s_i}$:
 
+		\begin{equation}
+		\begin{split}
+		X_i = \frac{x^d_i - x^s_i}{\sqrt{x^s_i}} \\
+		Q = \sum_{i=1}^{N} X_i^2 = \sum_{i=1}^{N} \frac{(x^d_i - x^s_i)^2}{(\sqrt{x^s_i})^2}
+		\label{eq:chi2_dis_this}
+		\end{split}
+		\end{equation}
+
+		In this case, the bins range under $M_{lb}$ is from 0GeV to 500GeV with 50 bins. The parameters $n_S$, $n_B$ in fitting give these data points 2 constraint, so the degree of freedom of these data points are (50-2)=48. So with the simple method, there are the comparison between derived $\chi^2$ value($Q$) to the expectation value 48 $\longrightarrow$ $\frac{Q}{48}$, there are the goodness of fit under $\chi^2_{min}$ and MVA reconstruction strategy.
+
+		\begin{center}
+		\begin{longtable}[H]{ c c c }
+		\caption{$\frac{Q}{D.o.F}$ of fitting results ($\chi^2_{min}$ and MVA strategy)} \\
+		\hline
+		 & Muon Channel & Electron Channel \\ 
+		\hline
+		$\chi^2_{min}$ & 2.54258 & 1.39517 \\
+		MVA & 2.52261 & 2.15768 \\
+		\hline
+		\label{BkgEst:tb:goodness_of_fit}
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		We can see that in electron channel we have better fitting demonstration than in muon channel. However, it is fine to have these goodness-of-fit results under all cases.
 
 
 \FloatBarrier
