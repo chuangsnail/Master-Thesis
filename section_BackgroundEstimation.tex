@@ -97,7 +97,7 @@
 		\subsubsection{Fitting Result}
 		\label{sssec:FittingResult}
 
-		With the Maximum-Likelihood Method, there is the fitting result(Fig.\ref{BkgEst:fig:fit_result_yields}). The signal template is $t\bar{t}$ MC in SR and the background templatte is real data in CR, both are under $M_{lb}$ spectrum.
+		With the Maximum-Likelihood Method, there is the fitting result(Fig.\ref{BkgEst:fig:fit_result_yields}). The signal template is $t\bar{t}$ MC in SR and the background template is real data in CR, both are under $M_{lb}$ spectrum.
 
 		\begin{figure}[H]
 		\centering
@@ -124,8 +124,8 @@
 		\hline
 		 Data & 243790 & 136151 \\
 		\hline
-		 Expected $t\bar{t}$ & 230766 & 135600 \\
-		 Expected background & 12146.9 & 5537.45 \\
+		 Estimated $t\bar{t}$ & 230766 & 135600 \\
+		 Estimated background & 12146.9 & 5537.45 \\
 		\hline
 		\label{BkgEst:tb:DataMC_est_chi2}
 		\end{longtable}
@@ -140,8 +140,8 @@
 		\hline
 		 Data & 245436 & 139432 \\
 		\hline
-		 Expected $t\bar{t}$ & 236226 & 133894  \\
-		 Expected background & 8520.95 & 5102.1 \\
+		 Estimated $t\bar{t}$ & 236226 & 133894  \\
+		 Estimated background & 8520.95 & 5102.1 \\
 		\hline
 		\label{BkgEst:tb:DataMC_est_MVAA}
 		\end{longtable}
@@ -156,8 +156,8 @@
 		\hline
 		 Data & 272583 & 157510 \\
 		\hline
-		 Expected $t\bar{t}$ & 256196 & 146656 \\
-		 Expected background & 15479 & 10217.6 \\
+		 Estimated $t\bar{t}$ & 256196 & 146656 \\
+		 Estimated background & 15479 & 10217.6 \\
 		\hline
 		\label{BkgEst:tb:DataMC_est_MVAB}
 		\end{longtable}
@@ -168,7 +168,7 @@
 		\label{sssec:GoF}
 
 		It is necessary to check whether it is fine to use the fitting result. There is a common method to test the goodness of fit -- $\boldsymbol{\chi^2}$ $\textbf{test}$. In a set of 2 data histogram, we use the $\chi^2$ value between them to see the degree they match to each other. In general case, $\chi^2$ value are the sum of N independent normal variables distribution, shown below(Eq.\ref{eq:chi2_dis}). The $\chi^2(N)$ and $P(x)$ in Eq.\ref{eq:chi2_dis} is also a distribution called $\chi^2$ distribution. The only parameter of $\chi^2$ distribution is the N which also means $\emph{degree of freedom}$. Degree of freedom means the number of independent terms in one distribution which affect the variation of this distribution. 
-		The basic concept to apply $\chi^2$ to test goodness of fit is -- to see all the N independent variables in histogram as normal distribution and operate them to be standard, and then sum all of them to compare with the corresponding $\chi^2(N)$ distribution. Commonly, we see where the derived $\chi^2$ value drop on the corresponding $\chi^2$ distribution and take the p-value as the criteria. If p-value is large, and this means one data distribution is not so match to the other one, and vice versa. And for simlified one criteria, if 2 data point are well match to each, the derived $\chi^2$ value should be close to expectation value of corresponding $\chi^2(N)$ distribution -- N.
+		The basic concept to apply $\chi^2$ to test goodness of fit is -- to see all the N independent variables in histogram as normal distribution and operate them to be standard, and then sum all of them to compare with the corresponding $\chi^2(N)$ distribution. Commonly, we see where the derived $\chi^2$ value drop on the corresponding $\chi^2$ distribution and take the p-value as the criteria. If p-value is large, and this means one data distribution is not so match to the other one, and vice versa. For simlified one criteria, if 2 set of data points are well match to each, the derived $\chi^2$ value should be close to expectation value of corresponding $\chi^2(N)$ distribution -- N.
 
 		\begin{equation}
 		\begin{split}
