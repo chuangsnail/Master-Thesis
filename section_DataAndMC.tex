@@ -17,8 +17,14 @@
 	\subsection{Correction on simulation sample}
 	\label{ssec:DataAndMC_corMC}
 
+		% pileup introduction is set on "vertex"
 		\subsubsection{Pile-up Reweighing}
 		\label{sssec:DataAndMC_PU}
+
+			% https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupMCReweightingUtilities?fbclid=IwAR0SuZFQ5Um0IfZn1-CHXia6NPMYe2_7cz2OGXxhCYvNvfl_tTBke-w22l8
+
+			As mention in section.\ref{ssec:PhysObj_pu}, pileup is the 
+			Although Monte Carlo sample may roughly cover the pileup interactions, the final distribution is also sensitive to the subtle content of primary vertex. Furthermore, the distribution of reconstructed vertices can be differently affected by the offline event selection cut and some high level trigger between real data and Monte Carlo sample. To fix the descrepancy between data and simulation, 
 
 		\subsubsection{Jet Energy correction, smearing and resolution}
 		\label{sssec:DataAndMC_JE_CSR}

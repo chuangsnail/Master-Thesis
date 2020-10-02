@@ -207,5 +207,23 @@
 
 		We can see that in electron channel we have better fitting demonstration than in muon channel. However, it is fine to have these goodness-of-fit results under all cases.
 
+	\subsection{Background subtraction}
+	\label{ssec:bkg_sub}
+
+		The final target of background subtraction is using the fitted yields results to subtract the background contribution in $A'_{cp}$. The process are shown below as a illustration diagram(Fig.\ref{BkgEst:fig:Bkt_sub}). First of all, we use signal and background templates to do the template fit and get fitted yields $N_{data}$ and $N_{bkg}$ which both include positive and negative value of specific observable. Secondly, subtract both the positive and negative observable's yields of background from data's part, and there are the effective positive and negative observable's yields $N(O>0)_eff.$ and $N(O<0)_eff.$. Therefore, the final $A'_{cp}$ can be calculated by effective yields which are expected purely contributed by signal($t\bar{t}$).
+
+		\begin{figure}[H]
+		\centering{}
+	    	\includegraphics[width=0.85\textwidth]{Figures/BackgroundEstimation/bkg_sub_1.pdf}\\
+		\end{figure}
+		\FloatBarrier
+		\begin{figure}[H]
+		\centering{}
+	    	\includegraphics[width=0.85\textwidth]{Figures/BackgroundEstimation/bkg_sub_2.pdf}\\
+		\caption{Process of background subtraction}
+		\label{BkgEst:fig:Bkt_sub}
+		\end{figure}
+		\FloatBarrier
+
 
 \FloatBarrier
