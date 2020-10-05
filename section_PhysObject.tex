@@ -43,6 +43,35 @@
 	\subsection{Jet}
 	\label{ssec:PhysObj_jet}
 
+		% Jet reco : Atkin_2015_J._Phys.__Conf._Ser._645_012008
+		% anti-k algo : M. Cacciari, G. P. Salam, and G. Soyez, “The anti-k(t) jet clustering algorithm”, JHEP 04, 063 (2008)
+
+		Jet is a type of physical object in high energy collider/detector physics. There are cluster of stable particles after collision, then fragmentating and hadronizing to be a jet. In the process, the strong interaction quarks and gluons cause the showering of these particles. And there is also some algorithm to reconstruct the showering to be an object -- jet, by some calormeter's and tracker's information.
+		The used algorithm is anti-k algorithm to reconstruct all jets. The algorithm summarization is shown follow. First, there is a list of particles which are candidates of jets' member, they are called protojet. Secondly, for any i-th protojet, we find the minimum $d_{ij}$ and minimum $d_{iB}$ in the list. The $d_{ij}$ and $d_{iB}$ are defined below:
+
+		\begin{equation}
+		\begin{split}
+		d_{ij} = min(P_{Ti}^{2p}, P_{Tj}^{2p}) \frac{\Delta_{ij}}{R^2}\\
+		, \Delta_{ij} = \sqrt{ (\eta_i - \eta_j)^2 + (\phi_i - \phi_j)^2 }\\
+		d_{iB} = P_{Ti}^{2p}
+		\end{split}
+		\label{eq:jet_reco_algo}
+		\end{equation}
+		\FloatBarrier
+
+		In the definition, $P_{T}$, $\eta$ and $\phi$ individually means the transverse momentum, rapidity and azimuth of protojet. Also, the $\Delta_{ij}$ means the distance between i-th protojet and j-th protojet under $\eta$-$\phi$ space. Besides the radius parameter R, the p is the important parameter which decide the power of energy scale. The following step is to compare the minimum $d_{ij}$ and minimum $d_{iB}$, if the min-$d_{ij}$ is smaller than min-$d_{iB}$, then remove i-th and j-th protjets out of the list, and combine the i-th and j-th protojets into a new protojet and add in the original protojet list; if the min-$d_{ij}$ is larger than min-$d_{iB}$, then the i-th protojet is considered as a jet and remove it from the list of portojets. And then, choose the new i-th protojet and do the previous comparison and assignment again and again. The algorithm stops as long as the list of protojets is empty. The illustration example of algorithm is shown below(Fig.\ref{PhysObj:fig:jet_algo}). Furthermore, in CMS we commonly apply R by 0.4 as the AK4 jet, which is also used in the analysis. If the parameter p=1, it is called inclusive $k_{t}$ algorithm; and if p=0, Cambridge/Aachen algorithm; and if p=-1, anti-$k_{t}$ jet-clustering algorithm. For CMS, it used to use p=-1 case -- anti-$k_{t}$ algorithm to construct jets.
+
+		\begin{figure}[H]
+		\centering{}
+	    	\includegraphics[width=0.85\textwidth]{Figures/PhysObj/jet_algo.pdf}\\
+		\caption{Example of constructing protojets to jets}
+		\label{PhysObj:fig:jet_algo}
+		\end{figure}
+		\FloatBarrier
+
+		The p 
+
+
 		\subsubsection{B-tagged jet}
 		\label{sssec:bjet}
 
