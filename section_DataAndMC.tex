@@ -23,14 +23,48 @@
 
 			% https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupMCReweightingUtilities?fbclid=IwAR0SuZFQ5Um0IfZn1-CHXia6NPMYe2_7cz2OGXxhCYvNvfl_tTBke-w22l8
 
-			As mention in section.\ref{ssec:PhysObj_pu}, pileup is the 
-			Although Monte Carlo sample may roughly cover the pileup interactions, the final distribution is also sensitive to the subtle content of primary vertex. Furthermore, the distribution of reconstructed vertices can be differently affected by the offline event selection cut and some high level trigger between real data and Monte Carlo sample. To fix the descrepancy between data and simulation, 
+			As mention in section.\ref{ssec:PhysObj_pu}, pileup is the issue that bunch of vertices occuring at one collision. Although Monte Carlo sample may roughly cover the pileup interactions, the final distribution is also sensitive to the subtle content of primary vertex. Furthermore, the distribution of reconstructed vertices can be differently affected by the offline event selection cut and some high level trigger between real data and Monte Carlo sample. To fix the descrepancy between data and simulation, with any pileup number(number of primary vertices) bin, we compare the data and MC distribution and get the data/MC value bin by bin. The gotten scale factors under pileup number bins will be applied on the analyzed MC to correct the weight of each event.
 
 		\subsubsection{Jet Energy correction, smearing and resolution}
 		\label{sssec:DataAndMC_JE_CSR}
 
-		\subsubsection{Efficiency Scale Factor}
-		\label{sssec:DataAndMC_EffSF}
+			The JEC and JER are mentioned in section.\ref{ssec:PhysObj_jet} previously.
+
+		\subsubsection{Lepton efficiency Scale Factor}
+		\label{sssec:DataAndMC_LepEffSF}
+
+		With selection cut or quality pick-up on physics objects like leptons, there must be difference in the selection performance between data and MC. To correct the discrepancy, the often method is apply a scale factor on the $p_T$-$\eta$ space to correct the weight of this event. The scale factor S.F. is calculated from selection efficiency performance of known data and MC by Eq.\ref{eq:eff_SF}. 
+
+		\begin{equation}
+		S.F. = \frac{\epsilon_{data}(p_T,\eta)}{\epsilon_{MC}(p_T,\eta)}
+		\label{eq:eff_SF}
+		\end{equation}
+
+		It is usually implemented by tag-and-probe method\cite{tagandprobe_twiki}. There are efficiency S.F. of muonISO, muonID, muonTrigger, ElectronReco, ElectronID, and ElectronTrigger necessary to be considered. The gotten scale factors under $p_T$-$\eta$ space are shown below:
+
+		\begin{figure}[H]
+			\centering
+			    \subfigure[Muon ISO]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/mu_ISO.pdf}}
+			    \subfigure[Muon ID]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/mu_ID.pdf}}
+			    \subfigure[Muon High Level Trigger]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/mu_Trg.pdf}}\\
+			\end{figure}
+			\FloatBarrier
+			\begin{figure}[H]
+			\centering
+			    \subfigure[Electron Reco]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/el_Reco.pdf}}
+			    \subfigure[Electron ID]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/el_ID.pdf}}
+			    \subfigure[Electron High Level Trigger]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/el_Trg.pdf}}\\
+			   \caption{Lepton efficiency scale factor (x-axis:$\eta$, y-axis:$p_T$)}
+			\label{DataMC:fig:lepsf}
+			\end{figure}
+			\FloatBarrier
+
+		\subsubsection{b-tagging Scale Factor}
+		\label{sssec:DataAndMC_btagSF}
+
+		The btag scale factor complies with the same concept as efficiency scale factor. Because of applying the selection which is deepCSV cut (DeepCSV Medium and DeepCSV Loose), data and MC have different performance on selection efficiency. 
+
+
 
 		\subsubsection{Weigh to Luminosity}
 		\label{sssec:DataAndMC_lumi}
