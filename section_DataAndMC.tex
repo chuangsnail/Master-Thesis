@@ -47,7 +47,7 @@
 			    \subfigure[Muon ISO]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/mu_ISO.pdf}}
 			    \subfigure[Muon ID]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/mu_ID.pdf}}
 			    \subfigure[Muon High Level Trigger]{\includegraphics[width=0.32\textwidth]{Figures/DataMC/mu_Trg.pdf}}\\
-			\end{figure}
+			\end{figure}{}
 			\FloatBarrier
 			\begin{figure}[H]
 			\centering
@@ -59,11 +59,35 @@
 			\end{figure}
 			\FloatBarrier
 
-		\subsubsection{b-tagging Scale Factor}
+		\subsubsection{b-tagging Reweighing}
 		\label{sssec:DataAndMC_btagSF}
 
-		The btag scale factor complies with the same concept as efficiency scale factor. Because of applying the selection which is deepCSV cut (DeepCSV Medium and DeepCSV Loose), data and MC have different performance on selection efficiency. 
+			The b-tagging reweight have to obtained by b-tagging scale factors and the b-tagging efficiency under b/c/light(udsg)-flavor identification.(The b-tagging efficiency means the ratio of jets which should pass b-tagging and really pass b-tagging) The b-tagging scale factor complies with the same concept as efficiency scale factor. Because of applying the selection which is deepCSV cut (DeepCSV Medium and DeepCSV Loose), data and MC have different performance on selection efficiency, then the S.F. of b-tagging is still got with Eq.\ref{eq:eff_SF} by BTV POG\cite{btvpog_twiki} with full RunII data. However, the reweight on each event is not just about scale factor. Since we apply the b-tagging tool on any jets which pass the jet-selection(Table.\ref{PhysObj:tb:sel_jet}), all the tagged jets and non-tagged jets should be considered to have influence about the b-tagging efficiency difference and to affect the event weight \cite{btagreweight_twiki}. The eventual formula of b-tagging event reweighting is derived by data correct tagged probability($P(data)$) divided by MC's($P(MC)$) (Eq.\ref{eq:btag_weight_1}). Both probabilities are calculated by Eq.\ref{eq:btag_weight_2} reasonabliy. 
 
+			\begin{equation}
+			weight = \frac{P(data)}{P(MC)}
+			\label{eq:btag_weight_1}
+			\end{equation}
+
+			\begin{equation}
+			\begin{split}
+			P(MC) = \prod_{i=tagged} \epsilon_i(p_T,\eta) \prod_{j=non-tagged} (1-\epsilon_j(p_T,\eta)) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \\
+			P(data) = \prod_{i=tagged} SF(p_T,\eta) \cdot \epsilon_i(p_T,\eta) \prod_{j=non-tagged} (1- SF(p_T,\eta) \cdot \epsilon_j(p_T,\eta))
+			\label{eq:btag_weight_2}
+			\end{split}
+			\end{equation}
+
+			As mentioned previously, the S.F. are obtained, and b-tagging efficiency of three types of flavor jets are gotten by hand with simulated $t\bar{t}$ sample (Fig.\ref{DataMC:fig:tt_eff_btag}). Also, the b-tagging efficiency of three flavor jets are obviously different and they are calculated on the $p_T$-$\eta$ space.
+
+			\begin{figure}[H]
+			\centering
+			    \subfigure[b]{\includegraphics[width=0.45\textwidth]{Figures/DataMC/tt_eff_b.pdf}}
+			    \subfigure[c]{\includegraphics[width=0.45\textwidth]{Figures/DataMC/tt_eff_c.pdf}}\\
+			    \subfigure[light(u,d,s,g)]{\includegraphics[width=0.45\textwidth]{Figures/DataMC/tt_eff_l.pdf}}
+			   \caption{b-tagging efficiency of b, c, and light(udsg) flavor (x-axis:$p_T$, y-axis:$\eta$), under b-tagging working point Medium calculated by $t\bar{t}$ MC}
+			\label{DataMC:fig:tt_eff_btag}
+			\end{figure}
+			\FloatBarrier
 
 
 		\subsubsection{Weigh to Luminosity}
@@ -83,7 +107,7 @@ Process sample & Cross Section (pb) & k-factor & Events Number & Generator \\
 $t$$\bar{t}\rightarrow b \bar{b}jjl\nu$ & XXX & 1 & CCCCCC & AAAAAA \\
 \hline
 cell7 & cell8 & XXXXXX & cell7 & cell8 \\
-\hline  
+\hline  {}
 \end{tabular}
 \end{center}
 

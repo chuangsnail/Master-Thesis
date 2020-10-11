@@ -6,10 +6,30 @@
 \section{Physical Objects Reconstruction and Selection}
 \label{sec:PhysObj}
 
+
+	\subsection{Track}
+	\label{ssec:PhysObj_track}
+		%https://inspirehep.net/literature/1298029
+		%https://inspirehep.net/literature/1605397
+
+		Before reconstructing the track, it is necessary to do the $\textbf{local reconstruction}$ which contain several terms to reconstruct the hits. There are hit reconstruction of pixel detector and strip detector, and the hit efficiency and resolution should be completely considered. To be more specific, the local reconstruction means that, in both pixel and strip detector channel, to cluster zero-suppressed signals above specified thresholds, and then to estimate the positions and uncertainty of cluster in the plane of each sensor; It is considered that the probability of finding a cluster in silicon sensor which is the record of s charged particle -- which is hit efficiency exactly; The hit resolution is to study difference between expected and measured hit positions which is called residuals. The expected one is gotten by fitted track.
+
+		The tracking software at CMS is usually regaurded as the Combinatorial Track Finder (CTF)\cite{Billoir1989ProgressiveTR}. CTF is an adaptation of the combinatorial Kalman filter\cite{Fruhwirth:1987fm} to allow pattern recognition and track fitting to occur in the same framework.
+		The track reconstructions includes four steps to proceed: (reference \cite{Chatrchyan:2014fea})
+
+		\begin{itemize}
+			\item $\textbf{Seed generation}$ : The seed defines the starting estimate of the parameters(and their uncertainty) of trajectory. That is, by only few hits, the process provide initial track candidates found. Also, the seeds are required to satisfy certain weak restrictions, for instance, minimum $p_T$.
+			\item $\textbf{Track finding}$ : Based on Kalman filter, it invatigate from the seed trajectory which are gotten from seed generation along the expected flight path of charge particle. Then the purpose is to search for other probable candidates of track.
+			\item $\textbf{Track fitting}$ : track fitting is a kind of module. In this stage, it yields a set of hits and an estimate of parameters of track. Because the availibility of informations should be at the final hit of the trajectory and some constraints of estimate would make bias, it has to be refitted with Kalman filter and smoother on trajectory.
+			\item $\textbf{Track selection}$ : The track selection set some criteria and selected condtion to extract wanted tracks. In other words, it reduces the fake-track(which is defined as the reconstructed track which is not associated with charged particle) presenting rate through some quality requirements.
+		\label{PhysObj:itm:track_reco}
+		\end{itemize}
+
 	\subsection{Vertex}
 	\label{ssec:PhysObj_vertex}
 
 		% https://iopscience.iop.org/article/10.1088/1742-6596/110/9/092009/pdf
+		
 
 	\subsection{Pileup Issue}
 	\label{ssec:PhysObj_pu}{}
@@ -168,7 +188,7 @@
 			\end{figure}
 			\FloatBarrier
 
-			The P($b$) + P($bb$) discriminator is used in the usual physics analysis with DeepCSV values. The DeepCSV b-tagging algorithm is used on the jets which passed the jet selection. In this analysis, there are two criteria would be used -- DeepCSV Medium(which is used in signal region) and DeepCSV Loose(which is used in control region). The criteria is applying thresholds on DeepCSV value, the thresholds are shown below:
+			The P($b$) + P($bb$) discriminator is used in the usual physics analysis with DeepCSV values. The DeepCSV b-tagging algorithm is used on the jets which passed the jet selection. In this analysis, there are two criteria would be used -- DeepCSV Medium(which is used in signal region) and DeepCSV Loose(which is used in control region). The criteria is applying thresholds on DeepCSV value, the thresholds which are from $\textbf{btagging and Vertex Physics Object Group(BTV POG)}$'s\cite{btvpog_twiki} recommendation\cite{btagrecommendation_twiki} are shown below:
 
 			\begin{itemize}
 				\item DeepCSV Medium $\rightarrow$ Discriminator of DeepCSV is above 0.6321
