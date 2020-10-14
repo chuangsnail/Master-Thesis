@@ -29,7 +29,16 @@
 	\label{ssec:PhysObj_vertex}
 
 		% https://iopscience.iop.org/article/10.1088/1742-6596/110/9/092009/pdf
-		
+		The classification of vertex are roughly to be $\textbf{Primary Vertex(PV)}$ and $\textbf{Secondary Vertex(SV)}$. The primary vertex is reconstructed proton-proton collision and expected to be detected numerous associated tracks; The secondary vertices are the points where some particles decay when propagating. In this section, we put the emphasis on the primary vertex.
+
+		There are many proton-proton interaction vertices which are exactly PVs in each event including signal vertex(whose interaction we have interests in) and other vertices from pileup collisions(section.\ref{ssec:PhysObj_pu}). The work of finding position of primary vertex is highly related to reconstructed tracks. The three steps of reconstructing primary verex is shown below:
+
+		\begin{itemize}
+			\item $\textbf{Tracks selection}$ : To choose the tracks which are produced in the primary interaction region and also consistent, there are some requirements. It is set on the significance of the transverse impact parameter, the number of pixel/strip hits related to one track, and $\chi^2$ value which is normalized from fitting to the trajectory. However, there is no tracks' $p_T$ selection because of the confirmation of high econstruction efficiency.
+			\item $\textbf{Tracks clustering}$ : Tracks clustering is now using $\textbf{Deterministic Annealing(DA)}$\cite{726788} algorithm which can find global minimum under multi-dimention space(multi- degrees of freedom). By the ability, it can cluster the tracks which appears to originate from the same interaction vertex. The algoeithm detail can be probed in \cite{Chatrchyan:2014fea} and \cite{726788}.
+			\item $\textbf{Track fitting}$ : By vertex's associated tracks, the vertex position would be fitted. After identifying candidates vertices by DA algorithm, the candidates vertices would be fitted by using $\textbf{adaptive vertex fitter}$\cite{Fruhwirth:2007hz}. Then the best estimation of vertices' parameter would be got. For example, x, y and z position, covariance matrix, number of D.o.F(degrees of freedom) for the vertex, and also weights of the tracks which account for the vertex, etc.
+		\label{PhysObj:itm:track_reco}
+		\end{itemize}
 
 	\subsection{Pileup Issue}
 	\label{ssec:PhysObj_pu}{}
@@ -59,6 +68,10 @@
 
 		\subsubsection{Electron}
 		\label{sssec:Electron}
+
+
+	\subsection{Missing Transverse Energy(MET)}
+	\label{ssec:PhysObj_met}
 
 	\subsection{Jet}
 	\label{ssec:PhysObj_jet}

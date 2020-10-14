@@ -36,15 +36,167 @@
 	\subsection{Implementation and results}
 	\label{ssec:Syst_imp_result}
 
-		The approaches to apply the systematic uncertainty are shown below. First, we 
+		The approaches to apply the systematic uncertainty are shown below. This is expected to use 5000 pseudo data set to calculate the systematic uncertainty of $A'_{cp}$. We nneed to use the real dataset's $M_{lb}$-$A_{cp}(O_i)$ distribution(2D) to generate 5000 sets of pseudo dataset. The generated method is by Monte Carlo algorithm and adopted with yields from poisson distribution with mean is real dataset's yields. For example, Fig.\ref{Syst:fig:PD} is one of the generated pseudo dataset under $M_{lb}$-$O_{6}$ in muon channel(MVA reconstruction result). 
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[one of pseudo dataset of $M_{lb}$-$O_6$ (muon channel)]{\includegraphics[width=0.65\textwidth]{Figures/SystUnc/PD_nominal_O6_mu.pdf}}\\
+		\caption{Generated pseudo dataset ($M_{lb}$-$O_6$ in muon channel ($M_{lb}$:[0,300],$O_i$:[-3000,3000])}
+		\label{Syst:fig:PD}
+		\end{figure}
+		\FloatBarrier
+
+		For each pseudo dataset, we have a series of implementation -- The illustration of systematice implementation is shown below in Fig.\ref{Syst:fig:approach}. First, we applied the one standard deviation systematic uncertainty of one kind of systematic on the signal simulation sample, then do full selection on it to get the signal template under $M_{lb}$ with systematic uncertainy. For instance, the Fig.\ref{Syst:fig:template} shows the signal template without any systematic uncertainty(nominal), the signal template with JER(+1$\sigma$) systematic uncertainty and the original background template.
+
+		\begin{figure}[H]
+		\centering
+			\subfigure[Nominal signal template]{\includegraphics[width=0.45\textwidth]{Figures/SystUnc/nominal_O6_mu_template.pdf}}
+		    \subfigure[JER +1$\sigma$ signal template]{\includegraphics[width=0.45\textwidth]{Figures/SystUnc/JERup_O6_mu_template.pdf}}\\
+		    \subfigure[Background template]{\includegraphics[width=0.45\textwidth]{Figures/SystUnc/nominal_bkg_O6_mu_template.pdf}}
+		\caption{Nominal signal template, JER +1$\sigma$ signal template, and background template in muon channel}
+		\label{Syst:fig:template}
+		\end{figure}
+		\FloatBarrier
+
+		Secondly, by using this signal template and original background template to do the background subtraction(section.\ref{ssec:bkg_sub} and Fig.\ref{BkgEst:fig:Bkt_sub}) and get the $A'_{cp}$(of observable $O_i$) with systematic uncertainty. Lastly, we get the $A'_{cp}$ of nominal version(without any systematic uncertainty) and systematic uncertainty version and their $\Delta A'_{cp}$ would be got.
 
 		\begin{figure}[H]
 		\centering{}
 	    	\includegraphics[width=0.85\textwidth]{Figures/SystUnc/approach_syst.pdf}\\
 		\caption{Process of measuring systematic uncertainty}
-		\label{BkgEst:fig:Bkt_sub}
+		\label{Syst:fig:approach}
 		\end{figure}
 		\FloatBarrier
+
+		We repeat the previous procedure on 5000 pseudo dataset and get a collection of 5000 $\Delta A'_{cp}$ and their gathering distribution. The mean value of the distribution may be the final systematic uncertainty of the $A'_{cp}$, however, in this analysis, we consider the standard deviation of the distribution as the absolute value of systematic uncertainty, and the mean value could be used to decide the positive or negative sign of systematic uncertainty. In the process, the fitted signal/background yields in 5000 sets of pseudo dataset could be obviously differ between nominal case and systematic case. Futhermore, the fitted signal/background $\Delta$yields distribution and $\Delta A'_{cp}$ distribution between nominal and systematic cases could be fitted by a gaussian distribution. There are the example of fitted signal/background $\Delta$yields distribution(Fig.\ref{Syst:fig:deviation_sig}, \ref{Syst:fig:deviation_bkg}) and $\Delta A'_{cp}$ distribution(Fig.\ref{Syst:fig:deviation_Acp}) of JER(+1$\sigma$) systematic uncertainty of $O_6$ in muon channel.
+
+
+		\begin{figure}[H]
+		\centering
+		    \includegraphics[width=0.75\textwidth]{Figures/SystUnc/sig_yields_unc.pdf}\\
+		\caption{Signal yields distribution and $\Delta$ signal yields distribution (Nominal and JER(+1$\sigma$) $O_6$ muon channel case) }
+		\label{Syst:fig:deviation_sig}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+		    \includegraphics[width=0.75\textwidth]{Figures/SystUnc/bkg_yields_unc.pdf}\\
+		\caption{Background yields distribution and $\Delta$ background yields distribution (Nominal and JER(+1$\sigma$) $O_6$ muon channel case) }
+		\label{Syst:fig:deviation_bkg}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{figure}[H]
+		\centering
+		    \includegraphics[width=0.75\textwidth]{Figures/SystUnc/Acp_unc.pdf}\\
+		\caption{$A'_{cp}$ distribution and $\Delta A'_{cp}$ distribution (Nominal and JER(+1$\sigma$) $O_6$ muon channel case) }
+		\label{Syst:fig:deviation_Acp}
+		\end{figure}
+		\FloatBarrier
+
+		The following tables are the result of systematic uncertainty in both muon channel and electron channel.
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c c c c | }
+		\caption{Systematic of $A_{cp}(O_i)$ in Muon channel [\%] (MVA-A)}\\
+		\hline
+		 [\%] & $O_3$ & $O_6$ & $O_{12}$ & $O_{14}$ \\
+		\hline
+		JER($+1\sigma$) & 0.004 & -0.003 & -0.004 & 0.004 \\
+		JER($-1\sigma$) & -0.003 & 0.003 & 0.003 & -0.003 \\
+		\hline
+		JEC($+1\sigma$) & 0.004 & -0.004 & -0.004 & 0.004 \\
+		JEC($-1\sigma$) & -0.004 & 0.004 & 0.004 & -0.004 \\
+		\hline
+		b-tagging($+1\sigma$) & -0.002 & 0.002 & -0.002 & 0.002 \\
+		b-tagging($-1\sigma$) & 0.002 & -0.002 & 0.002 & -0.002 \\
+		\hline
+		lepton($+1\sigma$) & -0.000 & 0.000 & -0.000 & 0.000 \\
+		Lepton($-1\sigma$) & 0.000 & -0.000 & 0.000 & -0.000 \\
+		\hline
+		Pileup($+1\sigma$) & -0.001 & 0.001 & -0.001 & 0.001 \\
+		Pileup($-1\sigma$) & 0.001 & -0.001 & 0.001 & -0.001 \\
+		\hline
+		\end{longtable}
+		\end{center}
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c c c c | }
+		\caption{Systematic of $A_{cp}(O_i)$ in Electron channel [\%] (MVA-A)}\\
+		\hline
+		 [\%] & $O_3$ & $O_6$ & $O_{12}$ & $O_{14}$ \\
+		\hline
+		JER($+1\sigma$) & 0.004 & -0.004 & -0.004 & 0.004 \\
+		JER($-1\sigma$) & -0.004 & 0.004 & 0.004 & -0.004 \\
+		\hline
+		JEC($+1\sigma$) & 0.005 & -0.005 & -0.005 & 0.005 \\
+		JEC($-1\sigma$) & -0.005 & 0.005 & 0.005 & -0.005 \\
+		\hline
+		b-tagging($+1\sigma$) & 0.002 & -0.002 & -0.002 & -0.002 \\
+		b-tagging($-1\sigma$) & -0.002 & 0.003 & 0.002 & 0.003 \\
+		\hline
+		Lepton($+1\sigma$) & 0.000 & -0.000 & -0.000 & -0.000 \\
+		Lepton($-1\sigma$) & -0.000 & 0.000 & 0.000 & 0.000 \\
+		\hline
+		Pileup($+1\sigma$) & 0.001 & -0.001 & -0.001 & -0.001 \\
+		Pileup($-1\sigma$) & -0.001 & 0.001 & 0.001 & 0.001 \\
+		\hline
+		\end{longtable}
+		\end{center}
+
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c c c c | }
+		\caption{Systematic of $A_{cp}(O_i)$ in Muon channel [\%] (MVA-B)}\\
+		\hline
+		 [\%] & $O_3$ & $O_6$ & $O_{12}$ & $O_{14}$ \\
+		\hline
+		JER($+1\sigma$) & 0.003 & -0.003 & -0.003 & 0.003 \\
+		JER($-1\sigma$) & 0.003 & 0.003 & 0.003 & 0.003 \\
+		\hline
+		JEC($+1\sigma$) & 0.004 & -0.004 & -0.004 & 0.004 \\
+		JEC($-1\sigma$) & 0.004 & 0.004 & 0.004 & 0.004 \\
+		\hline
+		b-tagging($+1\sigma$) & 0.002 & -0.002 & -0.002 & 0.002 \\
+		b-tagging($-1\sigma$) & 0.002 & 0.002 & 0.002 & 0.002 \\
+		\hline
+		lepton($+1\sigma$) & 0.000 & -0.000 & -0.000 & 0.000 \\
+		Lepton($-1\sigma$) & -0.000 & 0.000 & 0.000 & -0.000 \\
+		\hline
+		Pileup($+1\sigma$) & 0.001 & -0.001 & -0.001 & 0.001 \\
+		Pileup($-1\sigma$) & 0.001 & 0.001 & 0.001 & 0.001 \\
+		\hline
+		\end{longtable}
+		\end{center}
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c c c c | }
+		\caption{Systematic of $A_{cp}(O_i)$ in Electron channel [\%] (MVA-B)}\\
+		\hline
+		 [\%] & $O_3$ & $O_6$ & $O_{12}$ & $O_{14}$ \\
+		\hline
+		JER($+1\sigma$) & -0.004 & 0.004 & 0.004 & -0.004 \\
+		JER($-1\sigma$) & 0.004 & -0.004 & -0.004 & 0.004 \\
+		\hline
+		JEC($+1\sigma$) & -0.005 & 0.005 & 0.005 & -0.005 \\
+		JEC($-1\sigma$) & -0.005 & -0.005 & -0.005 & 0.005 \\
+		\hline
+		b-tagging($+1\sigma$) & -0.003 & 0.003 & 0.003 & -0.002 \\
+		b-tagging($-1\sigma$) & 0.003 & -0.003 & -0.003 & 0.003 \\
+		\hline
+		Lepton($+1\sigma$) & 0.000 & 0.000 & 0.000 & -0.000 \\
+		Lepton($-1\sigma$) & 0.000 & -0.000 & -0.000 & 0.000 \\
+		\hline
+		Pileup($+1\sigma$) & -0.001 & 0.001 & 0.001 & -0.001 \\
+		Pileup($-1\sigma$) & 0.001 & -0.001 & -0.001 & 0.001 \\
+		\hline
+		\end{longtable}
+		\end{center}
 
 
 \FloatBarrier
