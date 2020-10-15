@@ -6,7 +6,29 @@
 \section{Dilution Effect}
 \label{sec:Dilution}
 	
-	As mentioned previously, the measured $A'_{cp}$ is the results from physical objects detected from detector and reconstructed by numerous technical process, so the $A'_{cp}$ may not perfectly demonstrate the original expected $A_{cp}$ in parton level. The 
+	As mentioned previously, the measured $A'_{cp}$ is the results from physical objects detected from detector and reconstructed by numerous technical process, so the $A'_{cp}$ may not perfectly demonstrate the original expected $A_{cp}$ in parton level. There might be a dilution factor to depict the process of dilution effect linearly, and it is shown in Eq.\ref{eq:Dilution_Acp}. Also, the dilution effect $D_i$ is dependent on observables.
+
+	\begin{equation}
+	A_{cp}(O_i) = D_i A'_{cp}(O_i)
+	\label{eq:Dilution_Acp}
+	\end{equation}
+	\FloatBarrier
+
+	We can approach the dilution effect through simulation sample of our signal -- $t\bar{t}$ MC sample. We let $t\bar{t}$ MC sample passing the full selection and calculate the $A'_{cp}$ by detector-level's physical objects(jets, muon, electron, MET...), at the same time, the event's real $A_{cp}$ could be derived by the generator-level particle's information. By comparing the sign of $O_i$ in detector-level and $O_i$ in generator-level we can get the $\emph{same sign}$ and $\emph{opposite sign}$ of $O_i$ between both levels' measurements in an event. This is because the CP-odd observable use the observable $O_i$ positive and negative event number rather than $O_i$ value's average or other. The dilution factor is gotten from Eq.\ref{eq:Dilution_epsilon} by opposite sign rate $\epsilon_{opp}$ which is calculate by number of same sign events($N_{same}$) and number of opposite events($N_{opp}$) in $t\bar{t}$ MC sample:
+
+	\begin{equation}
+	D_i = 1 - 2 \epsilon_{opp} \; \; , \; \; \; \; \; \; \epsilon_{opp} = \frac{N_{opp}}{N_{same} + N_{opp}}
+	\label{eq:Dilution_epsilon}
+	\end{equation}
+	\FloatBarrier
+
+	\subsection{Dilution factor}
+	\label{Dilution:dilution_factor}
+		
+
+	\subsection{Result}
+	\label{Dilution:result}
+		
 
 
 \FloatBarrier
