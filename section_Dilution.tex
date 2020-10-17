@@ -25,10 +25,123 @@
 	\subsection{Dilution factor}
 	\label{Dilution:dilution_factor}
 		
+		The derivation of the dilution factor is showing in this section. For a sample of data, there must be correctly tagged, mis-identified, and mis-tagged states when detector detecting the physical objects. The sum of these three states' efficiency whould be unity.
+
+		\begin{equation}
+		\epsilon_{cor} + \epsilon_{misi} + \epsilon_{mist} = 1
+		\label{eq:Dilution_unity}
+		\end{equation}
+		\FloatBarrier
+
+		By simulation data, we need to know the relationship between $A_{cp}$ and $A'_{cp}$, which are composed by number of real positive and negative observables' sign($N^{+}$,$N^{-}$) and number of detected observables' sign($N'^{+}$,$N'^{-}$):
+
+		\begin{equation}
+		A_{cp} = \frac{ N^{+} - N^{-} }{ N^{+} + N^{-} } \;\;, \;\;\;\; 
+		A'_{cp} = \frac{ N'^{+} - N'^{-} }{ N'^{+} + N'^{-} }
+		\label{eq:Dilution_001}
+		\end{equation}
+		\FloatBarrier
+		
+
+		The $N^+$ and $N^-$ includes only correctly tagged and mis-identified cases ($N^{+/-}_{cor}$,$N^{+/-}_{misi}$) because the interested number do not contain mis-tagged type. Mostover, the condition only occurs in original generator-level's number (of positive and negative observables) ,so:
+
+		\begin{equation}
+		N^+ + N^- = (\epsilon_{cor} + \epsilon_{misi})N = (1-\epsilon_{mist})N = (1-\epsilon_{mist})(N'^+ + N'^-)
+		\label{eq:Dilution_002}
+		\end{equation}
+		\FloatBarrier
+
+		where $N$ is the total number of events and it is the same as $N'^+ + N'^-$ but the interested number in generator level($N^+$, $N^-$) are just the part of $N$. Also, the number in detected observables would be seperated to 3 types which are correctly-tagged, mis-identified, and mis-tagged($N'^{+/-}_{cor}$, $N'^{+/-}_{misi}$, $N'^{+/-}_{mist}$). It is known that the mis-tagged type number in positive and negative may be fairly distributed. That is, 
+
+		\begin{equation}
+		N'^+_{mist} = N'^-_{mist} = \frac{1}{2}\epsilon_{mist} \cdot N
+		\label{eq:Dilution_003}
+		\end{equation}
+		\FloatBarrier
+
+		Therefore, by the Eq.\ref{eq:Dilution_002}, \ref{eq:Dilution_003}, 
+
+		\begin{equation}
+		\begin{split}
+		N'^+ = N'^+_{cor} + N'^+_{misi} + N'^+_{mist} = (\frac{\epsilon_{cor}}{\epsilon_{misi} + \epsilon_{mist}})N^+ + (\frac{\epsilon_{misi}}{\epsilon_{cor} + \epsilon_{misi}})N^- + \frac{1}{2}\epsilon_{mist} N \\
+		N'^- = N'^-_{cor} + N'^-_{misi} + N'^-_{mist} = (\frac{\epsilon_{cor}}{\epsilon_{misi} + \epsilon_{mist}})N^- + (\frac{\epsilon_{misi}}{\epsilon_{cor} + \epsilon_{misi}})N^+ + \frac{1}{2}\epsilon_{mist} N  \\
+		\Rightarrow N'^+ - N'^- = (\frac{\epsilon_{cor}-\epsilon_{misi}}{\epsilon_{cor}+\epsilon_{misi}})(N^+ - N^-) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+		\end{split}
+		\label{eq:Dilution_004}
+		\end{equation}
+		\FloatBarrier
+
+		And the relationship between $A'_{cp}$ and $A_{cp}$ is clear:
+
+		\begin{equation}
+		\begin{split}
+		A'_{cp} = \frac{N'^+ - N'^-}{N'^+ + N'^-} \\
+		= (\frac{1}{N'^+ + N'^-})[(\frac{\epsilon_{cor}-\epsilon_{misi}}{\epsilon_{cor}+\epsilon_{misi}})(N^+ - N^-)] \\
+		= (\frac{1}{N^+ + N^-})(\frac{\epsilon_{cor}-\epsilon_{misi}}{\epsilon_{cor}+\epsilon_{misi}})(N^+ - N^-)\\
+		= (\epsilon_{cor}-\epsilon_{misi})\frac{N^+ - N^-}{N^+ + N^-}\\
+		= D \cdot A_{cp}
+		\end{split}
+		\label{eq:Dilution_005}
+		\end{equation}
+		\FloatBarrier
+
+		There are shown that the linear condition about $A'_{cp}$ and $A_{cp}$. By using $t\bar{t}$ simulation sample, the dilution factor can be measured by correctly tagged and mis-identified type efficiency because of the given no mistag type from MC truth studying. The simple form by correctly and incorrectly tagged efficiencies is listed below(Eq.\ref{eq:Dilution_006}):
+
+		\begin{equation}
+		D = \epsilon_{cor} - \epsilon_{incor} = (1-\epsilon_{incor}) - \epsilon_{incor} = 1 - 2\epsilon_{incor}
+		\label{eq:Dilution_006}
+		\end{equation}
+		\FloatBarrier
 
 	\subsection{Result}
 	\label{Dilution:result}
 		
+		The incorrectly tagged efficiency $\epsilon_{incor}$ in Eq.\ref{eq:Dilution_006} conform to the opposite efficiency $\epsilon_{opp}$ in Eq.\ref{eq:Dilution_epsilon}, so the results of dilution effects could be handed by calculating the simulation sample. The different signal reconstruction method and selection strategy also affect the final decision of choosing obsjects to be calculated. Then the effect may vary the performance on dilution effect, so there are dilution factors and same sign ratios of four observables of three event-reconstruction and selection method.(Table. \ref{Dilution:tb:chi2}, \ref{Dilution:tb:MVAA}, \ref{Dilution:tb:MVAB})
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ c | c c }
+		\caption{Same sign ratio and dilution factor ($\chi^2_{min}$ result)}\\
+		Observable & same sign rate[\%]($=1-k$) & Dilution Factor[\%] \\
+		\hline
+		$O_{3}$ & 70.16$\pm$0.03  &  40.33$\pm$0.05  \\
+		$O_{6}$ &  68.72$\pm$0.03  &  37.45$\pm$0.05  \\
+		$O_{12}$ &  84.03$\pm$0.02  &  68.07$\pm$0.04  \\
+		$O_{14}$ &  76.65$\pm$0.02  &  53.31$\pm$0.05  \\
+		\hline
+		\end{longtable}
+		\label{Dilution:tb:chi2}
+		\end{center}
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ c | c c }
+		\caption{Same sign ratio and dilution factor (MVA-A result)}\\
+		Observable & same sign rate[\%]($=1-k$) & Dilution Factor[\%] \\
+		\hline
+		$O_{3}$ & 70.16$\pm$0.03  &  40.33$\pm$0.05  \\
+		$O_{6}$ &  68.72$\pm$0.03  &  37.45$\pm$0.05  \\
+		$O_{12}$ &  84.03$\pm$0.02  &  68.07$\pm$0.04  \\
+		$O_{14}$ &  76.65$\pm$0.02  &  53.31$\pm$0.05  \\
+		\hline
+		\end{longtable}
+		\label{Dilution:tb:MVAA}
+		\end{center}
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ c | c c }
+		\caption{Same sign ratio and dilution factor (MVA-B result)} \\
+		Observable & same sign rate[\%]($=1-k$) & Dilution Factor[\%] \\
+		\hline
+		$O_{3}$ & 70.16$\pm$0.03  &  40.33$\pm$0.05  \\
+		$O_{6}$ &  68.72$\pm$0.03  &  37.45$\pm$0.05  \\
+		$O_{12}$ &  84.03$\pm$0.02  &  68.07$\pm$0.04  \\
+		$O_{14}$ &  76.65$\pm$0.02  &  53.31$\pm$0.05  \\
+		\hline
+		\end{longtable}
+		\label{Dilution:tb:MVAB}
+		\end{center}
 
 
 \FloatBarrier

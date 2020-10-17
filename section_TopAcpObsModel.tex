@@ -16,6 +16,8 @@
 		\subsubsection{ CEDM model}
 		\label{sssec:AcpModel_CEDM}
 
+
+
 			The CEDM model's asymmtry from real part of $d_t^g$ could be detected by T-odd observables only, and imagininary part of $d_t^g$ could be detected by T-even observables.(T-odd and T-even will be menntioned in section\ref{ssec:AcpObs}) However, the implementation to generate the model lagrangian with program FeynRules(cite****), the imaginary part of $d_t^g$ is not allowed inputting. Now, therefore, the MadGraph generator we use could not make CEDM sample with imaginary part of $d_t^g$. If there will be hacked into the FeynRules and successfully imsert the restricted imaginary part now, the T-even observable behavior corresponding to $Im(d_t^g)$ will be still an interesting issue.
 
 		\subsubsection{ 2HDM model}
@@ -46,7 +48,7 @@
 
 			\begin{equation}
 			\begin{split}
-			\gamma_{cp} = -a \~{a} = d_{2j}d_{3j}\cot{\beta}/\sin{\beta}
+			\gamma_{cp} = -a \widetilde{a} = d_{2j}d_{3j}\cot{\beta}/\sin{\beta}
 			\label{eq:2HDM_rawCPV}
 			\end{split}
 			\end{equation}
@@ -64,10 +66,10 @@
 			\end{equation}
 			\FloatBarrier
 
-			The particle spectrum of 2HDM model are three neutral Higgs-bosons and 2 charged Higgs-bosons which are denoted by $H^{k}$(k=1,2,3) and $H^{+(-)}$. The key parameters of 2HDM model which could lead to CP violation in the Higgs sector are $\lambda_5$, $\lambda_6$, $\lambda_7$, and $\mu_{12}^2$, and there are organized four scenario from \cite{Atwood:2000tu}. 
+			The particle spectrum of 2HDM model are three neutral Higgs-bosons and 2 charged Higgs-bosons which are denoted by $H^{k}$(k=1,2,3) and $H^{+(-)}$. The key parameters of 2HDM model which could lead to CP violation in the Higgs sector are $\lambda_5$, $\lambda_6$, $\lambda_7$, and $\mu_{12}^2$, and there are some organized scenario from \cite{Atwood:2000tu} --
 
 			\begin{itemize}
-				\item
+				\item 
 				\item
 				\item
 				\item
@@ -76,25 +78,66 @@
 
 			The previous organization and more 2HDM model and parameters discussion would be in the refernce of particle-phenomenology papers \cite{Atwood:2000tu}, \cite{ElKaffas:2006gdt}, \cite{Khater:2003wq}, \cite{Keus:2015hva}, \cite{Iguro:2019zlc}, \cite{Bernreuther:1993hq}, \cite{Bernreuther:1998qv}.
 
-			2HDM model's CPV could be detected by CP-odd observables with both T-odd or T-even property according to the derivation (ref 1993derivation). Because the parameters in 2HDM model is too comlicated to tune, it is not the bottom line of us to approach. There will will be done by some fundamental test of default parameter setting in the section.\ref{ssec:AcpObs} with various observables.
+			2HDM model's CPV could be detected by CP-odd observables with both T-odd or T-even property according to the derivation (ref 1993derivation). Because the parameters in 2HDM model is too comlicated to tune, it is not the bottom line of us to approach. There will be done by some fundamental test of default parameter setting in the section.\ref{ssec:AcpObs} with various observables.
 
 
 
 	\subsection{Observables}
 	\label{ssec:AcpObs}
 
-		The probed observables are roughly classified to two type. The first one is the CP-odd and T-odd observables and the other is CP-odd and T-even observable. The even/odd means the $\hat{CP}$/$\hat{T}$ operator's eigenstate with eigenvalue $+1$ and $-1$ corresponding to even and odd. 
+		The probed observables are roughly classified to two type. The first one is the CP-odd observables which is T-edd and the other is CP-odd observable which is T-even. The even/odd means the $\hat{CP}$/$\hat{T}$ operator's eigenstate with eigenvalue $+1$ and $-1$ corresponding to even and odd. 
 
 		The triple product type observable(for example, the $O_{3,6,12,14}$ we use in the 2016 analysis) is T-odd observable.
 
 		\subsubsection{Classification and Test}
 		\label{sssec:AcpObs_class_test}
 
-		First, following the paper***, which is the basic of 2016 analysis, we use Madgraph(cite******) generator to generate $t\bar{t}$ sample of standard model, CEDM model($d_t^{g} = 5$), 2HDM model(default setting) in parton level to double-check the triple product observable acting under models. 
+		The following testing are based on some simulation sample of $t\bar{t}$ by generator Madgraph to generate parton-level's event-by-event sample. And the showering and detector simulation would be done by Pythia cite**** and Delphes cite****.
 
-		The CEDM model shows great sensitivity to the triple product observables, and the 2HDM model without any parameter setting 
+		At first, following the paper\cite{Hayreter:2015ryk}'s(which is the basic of 2016 analysis) selection and model implementation, we also use Madgraph\cite{Alwall:2011uj} generator as it to generate $t\bar{t}$ sample of CEDM model to double-check the triple product observables action under CEDM model. The $O_{3}$, $O_{6}$, $O_{12}$, $O_{14}$ would be tested:
 
-		Because of the extensive usage of triple-product-type observables, which is roughly about T-odd observales, to measure the asymmetry in $t\bar{t}$, we put emphasis on T-even observable here.
+		\begin{figure}[H]
+		\centering
+		    \subfigure[$O_{3}$]{\includegraphics[width=0.45\textwidth]{Figures/Observables/O_{3}.pdf}}
+		    \subfigure[$O_{6}$]{\includegraphics[width=0.45\textwidth]{Figures/Observables/O_{6}.pdf}}\\
+		\end{figure}
+		\FloatBarrier
+		\begin{figure}[H]
+		\centering
+		    \subfigure[$O_{12}$]{\includegraphics[width=0.45\textwidth]{Figures/Observables/O_{12}.pdf}}
+		    \subfigure[$O_{14}$]{\includegraphics[width=0.45\textwidth]{Figures/Observables/O_{14}.pdf}}\\
+		\caption{Reproduction of the results from \cite{Hayreter:2015ryk}}
+		\label{Obs:fig:reproduce}
+		\end{figure}
+		\FloatBarrier
+
+
+		Also, we also test that the asymmetry of standard model, CEDM model($d_t^g=5$),and 2HDM model(default parameters setting\cite{2HDM_NLO_UFO}) in parton level by Madgraph generator to see the four triple product observables acting under these models.
+
+		\begin{figure}[H]
+		\centering
+		    \subfigure[SM, Muon channel]{\includegraphics[width=0.45\textwidth]{Figures/Observables/TP_doublecheck/Acp_TP_semilep_genAcp_NoSel_10_7-semi_SM_i5_0j_mu.pdf}}
+		    \subfigure[SM, Electron channel]{\includegraphics[width=0.45\textwidth]{Figures/Observables/TP_doublecheck/Acp_TP_semilep_genAcp_NoSel_10_7-semi_SM_i5_0j_el.pdf}}\\
+		\end{figure}
+		\FloatBarrier
+		\begin{figure}[H]
+		\centering
+		    \subfigure[CEDM, Muon channel]{\includegraphics[width=0.45\textwidth]{Figures/Observables/TP_doublecheck/Acp_TP_semilep_genAcp_NoSel_10_7-semi_CEDM5_0j_mu.pdf}}
+		    \subfigure[CEDM, Electron channel]{\includegraphics[width=0.45\textwidth]{Figures/Observables/TP_doublecheck/Acp_TP_semilep_genAcp_NoSel_10_7-semi_CEDM5_0j_el.pdf}}\\
+		\end{figure}
+		\FloatBarrier
+		\begin{figure}[H]
+		\centering
+		    \subfigure[2HDM, Muon channel]{\includegraphics[width=0.45\textwidth]{Figures/Observables/TP_doublecheck/Acp_TP_semilep_genAcp_NoSel_10_7-semi_2HDM_NLO_m1_0j_mu.pdf}}
+		    \subfigure[2HDM, Electron channel]{\includegraphics[width=0.45\textwidth]{Figures/Observables/TP_doublecheck/Acp_TP_semilep_genAcp_NoSel_10_7-semi_2HDM_NLO_m1_0j_el.pdf}}\\
+		\caption{Measurement of three model's(SM, CEDM with $d_t^g=5$, 2HDM with default parameters setting) simulation sample with four triple product observables}
+		\label{Obs:fig:TP_3model}
+		\end{figure}
+		\FloatBarrier
+
+		Compared to the standard model's results -- the asymmetry values are supposely drop into 2 standard deviation range, the CEDM model shows great sensitivity to the triple product observables, and the 2HDM model with default parameter setting shows a little probability to be detect.
+
+		Because of the extensive usage of triple-product-type observables, which is roughly equal to T-odd observales, to measure the asymmetry in $t\bar{t}$, we put emphasis on T-even observable here.
 
 		% Peskin
 
