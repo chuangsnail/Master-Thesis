@@ -296,13 +296,65 @@
 			\end{figure}
 			\FloatBarrier
 
-			In Fig.\ref{Obs:fig:SM_2HDM_1993} and Fig.\ref{Obs:fig:SM_2HDM_1998}, although the 2HDM looks having more asymmetry than SM sometimes as expected, they are both inside the 2 standard deviation range. I think that would be the fluctuaction and not really present that the observables detect some asymmetry. It is not sure that the parameter setting of 2HDM can not lead to CP violation or the observables have bad sensitivity. The parameter setting of 2HDM is not our business, so the temperal conclusion of observables $A_1$, $A_2$, $A_{cp}(O_1)$, and $A_{cp}(Q_1)$ are that they are detectable, and if there are some exact samples with CPV could be detect by T-even, it is valuable to test the observables' sensitivity about CPV. The work we can do now is to do the research of these observables themselves and their properties.
+			In Fig.\ref{Obs:fig:SM_2HDM_1993} and Fig.\ref{Obs:fig:SM_2HDM_1998}, although the 2HDM looks having more asymmetry than SM sometimes as expected, they are both inside the 2 standard deviation range. I think that would be the fluctuaction and not really present that the observables detect some asymmetry. It is not sure that the parameter setting of 2HDM can not lead to CP violation or the observables have bad sensitivity. The parameter setting of 2HDM is not our business, so the temperal conclusion of observables $A_1$, $A_2$, $A_{cp}(O_1)$, and $A_{cp}(Q_1)$ are that they are detectable, and if there are some exact samples with obvious CPV could be detect by T-even observables, it is valuable to test the observables' sensitivity about CPV. The work we can do now is to do the research of these observables themselves and their properties.
 
 		\subsubsection{Observable property}
 		\label{sssec:AcpObs_property}
 
 			In this section, we focus on the dilution effect of T-evenn observables. However, the previous T-even observables' forms are various, the appropriate observables which can be done with studying dilution effect are $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ because of their counting the positive and negative events number rather than measuring observable's value, that is to say, they are just like the method the 2016 analysis uses with the four T-odd observables($O_3$, $O_6$, $O_{12}$, $O_{14}$). Eq.********(in chapter 1)
 
-			To see the dilution effects, we need the simulation not only in parton level with Madgraph, but also in showering and detector level objects' simulation with Pythia and Delphes. 
+			To see the dilution effects, we need the simulation not only in parton level with Madgraph, but also in showering and detector level objects' simulation with Pythia and Delphes. The concept of dilution effect here is same as section.\ref{sec:Dilution} -- the effect which dilutes the $A_{cp}$ in generator-level to $A'_{cp}$ in detector-level. However, the test here is using generator-matching to match detector-level's objects and generator-level's particles, so the measured result would be purely from detector/reconstruction issue and objects' resolution, not from objects' identification like b-tagged correctness, light jets' identification. The generator-matching has been mentioned in section.\ref{sssec:mva_intro}, and the matching method is by Eq.\ref{eq:gen_matching}.
+
+			With the same calculation method, we also use Eq.\ref{eq:Dilution_epsilon} to calculate the dilution factor of $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ by SM $t\bar{t}$ simulation sample with no selection($10^7$ events):
+
+			\begin{center}
+			\setlength{\tabcolsep}{12pt}
+			\begin{longtable}{ c | c c }
+			\caption{Dilution factor of }\\
+			Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
+			\hline
+			$A_{cp}(Q_1)$ & 88.12  &  76.23  \\
+			$A_{cp}(O_1)$    &    \\
+			\hline
+			\end{longtable}
+			\label{Obs:tb:SM_DF}
+			\end{center}
+
+			We can validate the dilution factor by generate samples with artificial $A_{cp}$. The artificial $A_{cp}$ comes from randomly duplicate specific events in original $t\bar{t}$ sample. Take $A_{cp}(Q_1)$ for instance, we have $10\%$ probability to duplicate the $t\bar{t}$ event which has $Q_1 > 0$. There are the validation with varied artificial $A_{cp}$ and their corresponding $A'_{cp}$, then the linearly fitted line's slope would be the dilution factor.(Fig.\ref{Obs:fig:vali_SM})
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[$A_{cp}(Q_1)$ ($t\bar{t}$ dilepton decay)]{\includegraphics[width=0.45\textwidth]{Figures/Observables/property/text_Dilution_Obs_SM_di_dr.pdf}}
+			    \subfigure[$A_{cp}(O_1)$ ($t\bar{t}$ semi-lepton decay)]{\includegraphics[width=0.45\textwidth]{Figures/Observables/property/text_Dilution_Obs_SM_dr.pdf}}\\
+			\caption{Validation of measurred dilution factor with artificial $A_{cp}$'s $t\bar{t}$ simulation samples(SM)}
+			\label{Obs:fig:vali_SM}
+			\end{figure}
+			\FloatBarrier
+
+			The previous measurement of dilution factor is using the standard model's kinematics. However, if we believe the 2HDM sample with default parameter setting has beyond SM's CPV but do not obviously detected by these T-even observables, we may also magnify the CPV in 2HDM model with 2HDM specific kinematics by generate artificial CPV sample. The following are dilution factor calculation and artificial $A_{cp}$'s validation as previous but by 2HDM model(default) $t\bar{t}$ sample:
+
+			\begin{center}
+			\setlength{\tabcolsep}{12pt}
+			\begin{longtable}{ c | c c }
+			\caption{}\\
+			Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
+			\hline
+			$A_{cp}(Q_1)$ & 88.30  &  76.61  \\
+			$A_{cp}(O_1)$    &    \\
+			\hline
+			\end{longtable}
+			\label{Obs:tb:2HDM_DF}
+			\end{center}
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[$A_{cp}(Q_1)$ ($t\bar{t}$ dilepton decay)]{\includegraphics[width=0.45\textwidth]{Figures/Observables/property/text_Dilution_Obs_di_2HDM_NLO_v1_dr.pdf}}
+			    \subfigure[$A_{cp}(O_1)$ ($t\bar{t}$ semi-lepton decay)]{\includegraphics[width=0.45\textwidth]{Figures/Observables/property/text_Dilution_Obs_2HDM_NLO_v1_dr.pdf}}\\
+			\caption{Validation of measurred dilution factor with artificial $A_{cp}$'s $t\bar{t}$ simulation samples(2HDM)}
+			\label{Obs:fig:vali_2HDM}
+			\end{figure}
+			\FloatBarrier
+
+
 
 \FloatBarrier

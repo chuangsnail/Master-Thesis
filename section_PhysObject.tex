@@ -97,7 +97,7 @@
 		\begin{figure}[H]
 		\centering{}
 	    	\includegraphics[width=0.85\textwidth]{Figures/PhysObj/jet_algo.pdf}\\
-		\caption{Example of constructing protojets to jets}
+		\caption{Illustration diagram about an example of constructing protojets to jets}
 		\label{PhysObj:fig:jet_algo}
 		\end{figure}
 		\FloatBarrier
@@ -211,6 +211,34 @@
 
 	\subsection{Trigger}
 	\label{ssec:PhysObj_trg}
+		Trigger is the start of the physics event selection prrocess. There is a decision to retain a set of events which is included in and suitable to be used for specific analysis. There are 2 kinds of trigger in CMS trigger system. The following introduction are collected from reference \cite{Dasu:2000ge}, \cite{Cadamuro_2017}, \cite{Trocino_2014} . There are the $\textbf{Level 1 Trigger(L1T)}$ and the $\textbf{High Level Trigger(HLT)}$ system.
+
+		
+		The L1T is based on custom electronics. It is based on the identification of muons, electrons, photons, jets, and missing transverse energy. The L1T is selection about hardware components. It use the custom electronic boards to run event selection algorithms and to use the information from a subset of the CMS subdetectors, then make each decision in about $3.8\mu s$ and make output event rate to about 100kHz. To elaborate, there are global trigger system taking the information from local reigger system which collects the information from subdetector in every region in CMS. According to the decision and detemination, for instance, the whether the sum of some passed jets' $p_T$ are higher than given threshold , output events may be the worth-keeping events eventually. 
+
+		\begin{figure}[H]
+		\centering{}
+			\includegraphics[width=0.85\textwidth]{Figures/PhysObj/L1T.png}\\
+		\caption{Overview of the CMS L1 trigger system. \cite{Khachatryan:2016bia}}
+		\label{PhysObj:fig:L1T}
+		\end{figure}
+		\FloatBarrier
+
+		\begin{itemize}
+			\item HF, HCAL, ECAL : data is originally from the forward, barrel hadronic calorimeters and the electromagnetic calorimeter,
+			\item RCT, GCT : data is then processed first regionally and globally.
+			\item PRC, CSC, DT : resistive plate chambers, cathode strip chambers, and drift tubes.
+			\item GMT : nergy deposits (hits) from PRC, CSC and DT are processed either via a pattern comparator or via a system of segment- and track-finders and sent onwards to a global muon trigger (GMT). 
+			\item GT : The information from the GCT and GMT is combined in a global trigger (GT), which makes the final trigger decision.
+			\item MU, TTC : This decision is sent to the tracker (TRK), ECAL, HCAL or muon systems (MU) via the trigger, timing and control (TTC) system. 
+			\item DAQ : the data acquisition system reads data from various subsystems for offline storage. 
+			\item MIP : minimum-ionizing particle.
+			\item Above are from overview of the CMS L1 trigger system. \cite{Khachatryan:2016bia}
+			\label{PhysObj:itm:L1T}
+		\end{itemize}
+
+		The HLT relies upon commercial process, and it's software based. While keeping the output rate and CPU time under control, HLT must ensure a large acceptance for physics signals. The high level trigger access the whole readout data and do some complicated calculation on them. Spliting selected events into non-exclusive streams would be its work. The high level trrigger may reduce the L1T's output events rate to a sustainable level for physical annalysis and storage.
+		
 
 
 

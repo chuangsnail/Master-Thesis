@@ -65,7 +65,7 @@
 		\begin{split}
 		N'^+ = N'^+_{cor} + N'^+_{misi} + N'^+_{mist} = (\frac{\epsilon_{cor}}{\epsilon_{misi} + \epsilon_{mist}})N^+ + (\frac{\epsilon_{misi}}{\epsilon_{cor} + \epsilon_{misi}})N^- + \frac{1}{2}\epsilon_{mist} N \\
 		N'^- = N'^-_{cor} + N'^-_{misi} + N'^-_{mist} = (\frac{\epsilon_{cor}}{\epsilon_{misi} + \epsilon_{mist}})N^- + (\frac{\epsilon_{misi}}{\epsilon_{cor} + \epsilon_{misi}})N^+ + \frac{1}{2}\epsilon_{mist} N  \\
-		\Rightarrow N'^+ - N'^- = (\frac{\epsilon_{cor}-\epsilon_{misi}}{\epsilon_{cor}+\epsilon_{misi}})(N^+ - N^-) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+		\Rightarrow N'^+ - N'^- = (\frac{\epsilon_{cor}-\epsilon_{misi}}{\epsilon_{cor}+\epsilon_{misi}})(N^+ - N^-) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
 		\end{split}
 		\label{eq:Dilution_004}
 		\end{equation}
@@ -102,7 +102,7 @@
 		\setlength{\tabcolsep}{12pt}
 		\begin{longtable}{ c | c c }
 		\caption{Same sign ratio and dilution factor ($\chi^2_{min}$ result) with stat. uncertainty}\\
-		Observable & same sign rate[\%]($=1-k$) & Dilution Factor[\%] \\
+		Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 		\hline
 		$O_{3}$ & 70.16$\pm$0.03  &  40.33$\pm$0.05  \\
 		$O_{6}$ &  68.72$\pm$0.03  &  37.45$\pm$0.05  \\
@@ -117,7 +117,7 @@
 		\setlength{\tabcolsep}{12pt}
 		\begin{longtable}{ c | c c }
 		\caption{Same sign ratio and dilution factor (MVA-A result) with stat. uncertainty}\\
-		Observable & same sign rate[\%]($=1-k$) & Dilution Factor[\%] \\
+		Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 		\hline
 		$O_{3}$ & 73.74$\pm$0.02  &  47.48$\pm$0.05  \\
 		$O_{6}$ &  72.02$\pm$0.02  &  44.04$\pm$0.05  \\
@@ -132,7 +132,7 @@
 		\setlength{\tabcolsep}{12pt}
 		\begin{longtable}{ c | c c }
 		\caption{Same sign ratio and dilution factor (MVA-B result) with stat. uncertainty} \\
-		Observable & same sign rate[\%]($=1-k$) & Dilution Factor[\%] \\
+		Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 		\hline
 		$O_{3}$ & 71.41$\pm$0.02  &  42.83$\pm$0.05  \\
 		$O_{6}$ &  69.88$\pm$0.02  &  39.75$\pm$0.05  \\
@@ -143,5 +143,6 @@
 		\label{Dilution:tb:MVAB}
 		\end{center}
 
+		The total dilution effect might have been not only from detector and reconstruction issue, but also from physical object's identification, for example, b-tagged correctness, light jets identification, and jets' resolution, etc. 
 
 \FloatBarrier
