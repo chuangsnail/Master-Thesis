@@ -227,7 +227,7 @@
 			\begin{split} 
 			 <A_i> - 0 \geq \frac{\sigma}{\sqrt{N_{event}}} \equiv \sigma_{<A_i>} 
 			\end{split}
-			\label{eq:signal_noise}
+			\label{eq:signal_noise_2}
 			\end{equation}
 
 			For $A_1$, it is simple to measure event by event and calculate their expectation value. However, for $A_2$, it is more complex to measurement on the $t\bar{t}$ semi-leptonic decay. We cannot calculate both part of the $A_2$ in an event at the same time because there is only one leptonic decay's top in an $t\bar{t}$ event. So the measurement of $A_2$ are separete to two part as two set of samples and calculate the two part seperately in both mean value and error(then propagate the error to be $A_2$'s error), they are listed at below(Eq.\ref{eq:1993_004}):
@@ -248,10 +248,24 @@
 
 			\begin{equation}
 			\begin{split} 
-			A_1 = E_+ - E_- \;\;\;\;\;\;\;\;\;\\
-			A_2 = \textbf{k}_{\bar{t}} \cdot \textbf{l}^+ - \textbf{k}_t \cdot \textbf{l}^-
+			Q_1 = \hat{\textbf{k}}_t \cdot \hat{\textbf{l}}^+ - \hat{\textbf{k}}_{\bar{t}} \cdot \hat{\textbf{l}}^- \;\\
+			 \\
+			\{ O_1 = \hat{\textbf{k}}_t \cdot \hat{\textbf{l}}^+ \}_{\beta} \;\;\;\;\;\;\;\;\;\;\\
+			\{\bar{O}_1 = \hat{\textbf{k}}_{\bar{t}} \cdot \hat{\textbf{l}}^- \}_{\bar{\beta}} \;\;\;\;\;\;\;\;\;\;\\
+			\beta : t\rightarrow bl^+\nu,\; \bar{t}\rightarrow \bar{b}jj \\
+			\bar{\beta} : t\rightarrow bjj,\; \bar{t}\rightarrow \bar{b} l^- \bar{\nu} 
 			\end{split}
-			\label{eq:1993_003}
+			\label{eq:1998_001}
+			\end{equation}
+
+			The $A_{cp}$'s form are shown below, and the dilepton decay's form(from $Q_1$) is the same as triple products' form(Eq.**** -1), on the other hand, the semi-leptonic decay's form(from $O_1$) is morecomplicated because $O_1$ and $\bar{O}_1$ are not totally from 2 different set of $t\bar{t}$ decay modes rather than from the same event.(Eq.**** -2)
+
+			\begin{equation}
+			\begin{split} 
+			A_{cp}(Q_1) = \frac{ N(Q_1 > 0) - N(Q_1 < 0) }{N(Q_1 > 0) + N(Q_1 < 0) } \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\\
+			A_{cp}(O_1) = \frac{ N_{\beta}(O_1 > 0) - N_{\beta}(O_1 < 0) }{N_{\beta}(O_1 > 0) + N_{\beta}(O_1 < 0) } - \frac{ N_{\bar{\beta}}(\bar{O}_1 > 0) - N_{\bar{\beta}}(\bar{O}_1 < 0) }{N_{\bar{\beta}}(\bar{O}_1 > 0) + N_{\bar{\beta}}(\bar{O}_1 < 0) } 
+			\end{split}
+			\label{eq:1998_002}
 			\end{equation}
 
 			% test!
@@ -305,7 +319,7 @@
 
 			To see the dilution effects, we need the simulation not only in parton level with Madgraph, but also in showering and detector level objects' simulation with Pythia and Delphes. The concept of dilution effect here is same as section.\ref{sec:Dilution} -- the effect which dilutes the $A_{cp}$ in generator-level to $A'_{cp}$ in detector-level. However, the test here is using generator-matching to match detector-level's objects and generator-level's particles, so the measured result would be purely from detector/reconstruction issue and objects' resolution, not from objects' identification like b-tagged correctness, light jets' identification. The generator-matching has been mentioned in section.\ref{sssec:mva_intro}, and the matching method is by Eq.\ref{eq:gen_matching}.
 
-			With the same calculation method, we also use Eq.\ref{eq:Dilution_epsilon} to calculate the dilution factor of $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ by SM $t\bar{t}$ simulation sample with no selection($10^7$ events):
+			With the same calculation method, we also use Eq.\ref{eq:Dilution_epsilon} to calculate the dilution factor of $A_{cp}(Q_1)$ by SM $t\bar{t}$ simulation sample with no selection($10^7$ events). However, the $A_{cp}(O_1)$ can not directly calculated by same form as triple product $A_{cp}$ and $A_{cp}(Q_1)$, so there is just calculation results of $A_{cp}(Q_1)$:
 
 			\begin{center}
 			\setlength{\tabcolsep}{12pt}
@@ -314,7 +328,6 @@
 			Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 			\hline
 			$A_{cp}(Q_1)$ & 88.12  &  76.23  \\
-			$A_{cp}(O_1)$    &    \\
 			\hline
 			\end{longtable}
 			\label{Obs:tb:SM_DF}
@@ -340,7 +353,6 @@
 			Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 			\hline
 			$A_{cp}(Q_1)$ & 88.30  &  76.61  \\
-			$A_{cp}(O_1)$    &    \\
 			\hline
 			\end{longtable}
 			\label{Obs:tb:2HDM_DF}
@@ -355,6 +367,6 @@
 			\end{figure}
 			\FloatBarrier
 
-
+			For the part of $A_{cp}(Q_1)$, we can see that the measured dilution factor is match to the fitted slope of artificial $A_{cp}$, and the $A_{cp}(O_1)$'s dilution factor could be estimated by the fitting.
 
 \FloatBarrier
