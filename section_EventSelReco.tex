@@ -107,6 +107,37 @@
 		
 			With concept of machine learning, we need to train with informations of classes( $"$signal$"$ and $"$backgroud$"$ in this case ) and get out an algorithm to make distinguishment. Following the original $\chi^2_{min}$ method's variables, we started MVA with inputting 2 variables : $m_{jj}$, $m_{jjb}$, as informations to be used for distinguishment. There are three machine learning methods I used for testing: $\textbf{MLP}$(ANN, Artificial Neuro-Network), $\textbf{BDT}$(Boosted Decision Tree), $\textbf{BDTG}$(Boosted Decision Tree Gradient).
 
+			For these three algorithm to do the training, there are some algorithms' parameter setting for them individually:
+
+			\begin{itemize}
+
+				\item $\textbf{BDT}$ :
+				\begin{enumerate}
+					\item Number of trees in the forest : 800
+					\item Max depth of the decision tree allowed : 3
+				\end{enumerate}
+				\item $\textbf{BDTG}$ :
+				\begin{enumerate}
+					\item Number of trees in the forest : 800
+					\item Minimum percentage of training events required in a leaf node : 2.5\%
+					\item Boosting type for the trees in the forest : GradBoost
+					\item Learning rate for GradBoost algoithm : 0.10
+					\item Use only a random subsample of all events for growing the trees in each iteration (only for GradBoost) : True
+					\item Relative size of bagged event sample to original size of the data sample (used whenever bagging is used) : 0.5
+					\item Number of grid points in variable range used in finding optimal cut in node splitting : 20
+					\item Max depth of the decision tree allowed : 3
+				\end{enumerate}
+				\item $\textbf{MLP}$ :
+				\begin{enumerate}
+					\item Variable transformations : type N
+					\item Neuron activation function type : sigmoid function
+					\item Number of training cycles : 550
+					\item Specification of hidden layer architecture : N, N+5, 3
+					\item Test for overtraining performed at each $\#$th epochs : 5
+					\item Use regulator to avoid overtraining : False
+				\end{enumerate}
+			\end{itemize}
+
 			With respect to the input variables for distinguishment training, we can check the seperation shows on input variables originally in advance:
 
 			\begin{figure}[H]
