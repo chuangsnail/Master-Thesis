@@ -18,7 +18,7 @@
 
 			The simple introduction have been already shown in section.\ref{ssec:Intro_CPVpossible}
 
-			The T-odd observables are only sensitive to the CEDM model's asymmtry from real part, and the T-even observables are also only sensitive to imagininary part of $d_t^g$.(T-odd and T-even will be mentioned in section\ref{ssec:AcpObs}) To generate the CEDM's sample, it is necessary to do the implementation to concretize the model lagrangian with program FeynRules(cite****). However, because the $Im(d_t^g)$ could not be presented on the lagragian(mentioned in section.\ref{ssec:Intro_CPVpossible}), the imaginary(absorptive) part of $d_t^g$ is not allowed inputting in FeynRules. Also, the production from FeynRules are definitely the input model for MadGraph generator(which is called UFO file). Now, therefore, the MadGraph generator we use could not make CEDM sample with imaginary part of $d_t^g$. If there will be hacked into the FeynRules and successfully imsert the restricted imaginary part now, the T-even observable behavior corresponding to $Im(d_t^g)$ will be still an interesting issue.
+			The T-odd observables are only sensitive to the CEDM model's asymmtry from real part, and the T-even observables are also only sensitive to imagininary part of $d_t^g$.(T-odd and T-even will be mentioned in section\ref{ssec:AcpObs}) To generate the CEDM's sample, it is necessary to do the implementation to concretize the model lagrangian with program FeynRules\cite{Christensen:2008py}. However, because the $Im(d_t^g)$ could not be presented on the lagragian(mentioned in section.\ref{ssec:Intro_CPVpossible}), the imaginary(absorptive) part of $d_t^g$ is not allowed inputting in FeynRules. Also, the production from FeynRules are definitely the input model for MadGraph generator(which is called UFO file). Now, therefore, the MadGraph generator we use could not make CEDM sample with imaginary part of $d_t^g$. If there will be hacked into the FeynRules and successfully imsert the restricted imaginary part now, the T-even observable behavior corresponding to $Im(d_t^g)$ will be still an interesting issue.
 
 		\subsubsection{ 2HDM model}
 		\label{sssec:AcpModel_2HDM}
@@ -82,7 +82,7 @@
 		\subsubsection{Classification and Test}
 		\label{sssec:AcpObs_class_test}
 
-			The following testing are based on some simulation sample of $t\bar{t}$ by generator Madgraph to generate parton-level's event-by-event sample. And the showering and detector simulation would be done by Pythia cite**** and Delphes cite****.
+			The following testing are based on some simulation sample of $t\bar{t}$ by generator Madgraph to generate parton-level's event-by-event sample. And the showering and detector simulation would be done by Pythia\cite{Sjostrand:2014zea} and Delphes\cite{Ovyn:2009tx}.
 
 			At first, following the paper\cite{Hayreter:2015ryk}'s(which is the basic of 2016 analysis) selection and model implementation, we also use Madgraph\cite{Alwall:2011uj} generator as it to generate $t\bar{t}$ sample of CEDM model to double-check the triple product observables action under CEDM model. There are generated samples at $d_t^g$ tuning to be 0 to 5.0 to see the relation between $A_{cp}$ and parameter $d_t^g$. The $O_{3}$, $O_{6}$, $O_{12}$, $O_{14}$ would be tested:
 
@@ -315,7 +315,7 @@
 		\subsubsection{Observable property}
 		\label{sssec:AcpObs_property}
 
-			In this section, we focus on the dilution effect of T-evenn observables. However, the previous T-even observables' forms are various, the appropriate observables which can be done with studying dilution effect are $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ because of their counting the positive and negative events number rather than measuring observable's value, that is to say, they are just like the method the 2016 analysis uses with the four T-odd observables($O_3$, $O_6$, $O_{12}$, $O_{14}$). Eq.********(in chapter 1)
+			In this section, we focus on the dilution effect of T-evenn observables. However, the previous T-even observables' forms are various, the appropriate observables which can be done with studying dilution effect are $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ because of their counting the positive and negative events number rather than measuring observable's value, that is to say, they are just like the method the 2016 analysis uses with the four T-odd observables($O_3$, $O_6$, $O_{12}$, $O_{14}$). Eq.\ref{eq:four_obs}
 
 			To see the dilution effects, we need the simulation not only in parton level with Madgraph, but also in showering and detector level objects' simulation with Pythia and Delphes. The concept of dilution effect here is same as section.\ref{sec:Dilution} -- the effect which dilutes the $A_{cp}$ in generator-level to $A'_{cp}$ in detector-level. However, the test here is using generator-matching to match detector-level's objects and generator-level's particles, so the measured result would be purely from detector/reconstruction issue and objects' resolution, not from objects' identification like b-tagged correctness, light jets' identification. The generator-matching has been mentioned in section.\ref{sssec:mva_intro}, and the matching method is by Eq.\ref{eq:gen_matching}.
 
