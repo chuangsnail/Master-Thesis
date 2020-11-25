@@ -6,6 +6,174 @@
 \section{Results and Conclusion}
 \label{sec:Result}
 
-	In 2016 data analysis of CP violation in $t\bar{t}$ semi-leptonic decay, a complete flow path has been finished. Also, improvements are applied in this analysis comparing to previous analysis. Mainly, the MVA technic is recommended for events reconstruction. The advantage of machine learning could make the signal purity increase, and make the reserved data's statistic higher. Therefore, besides the final organization of calculation results including uncertainty and dilution factor, the improvement of MVA method will be shown with comparing to original $\chi^2_{min}$ method.
+	In 2016 data analysis of CP violation in $t\bar{t}$ semi-leptonic decay, a complete flow path has been finished. Also, improvements are applied in this analysis comparing to previous analysis. Mainly, the MVA technic is recommended for events reconstruction. The advantage of machine learning could make the signal purity increase, and make the reserved data's statistic higher. Therefore, besides the final organization of calculation results including uncertainty and dilution factor, the improvement of MVA method will be shown with comparing to original $\chi^2_{min}$ method. There are three categories of analysis strategies with $\chi^2_{min}$ or MVA reconstruction method and with or without $M_{lb}$ cut:
+
+	% table of category
+
+	\begin{center}
+	\setlength{\tabcolsep}{12pt}
+	\begin{longtable}{ | c | c c c | }
+	\caption{Three analysis strategies difference} \\
+	\hline
+	Strategy Name & $\chi^2_{min}$ & MVA-A & MVA-B \\ 
+	\hline
+	Reconstructing method & $\chi^2_{min}$ & MVA(20 pars, MLP) & MVA(20 pars, MLP) \\ 
+	Algorithm cut & o($\chi^2_{min}$<20) & o(MLP score>0.22) & o(MLP score>0.22) \\
+	$M_{lb}$ cut & o & o & x \\
+	\hline
+	\end{longtable}
+	\end{center}
+
+	\subsection{$b$ and $\bar{b}$ identification}
+	\label{ssec:Result_bbid}
+		It is expected to be better in the part of $b$-jet and $\bar{b}$-jet identified by using MVA method rather than $\chi^2_{min}$ method, there are the collection of $b\bar{b}$ correct matching rate of any strategies from Table.\ref{EventSelReco:tb:algocut_bbsep} and Table.\ref{EventSelReco:tb:algocut_mlbcut_bbsep}:
+		
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c c c | }
+		\caption{$b\bar{b}$-identified performance of three analysis strategies} \\
+		\hline
+		Strategy Name & $\chi^2_{min}$ & MVA-A & MVA-B \\ 
+		\hline
+		$b\bar{b}$ correct ratio & 75.56\% & 80.51\% & 76.41\% \\
+		\hline
+		\end{longtable}
+		\end{center}
+
+		The MVA method with $M_{lb}$ cut has the best performance on distingushing $b$ and $\bar{b}$ by tests from selected $t\bar{t}$ MC.
+
+
+	\subsection{Statistical Uncertainty}
+	\label{ssec:Result_StatErr}
+		First, to get the precision of measurement, the quantity of remained events is the dominant part. This is because the measured $A_{cp}$ must include statistical uncertainty which arises from random fluctuations in a measurement. The simple counting statistical uncertainty can be analogous to the poisson error(Eq.\ref{eq:poisson_error}),
+
+		\begin{equation}
+		N_{count} \pm \sqrt{N_{count}} \;\;\;\;, \;\;\;\; Poisson\;Error = \sqrt{N_{count}}
+		\label{eq:poisson_error}
+		\end{equation}
+		\FloatBarrier
+
+		so every counting events number in Eq.\ref{eq:asymmetry_form_again}(Eq.\ref{eq:asymmetry_form} in Chapter.\ref{sec:Introduction}) have their own statistical uncertainty, for example, $N_{events}(O_i>0)$ with $\sqrt{N_{events}(O_i>0)}$.
+
+		\begin{equation}
+		A_{cp} \equiv \frac{ N_{events}(O_i>0) - N_{events}(O_i<0) }{ N_{events}(O_i>0) + N_{events}(O_i<0) } \Rightarrow \frac{ N_+ - N_- }{ N_+ + N_- }
+		\label{eq:asymmetry_form_again}
+		\end{equation}
+		\FloatBarrier
+
+		The final statistical uncertainty could be attained by error propagation of any componebts' statistical uncertainty. The error propagation's formula could be roughly shown in Eq.\ref{eq:error_propagation} if there is no obvious correlation between parameters($\alpha$,$\beta$,$\ldots$) of a function $f$:
+
+		\begin{equation}
+		\begin{split}
+		\sigma_{f(\alpha,\beta,\ldots)} = \sqrt{  (\frac{\partial f}{\partial \alpha})^2 \sigma_{\alpha}^2 + (\frac{\partial f}{\partial \beta})^2 \sigma_{\beta}^2 + \ldots + (\frac{\partial f}{\partial \alpha})(\frac{\partial f}{\partial \beta})\sigma_{\alpha \beta}^2 + \ldots } \\
+		\sim \sqrt{  (\frac{\partial f}{\partial \alpha})^2 \sigma_{\alpha}^2 + (\frac{\partial f}{\partial \beta})^2 \sigma_{\beta}^2 + \ldots} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \\
+		(\frac{\partial f}{\partial \alpha})(\frac{\partial f}{\partial \beta})\sigma_{\alpha \beta}^2 \;\; \Rightarrow \;\; correlation\;term \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\
+		\end{split}
+		\label{eq:error_propagation}
+		\end{equation}
+		\FloatBarrier
+
+		So according to the error propagation formula Eq.\ref{eq:error_propagation}, the statistical error of $A_{cp}$ in Eq.\ref{eq:asymmetry_form_again} would be wrote down as:
+
+		\begin{equation}
+		\begin{split}
+		\sigma_{A_{cp}} = \sqrt{ (\frac{\partial A_{cp}(N_+,N_-)}{\partial N_+})^2 \sigma_{N_+}^2 + (\frac{\partial A_{cp}(N_+,N_-)}{\partial N_-})^2 \sigma_{N_-}^2  } \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \\
+		= \sqrt{ \left\rvert \frac{1}{(N_+ + N_-)} - \frac{(N_+ - N_-)}{(N_+ + N_-)^2} \right\rvert^2 \sigma_+^2 + \left\rvert \frac{-1}{(N_+ + N_-)} - \frac{(N_+ - N_-)}{(N_+ + N_-)^2} \right\rvert^2 \sigma_-^2 } \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \\
+		= \sqrt{ \left\rvert \frac{1}{(N_+ + N_-)} - \frac{(N_+ - N_-)}{(N_+ + N_-)^2} \right\rvert^2 (\sqrt{N_+})^2 + \left\rvert \frac{-1}{(N_+ + N_-)} - \frac{(N_+ - N_-)}{(N_+ + N_-)^2} \right\rvert^2 (\sqrt{N_-})^2 } \\
+		= \sqrt{ \left\rvert \frac{2N_-}{(N_+ + N_-)^2} \right\rvert^2 N_+ + \left\rvert \frac{-2N_+}{(N_+ + N_-)^2} \right\rvert^2 N_- } \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \\
+		= \sqrt{ \frac{4N_+ N_-}{( N_+ + N_- )^3}} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+		\end{split}
+		\label{eq:error_propagation_Acp}
+		\end{equation}
+		\FloatBarrier
+
+		Although the statistical uncertainty is related to the counted distribution between positive and negative observable's value, the statistical error of closed to zero's measurement still depend on total events number's scale. That is, the larger number of total number of events, the smaller the statistical uncertainty in our expectation. From estimated signal yields in part of background subtration(Chapter.\ref{sec:BkgEst}), there are reserved events number for three strategies respectively:
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c c c | }
+		\caption{Estimated signal events number of three analysis strategies} \\
+		\hline
+		Strategy Name & $\chi^2_{min}$ & MVA-A & MVA-B \\ 
+		\hline
+		Estimated number (Muon) & 230766 & 236226 & 256196 \\ 
+		Estimated number (Electron) & 135600 & 133894 & 146656 \\
+		\hline
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		where we could get that if we don't apply $M_{lb}$ cut, that is to say, the MVA-B method, there are more events remained. It indicates that the statistical uncertainty of MVA-B method is the most possible to be the smallest. In other words, There is the best precision of statistical uncertainty under MVA-B strategy.
+
+	\subsection{Systematic Uncertainty}
+	\label{ssec:Result_SystUnc}
+		The systematic uncertainty could be splited to two portion. The first one is the dominant one which is reconstruction and detector bias measured in Chapter.\ref{sec:AsymBias}, and the second one is the systematic uncertainty from simulation and theoretical uncertainty in Chapter.\ref{sec:Systematic}. The part of reconstruction and detector bias are shown:
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c | c c c | }
+		\caption{Reconstruction and detector bias of three analysis strategies[\%]} \\
+		\hline
+		Strategy Name & Observable & $\chi^2_{min}$ & MVA-A & MVA-B \\ 
+		\hline
+		\multirow{4}{5em}{Muon channel} & $O_{3}$ & $\pm$ 0.205 & $\pm$ 0.204 & $\pm$ 0.194 \\ 
+		 & $O_{6}$ & $\pm$ 0.205 & $\pm$ 0.204 & $\pm$ 0.194 \\ 
+		 & $O_{12}$ & $\pm$ 0.205 & $\pm$ 0.204 & $\pm$ 0.194 \\ 
+		 & $O_{14}$ & $\pm$ 0.205 & $\pm$ 0.204 & $\pm$ 0.194 \\ 
+		 \hline
+		\multirow{4}{5em}{Electron channel} & $O_{3}$ & $\pm$ 0.271 & $\pm$ 0.268 & $\pm$ 0.252 \\ 
+		 & $O_{6}$ & $\pm$ 0.271 & $\pm$ 0.268 & $\pm$ 0.252 \\ 
+		 & $O_{12}$ & $\pm$ 0.271 & $\pm$ 0.268 & $\pm$ 0.252 \\ 
+		 & $O_{14}$ & $\pm$ 0.271 & $\pm$ 0.268 & $\pm$ 0.252 \\ 
+		\hline
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+		
+		The MVA-B method has the most precise under reconstruction and detector issue. Also, we organize other systematic uncertainty and do the quadratic sum of them(Eq.\ref{eq:quad_sum}), and there are the other systematic uncertainty shows under three analysis strrategies:
+
+		\begin{equation}
+		\sigma_{a \oplus b \oplus \ldots} = \sqrt{ \sigma_{a}^2 + \sigma_b^2 + \ldots }
+		\label{eq:quad_sum}
+		\end{equation}
+		\FloatBarrier
+
+		\begin{center}
+		\setlength{\tabcolsep}{12pt}
+		\begin{longtable}{ | c | c | c c c | }
+		\caption{Other systematic of three analysis strategies[\%]} \\
+		\hline
+		 & Observable & $\chi^2_{min}$ & MVA-A & MVA-B \\ 
+		\hline
+		\multirow{8}{5em}{Muon channel} & \multirow{2}{2em}{$O_{3}$} & +0.009 & +0.005 & +0.005 \\
+		 &  & -0.009 & -0.004 & -0.005 \\ 
+		 & \multirow{2}{2em}{$O_{6}$} & +0.008 & +0.005 & +0.005 \\
+		 &  & -0.009 & -0.004 & -0.005 \\ 
+		 & \multirow{2}{2em}{$O_{12}$} & +0.008 & +0.004 & +0.005 \\
+		 &  & -0.009 & -0.005 & -0.005 \\ 
+		 & \multirow{2}{2em}{$O_{14}$} & +0.009 & +0.005 & +0.005 \\
+		 &  & -0.009 & -0.004 & -0.005 \\ 
+		 \hline
+		\multirow{8}{5em}{Electron channel} & \multirow{2}{2em}{$O_{3}$} & +0.011 & +0.005 & +0.007 \\
+		 &  & -0.012 & -0.005 & -0.007 \\ 
+		 & \multirow{2}{2em}{$O_{6}$} & +0.010 & +0.005 & +0.007 \\
+		 &  & -0.012 & -0.005 & -0.007 \\ 
+		 & \multirow{2}{2em}{$O_{12}$} & +0.011 & +0.005 & +0.007 \\
+		 &  & -0.012 & -0.005 & -0.007 \\ 
+		 & \multirow{2}{2em}{$O_{14}$} & +0.012 & +0.005 & +0.007 \\
+		 &  & -0.010 & -0.005 & -0.007 \\ 
+		\hline
+		\end{longtable}
+		\end{center}
+		\FloatBarrier
+
+		The systematic uncertainty is larger at strategy of $\chi^2_{min}$ than MVA. In fact, the dominant systematic uncertainty, reconstruction and detector bias is at $O(10^{-1}\%)$ and the other systematic uncertainty is at $O(10^{-3}\%)$. The $O(10^{-3}\%)$ systematic uncertainty is extremely tiny compared to the reconstruction and detector bias, especially under quadratic sum, so the $O(10^{-1}\%)$ is still the decisive term. 
+
+	\subsection{Conclusion and Outlook}
+	\label{ssec:Result_Conclusion}
+		For the 2016 data analysis, the MVA strategy perform better than $\chi_{min}^2$ strategy no matter in the part of particle identification and reserved events number. It might be a great choice to adopt the MVA method. In addition, the discussion in Chapter.\ref{sec:AcpModelObs} tells that the CEDM model could be deeply probed in imaginary part of $d_t^g$ with T-eve observables. The 2HDM model also has some possibility to simulate $t\bar{t}$ CP asymmetry. Then T-even observables will be really implemented as T-odd triple product observables in real LHC's data analysis. 
+
+		The sensitivity is exactly improved with MVA rresults, and the machine-learning-type strategy would be considered to be the primary analysis method in the future. The sensitivity of this analysis would actually improved with further more data in the coming future. Apart from this, the measurement of $t\bar{t}$ CP violation would be searched in varied observables and be aimed with more abundant kinds of possible new physics.
+		
 
 \FloatBarrier

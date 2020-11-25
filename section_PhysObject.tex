@@ -63,15 +63,57 @@
 		The selected lepton in the analysis is required to obey the criteria of one passed $\emph{selected lepton}$ and zero $\emph{veto lepton}$ passed. The veto criteria means that there would be no lepton passing the veto criteria except the selected one. In other words, the veto criteria can filter the physical objects which are lepton-like but not really like after reconstructed from particle level to detector level. The selected criteria corresponds to tight lepton's criteria, and veto criteria follows loose lepton's criteria:
 
 		\subsubsection{Muon}
-		\label{sssec:Muon}
-			
+		\label{sssec:PhysObj_MuonReco}
+
+		To reconstruct the muons, there are some procedure should be go through. The first is about the $"\textbf{hit}"$ and segment reconstruction. The $"$hits$"$ are the electric signal produced on wires and strips when muons and other charged particles transversed. The hits reconstruction in different part of detector have different algorithm for reconstructing. Hits in DT(\ref{ssec:muon_detector}) estimate the distance between the wire and the interaction point of muon and the plane in layers. With a $\textbf{time-to-digital}$ $\textbf{converter}$$\textbf{(TDC)}$ registering their arrival time $T_{TDC}$, a time pedestal $T_{ped}$, and the drift velocity $v$, the position of DT hits are then reconstructed by the formula:
+
+		\begin{equation}
+		position = (T_{TDC} - T_{ped}) \times v
+		\label{eq:MuReco_1}
+		\end{equation}
+		\FloatBarrier
+
+		Hits which are reconstructed in CSC layers combine information from anode wires and cathode strips to measure traversing muon's position; Also, the hits in RPC layers are the product of hit strips clustering. It is necessary that adjacent strips are clustered to reconstruct one hit because the charge of muons which is ionized could be distributed on not just one strip; With multi-layers structure of DT and CSC, their reconstructed hits are built as $\textbf{segment}$.
+
+		Secondly, the tracks are reconstructed independently and eventually used as input for muon track reconstruction. There are steps to reconstruct the muon tracks:
+
+		\begin{itemize}
+			\item $\textbf{Standalone-muon tracks}$ : By using Kalman-filter technique\cite{Fruhwirth:1987fm} and information from subdetectors(DT,CSC,PRC), standalon-muon track is built. The reconstruction starts from seeds which are composed of sets of DT/CSC segments.
+			\item $\textbf{Tracker muon tracks}$ : They are built $"$inside-out$"$ from tracker tracks to the muon system(segments). 
+			\item $\textbf{Global muon tracks}$ : They are built $"$outside-in$"$ by matching the reconstructed standalone-muon tracks to the tracker tracks.
+		\label{PhysObj:itm:muon_track_reco}
+		\end{itemize}
+
+		Muons are often reconstructed as a global muons track or a tracker muons track or almost as both. It is merged to the muon canndidate that the global muon and the tracker muon share the same tracker tracks.
+
+		The third one is to identify the muon.($\textbf{Muon Identification}$$\textbf{(Muon ID)}$) Sets of variables are studied and developed to be selection criteria, for example, the $\chi^2$ track fit, the $\#$ of hits in one track...,etc.(Most are based on information in muon reconstruction) The muon ID used in the analysis are listed below:
+
+		\begin{itemize}
+			\item $\textbf{Loose muon ID}$ : A muon is selected by PF algorithm that is either a global or a tracker muon.
+			\item $\textbf{Tight muon ID}$ : The muon must be simultaneously global and tracker muon after reconstructed. The global muon fit must have goodness of fit test() with $\chi^2/d.o.f < 10$ and at least have one hit from muon chambers. A tight muon also corresponds to primary vertex compatibly, and has longitudinal impact parameter |dZ|<0.5cm and transverse impact parameter |dXY|<0.2cm.
+		\label{PhysObj:itm:muon_track_reco}
+		\end{itemize}
+
+		The forth is to detemine the momentum of muons.
+
+		Last, muon's isolation can help distinguish prompt muons from those casued by weak decays from jets.
+
+
+		All the information and detail in section.\ref{sssec:PhysObj_MuonReco} are from ref.\cite{Sirunyan:2018fpa}.
+		%\cite{Sirunyan:2018fpa} %main
+		%\cite{Chatrchyan:2012xi}
+		
 
 		\subsubsection{Electron}
-		\label{sssec:Electron}
+		\label{sssec:PhysObj_ElectronReco}
+
+		\cite{2015_el_reco}
 
 
-	\subsection{Missing Transverse Energy(MET)}
-	\label{ssec:PhysObj_met}
+	%\subsection{Missing Transverse Energy(MET)}
+	%\label{ssec:PhysObj_met}
+
+		
 
 	\subsection{Jet}
 	\label{ssec:PhysObj_jet}
@@ -110,7 +152,7 @@
 		\end{figure}
 		\FloatBarrier
 
-		When reconstructing jets, the energy of jets have to be calibrated by jets' $P_T$ and $\eta$. It is named $\textbf{Jet Energy Calibration(Correction)(JEC)}$\cite{collaboration_2011_JEC}. The correction applies a multiplicative factor $C_{cor}$ to the four-monmentum of raw jets. The factor $C_{cor}$ is a product of offset correction, MC calibration factor, absolute energy scale and residuals calibrations. All of the four ingredients are partially relative to jets' $p_T$ and $\eta$.(Eq.\ref{eq:JEC_1})
+		When reconstructing jets, the energy of jets have to be calibrated by jets' $P_T$ and $\eta$. It is named $\textbf{Jet}$ $\textbf{Energy}$ $\textbf{Calibration}$$\textbf{(Correction)}$$\textbf{(JEC)}$\cite{collaboration_2011_JEC}. The correction applies a multiplicative factor $C_{cor}$ to the four-monmentum of raw jets. The factor $C_{cor}$ is a product of offset correction, MC calibration factor, absolute energy scale and residuals calibrations. All of the four ingredients are partially relative to jets' $p_T$ and $\eta$.(Eq.\ref{eq:JEC_1})
 
 		\begin{equation}
 		\begin{split}
@@ -121,7 +163,7 @@
 		\end{equation}
 		\FloatBarrier
 
-		In addition to the Jet energy calibrattion, there is also $\textbf{Jet Energy Resolution(JER)}$ considered\cite{JER_twiki}. The issue come from that the jet energy resolution in data is worse than in MC simulation, so we need to correct the resolution in MC with scaling and smearing method to closely describe the data. For a jet, if a well-matched particle-level jet is present(Eq.\ref{eq:JER_0} are the requirements for the matching), the scaling method is adopted. Scaling method scale the four-momentum of jets with a factor $c_{JER}$(Eq.\ref{eq:JER_1}):
+		In addition to the Jet energy calibrattion, there is also $\textbf{Jet}$ $\textbf{Energy}$ $\textbf{Resolution}$$\textbf{(JER)}$ considered\cite{JER_twiki}. The issue come from that the jet energy resolution in data is worse than in MC simulation, so we need to correct the resolution in MC with scaling and smearing method to closely describe the data. For a jet, if a well-matched particle-level jet is present(Eq.\ref{eq:JER_0} are the requirements for the matching), the scaling method is adopted. Scaling method scale the four-momentum of jets with a factor $c_{JER}$(Eq.\ref{eq:JER_1}):
 
 		\begin{equation}
 		\Delta R < R_{cone}/2, \; \; \; |p_T-p_T^{ptcl}| < 3 \sigma_{JER} \cdot p_T
@@ -177,7 +219,7 @@
 			\end{figure}
 			\FloatBarrier
 
-			The displacemennt of tracks themselves would be characterized by their impact parameters. Moreover, all the relative information are used to compute to be a dicriminator factor with multi-variated classifying method, forr example, the secondary vertex mass is also used. The technique is called $\textbf{combine secondary vertex(CSV) discriminator}$. There are more type of CSV discriminator, the chosen one in this analysis is $\textbf{DeepCSV}$ modified by CSVv2 algorithm. The inclusive vertex finding (IVF) algorithm was the standard SV reconnstruction algorithm, and DeepCSV apply the same tracks and IVF as the CSVv2 tagger. The difference of DeepCSV is that the trrack-based variables up to six tracks are used in training. Moreover, the improvemence of deepCSV is using a deep neural network with more hidden layers and a simultaneous training in all vertex categories and all jets' flavors to train the classification algorithm. The previous information and more details about CSV, CSVv2, and DeepCSV can be approached in the reference \cite{CMS-PAS-BTV-15-001} and \cite{CMS-BTV-16-002}.
+			The displacemennt of tracks themselves would be characterized by their impact parameters. Moreover, all the relative information are used to compute to be a dicriminator factor with multi-variated classifying method, forr example, the secondary vertex mass is also used. The technique is called $\textbf{combine}$ $\textbf{secondary}$ $\textbf{vertex}$$\textbf{(CSV)}$ $\textbf{discriminator}$. There are more type of CSV discriminator, the chosen one in this analysis is $\textbf{DeepCSV}$ modified by CSVv2 algorithm. The inclusive vertex finding (IVF) algorithm was the standard SV reconnstruction algorithm, and DeepCSV apply the same tracks and IVF as the CSVv2 tagger. The difference of DeepCSV is that the trrack-based variables up to six tracks are used in training. Moreover, the improvemence of deepCSV is using a deep neural network with more hidden layers and a simultaneous training in all vertex categories and all jets' flavors to train the classification algorithm. The previous information and more details about CSV, CSVv2, and DeepCSV can be approached in the reference \cite{CMS-PAS-BTV-15-001} and \cite{CMS-BTV-16-002}.
 
 			The training of the deep neural network is done under four hidden layers with 100 nodes which are fully connected. The output layers includes five nodes, that is, five jet flavor categories. Those five categories are defined whether the jets contains -- exactly one b hadron, at least two b hadrons, no b hadrons and exactly one c hadron, no b hadrons and at least two c hadrons, and others. At the last layer's nodes, there are the intepretation of output values with probability for certain jet flavor category -- P($\emph{f}$), which could be looked as the discriminators and so could combined one. The following are the distributions of each categories' discriminators and the jets-categorized performance(Fig.\ref{PhysObj:fig:flavor_discr}):
 
@@ -201,7 +243,7 @@
 			\end{figure}
 			\FloatBarrier
 
-			The P($b$) + P($bb$) discriminator is used in the usual physics analysis with DeepCSV values. The DeepCSV b-tagging algorithm is used on the jets which passed the jet selection. In this analysis, there are two criteria would be used -- DeepCSV Medium(which is used in signal region) and DeepCSV Loose(which is used in control region). The criteria is applying thresholds on DeepCSV value, the thresholds which are from $\textbf{btagging and Vertex Physics Object Group(BTV POG)}$'s\cite{btvpog_twiki} recommendation\cite{btagrecommendation_twiki} are shown below:
+			The P($b$) + P($bb$) discriminator is used in the usual physics analysis with DeepCSV values. The DeepCSV b-tagging algorithm is used on the jets which passed the jet selection. In this analysis, there are two criteria would be used -- DeepCSV Medium(which is used in signal region) and DeepCSV Loose(which is used in control region). The criteria is applying thresholds on DeepCSV value, the thresholds which are from $\textbf{btagging}$ $\textbf{and}$ $\textbf{Vertex}$ $\textbf{Physics}$ $\textbf{Object}$ $\textbf{Group}$$\textbf{(BTV POG)}$'s\cite{btvpog_twiki} recommendation\cite{btagrecommendation_twiki} are shown below:
 
 			\begin{itemize}
 				\item DeepCSV Medium $\rightarrow$ Discriminator of DeepCSV is above 0.6321
@@ -211,7 +253,7 @@
 
 	\subsection{Trigger}
 	\label{ssec:PhysObj_trg}
-		Trigger is the start of the physics event selection prrocess. There is a decision to retain a set of events which is included in and suitable to be used for specific analysis. There are 2 kinds of trigger in CMS trigger system. The following introduction are collected from reference \cite{Dasu:2000ge}, \cite{Cadamuro_2017}, \cite{Trocino_2014} . There are the $\textbf{Level 1 Trigger(L1T)}$ and the $\textbf{High Level Trigger(HLT)}$ system.
+		Trigger is the start of the physics event selection prrocess. There is a decision to retain a set of events which is included in and suitable to be used for specific analysis. There are 2 kinds of trigger in CMS trigger system. The following introduction are collected from reference \cite{Dasu:2000ge}, \cite{Cadamuro_2017}, \cite{Trocino_2014} . There are the $\textbf{Level}$ $\textbf{1}$ $\textbf{Trigger}$$\textbf{(L1T)}$ and the $\textbf{High}$ $\textbf{Level}$ $\textbf{Trigger}$$\textbf{(HLT)}$ system.
 
 		
 		The L1T is based on custom electronics. It is based on the identification of muons, electrons, photons, jets, and missing transverse energy. The L1T is selection about hardware components. It use the custom electronic boards to run event selection algorithms and to use the information from a subset of the CMS subdetectors, then make each decision in about $3.8\mu s$ and make output event rate to about 100kHz. To elaborate, there are global trigger system taking the information from local reigger system which collects the information from subdetector in every region in CMS. According to the decision and detemination, for instance, the whether the sum of some passed jets' $p_T$ are higher than given threshold , output events may be the worth-keeping events eventually. 
