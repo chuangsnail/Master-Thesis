@@ -18,7 +18,7 @@
 	\subsection{Compact Muon Solenoid(CMS) Detector}
 	\label{ssec:ExpApp_CMS}
 
-		The structure of CMS detector is a large solenoid. It is 13 meters long with 6 meters inner diameter. There is also a superconducting solenoid in with 3.8T magnetic field which provides a large bending power(12Tm) before the measurement of muon's bending angle. Inner side of superconducting solenoid is pixel and strip tracker, and going outside with $\textbf{electromagnetic}$ $\textbf{calorimeter}$$\textbf{(ECAL)}$ and $\textbf{hadron}$ $\textbf{calorimeter}$$\textbf{(HCAL)}$. Then the one outside the superconducting solenoid is the muon detector. The structure diagram is shown in Fig.\ref{ExpApp:fig:CMS_structure} .The detail could be checked in ref.\cite{Chatrchyan:2008aa}
+		The structure of CMS detector is a large solenoid. It is 13 meters long with 6 meters inner diameter. There is also a superconducting solenoid in with 3.8T magnetic field which provides a large bending power(12Tm) before the measurement of muon's bending angle. There is also the iron yoke supporting the coil and returning the magnetic flux. Inner side of superconducting solenoid are pixel and strip tracker, and going outward with $\textbf{electromagnetic}$ $\textbf{calorimeter}$$\textbf{(ECAL)}$ and $\textbf{hadron}$ $\textbf{calorimeter}$$\textbf{(HCAL)}$. Then the one outside the superconducting solenoid is the muon detector. The structure diagram is shown in Fig.\ref{ExpApp:fig:CMS_structure} .The detail could be checked in ref.\cite{Chatrchyan:2008aa}
 
 		\begin{figure}[H]
 		\centering{}
@@ -42,10 +42,6 @@
 
 		The different physical objects would be caught by different part of CMS detector. The muon has bended trajectory in tracker and muon chambers but pass without interacting with ECAL; An electron is seen from combined information from tracker(cureved trajectary) and ECAL; A photon is fully deposited on ECAL without reaction passing tracker; The hadrons also have no interaction with track system, but the charged hadron's hadronization and showering could be approached with both ECAL and HCAL.
 
-		\subsubsection{Magnetic configuration}
-		\label{sssec:ExpApp_magnetic}
-
-
 		\subsubsection{Tracking system}
 		\label{sssec:ExpApp_tracking}
 
@@ -67,39 +63,59 @@
 			\caption{Summary of the principal characteristics of the various tracker subsystems\cite{Chatrchyan:2014fea}}
 			\label{ExpApp:fig:tracker_sum}
 			\end{figure}
+			\FloatBarrier
 
-		\subsection{Electromagnetic Calorimeter(ECAL)}
-		\label{ssec:ecal}
+		\subsubsection{Electromagnetic Calorimeter(ECAL)}
+		\label{sssec:ecal}
+
+			Electromagnetic Calorimeter is a fine-grain, compact, homogeneous calorimeter which is composed of $PbWO_4$ scintillating crystal. Because of its small radiation length, radiation tolerance, and small Molie`re radius, the material is chose. The numerous crystals are arranged in $\textbf{central}$ $\textbf{barrel}$ $\textbf{section}$$\textbf{(EB)}$ and two $\textbf{endcaps}$$\textbf{(EE)}$ respectively. They line in cetral barrel section with the range $|\eta|<1.48$ as quasi-projective pattern. Also, the crystals line in endcaps covering the extensive range up to $|\eta|=3.0$. The transverse size of crystal is appropriate to the shower size in $PbWO_4$, being advantage for photon's shower-shape-based identification. However, $PbWO_4$ has low light yields, so there must be some photodetectors with internal amplification used to get available light yield signal. There are also the $\textbf{preshower}$ $\textbf{detector}$$\textbf{(ES)}$ which are 2 layers of lead absorber. The preshower detector is placed at the range $1.65<|\eta|<2.5$ and in the front side of the endcaps(EE), and the lead avsorbers are installed with orthogonal layers of silicon strip sensors. The main purpose of the preshowerr detector is to help separating $\pi_0$ and $\gamma$. The ECAL structure schemas are shown in Fig.\ref{ExpApp:fig:ECAL1} and Fig.\ref{ExpApp:fig:ECAL2} . The details could be checked in ref.\cite{ECAL_ex}.
 
 
+			\begin{figure}[H]
+			\centering{}
+		    	\includegraphics[width=0.85\textwidth]{Figures/ExpApparatus/ECAL.png}\\
+			\caption{ECAL structure schema-1\cite{ECAL_ex}}
+			\label{ExpApp:fig:ECAL1}
+			\end{figure}
+			\FloatBarrier
 
-		\subsection{Hadronic Calorimeter(HCAL)}
-		\label{ssec:hcal}
+			\begin{figure}[H]
+			\centering{}
+		    	\includegraphics[width=0.85\textwidth]{Figures/ExpApparatus/ECAL2.png}\\
+			\caption{ECAL structure schema-2\cite{ECAL_ex}}
+			\label{ExpApp:fig:ECAL2}
+			\end{figure}
+			\FloatBarrier
 
-		\subsection{Muon Chambers}
-		\label{ssec:muon_detector}
+		\subsubsection{Hadronic Calorimeter(HCAL)}
+		\label{sssec:hcal}
 
-		The highlighting feature of CMS detector is the muon detector. The muon system in CMS is designed to have capacity of reconstructing the momentum and charge of muon completely under the available range of LHC's energy scale. The silicon tracker inside could measure the charge particles' momentum in the range $|\eta|<2.5$. In addition, the muon detector is located outside covering range $|\eta|<2.4$. By collecting positions on the multi-layers of stations and tracker record, the detectors trace the muons' path. The momentum record is based on the concept that the more momentum carried by muon, the less the bending angle of it. For part of hardware, there are 3 types of gaseous detector identifying muons. Those are gas ionization chambers which is appropriate to constitute CMS muon system: $\textbf{drift}$ $\textbf{tube}$ $\textbf{chambers}$$\textbf{(DTs)}$, $\textbf{cathode}$ $\textbf{strip}$ $\textbf{chambers}$$\textbf{(CSCs)}$, and $\textbf{resistive}$ $\textbf{plate}$ $\textbf{chambers}$$\textbf{(RPCs)}$. There are shown in structure diagram in Fig.\ref{ExpApp:fig:muon_chamber1}, the DTs are labeled MB($"$Muon Barrel$"$), the CSCs are labeled ME($"$Muon Endcap$"$), and the RPCs are inlayed in both the barrel and endcaps of CMS detector, so they are labeled RB and RE.
+		\subsubsection{Muon Chambers}
+		\label{sssec:muon_detector}
 
-		\begin{figure}[H]
-		\centering{}
-	    	\includegraphics[width=0.75\textwidth]{Figures/ExpApparatus/muon_chamber.png}\\
-		\caption{Muon detectors structure\cite{Sirunyan:2018fp}}
-		\label{ExpApp:fig:muon_chamber1}
-		\end{figure}
+			The highlighting feature of CMS detector is the muon detector. The muon system in CMS is designed to have capacity of reconstructing the momentum and charge of muon completely under the available range of LHC's energy scale. The silicon tracker inside could measure the charge particles' momentum in the range $|\eta|<2.5$. In addition, the muon detector is located outside covering range $|\eta|<2.4$. By collecting positions on the multi-layers of stations and tracker record, the detectors trace the muons' path. The momentum record is based on the concept that the more momentum carried by muon, the less the bending angle of it. For part of hardware, there are 3 types of gaseous detector identifying muons. Those are gas ionization chambers which is appropriate to constitute CMS muon system: $\textbf{drift}$ $\textbf{tube}$ $\textbf{chambers}$$\textbf{(DTs)}$, $\textbf{cathode}$ $\textbf{strip}$ $\textbf{chambers}$$\textbf{(CSCs)}$, and $\textbf{resistive}$ $\textbf{plate}$ $\textbf{chambers}$$\textbf{(RPCs)}$. There are shown in structure diagram in Fig.\ref{ExpApp:fig:muon_chamber1}, the DTs are labeled MB($"$Muon Barrel$"$), the CSCs are labeled ME($"$Muon Endcap$"$), and the RPCs are inlayed in both the barrel and endcaps of CMS detector, so they are labeled RB and RE.
 
-		The DT chambers cover the $\eta < 1.2$ rergion and are organized into four stations. The front three stations contain 8 chambers with 2 set of four chambers. They measured both the muon cooordinate in $\phi - r$ plane(which is equal to x-y plane) and z direction along the beam line. The forth station does the job only for the best angular resolution rather than on z-direction. To eliminate the dead spots in the efficiency, the chamers' drift cells are offset a half-cell width related to their neighbor; In the 2 regions of endcaps, the CSC which is characterized fast response time, fine segmentation, and radiation resistance can deal with high background level and large non-uniform magnetic field at $0.9 < |\eta| < 2.4$. Also with 4 stations perpendicular to beam line, the CSCs arrange radially outward and do the measurement precisely in the x-y plane. Besides, 6 layers of CSC robustly rejects non-muon background and provides efficient matching of hits to other stations and hits in tracker. Those are some of the reason why CMS has great muon-seen performance; The RPCs, which are double-gap chambers, have properties which are fast, independent, and having highly-segmented trigger. The trigger is a steep $p_T$ threshold at the portion of the range $|\eta| < 1.6$ of the muon system. In order to ensure good operating at high rates, avalanche mode would be operated by the chambers. The first 2 layers of 6 layers RPCs in barrel region are designed redundancy to give a low-$p_T$-tracks trigger algorithm which might have stopped before reaching outer stations. Ather structure plot is shown in Fig.\ref{ExpApp:fig:muon_chamber2}.(ref.\cite{Chatrchyan:2008aa},\cite{Chatrchyan:2013sba},\cite{Sirunyan:2018fpa})
+			\begin{figure}[H]
+			\centering{}
+		    	\includegraphics[width=0.75\textwidth]{Figures/ExpApparatus/muon_chamber.png}\\
+			\caption{Muon detectors structure\cite{Sirunyan:2018fp}}
+			\label{ExpApp:fig:muon_chamber1}
+			\end{figure}
+			\FloatBarrier
+
+			The DT chambers cover the $\eta < 1.2$ rergion and are organized into four stations. The front three stations contain 8 chambers with 2 set of four chambers. They measured both the muon cooordinate in $\phi - r$ plane(which is equal to x-y plane) and z direction along the beam line. The forth station does the job only for the best angular resolution rather than on z-direction. To eliminate the dead spots in the efficiency, the chamers' drift cells are offset a half-cell width related to their neighbor; In the 2 regions of endcaps, the CSC which is characterized fast response time, fine segmentation, and radiation resistance can deal with high background level and large non-uniform magnetic field at $0.9 < |\eta| < 2.4$. Also with 4 stations perpendicular to beam line, the CSCs arrange radially outward and do the measurement precisely in the x-y plane. Besides, 6 layers of CSC robustly rejects non-muon background and provides efficient matching of hits to other stations and hits in tracker. Those are some of the reason why CMS has great muon-seen performance; The RPCs, which are double-gap chambers, have properties which are fast, independent, and having highly-segmented trigger. The trigger is a steep $p_T$ threshold at the portion of the range $|\eta| < 1.6$ of the muon system. In order to ensure good operating at high rates, avalanche mode would be operated by the chambers. The first 2 layers of 6 layers RPCs in barrel region are designed redundancy to give a low-$p_T$-tracks trigger algorithm which might have stopped before reaching outer stations. Ather structure plot is shown in Fig.\ref{ExpApp:fig:muon_chamber2}.(ref.\cite{Chatrchyan:2008aa},\cite{Chatrchyan:2013sba},\cite{Sirunyan:2018fpa})
 		
-		\begin{figure}[H]
-		\centering{}
-	    	\includegraphics[width=0.75\textwidth]{Figures/ExpApparatus/muon_chamber2.png}\\
-		\caption{Muon detectors structure\cite{Chatrchyan:2008aa}}
-		\label{ExpApp:fig:muon_chamber2}
-		\end{figure}
+			\begin{figure}[H]
+			\centering{}
+		    	\includegraphics[width=0.75\textwidth]{Figures/ExpApparatus/muon_chamber2.png}\\
+			\caption{Muon detectors structure\cite{Chatrchyan:2008aa}}
+			\label{ExpApp:fig:muon_chamber2}
+			\end{figure}
+			\FloatBarrier
 
-		%\cite{Chatrchyan:2008aa} %overview 2008
-		%\cite{Chatrchyan:2013sba} % 7tev muon detector
-		%\cite{Sirunyan:2018fpa} %reco 13tev
+			%\cite{Chatrchyan:2008aa} %overview 2008
+			%\cite{Chatrchyan:2013sba} % 7tev muon detector
+			%\cite{Sirunyan:2018fpa} %reco 13tev
 
 
 

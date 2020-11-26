@@ -65,54 +65,105 @@
 		\subsubsection{Muon}
 		\label{sssec:PhysObj_MuonReco}
 
-		To reconstruct the muons, there are some procedure should be go through. The first is about the $"\textbf{hit}"$ and segment reconstruction. The $"$hits$"$ are the electric signal produced on wires and strips when muons and other charged particles transversed. The hits reconstruction in different part of detector have different algorithm for reconstructing. Hits in DT(\ref{ssec:muon_detector}) estimate the distance between the wire and the interaction point of muon and the plane in layers. With a $\textbf{time-to-digital}$ $\textbf{converter}$$\textbf{(TDC)}$ registering their arrival time $T_{TDC}$, a time pedestal $T_{ped}$, and the drift velocity $v$, the position of DT hits are then reconstructed by the formula:
+			To reconstruct the muons, there are some procedure should be go through. The first is about the $"\textbf{hit}"$ and segment reconstruction. The $"$hits$"$ are the electric signal produced on wires and strips when muons and other charged particles transversed. The hits reconstruction in different part of detector have different algorithm for reconstructing. Hits in DT(\ref{ssec:muon_detector}) estimate the distance between the wire and the interaction point of muon and the plane in layers. With a $\textbf{time-to-digital}$ $\textbf{converter}$$\textbf{(TDC)}$ registering their arrival time $T_{TDC}$, a time pedestal $T_{ped}$, and the drift velocity $v$, the position of DT hits are then reconstructed by the formula:
 
-		\begin{equation}
-		position = (T_{TDC} - T_{ped}) \times v
-		\label{eq:MuReco_1}
-		\end{equation}
-		\FloatBarrier
+			\begin{equation}
+			position = (T_{TDC} - T_{ped}) \times v
+			\label{eq:MuReco_1}
+			\end{equation}
+			\FloatBarrier
 
-		Hits which are reconstructed in CSC layers combine information from anode wires and cathode strips to measure traversing muon's position; Also, the hits in RPC layers are the product of hit strips clustering. It is necessary that adjacent strips are clustered to reconstruct one hit because the charge of muons which is ionized could be distributed on not just one strip; With multi-layers structure of DT and CSC, their reconstructed hits are built as $\textbf{segment}$.
+			Hits which are reconstructed in CSC layers combine information from anode wires and cathode strips to measure traversing muon's position; Also, the hits in RPC layers are the product of hit strips clustering. It is necessary that adjacent strips are clustered to reconstruct one hit because the charge of muons which is ionized could be distributed on not just one strip; With multi-layers structure of DT and CSC, their reconstructed hits are built as $\textbf{segment}$.
 
-		Secondly, the tracks are reconstructed independently and eventually used as input for muon track reconstruction. There are steps to reconstruct the muon tracks:
+			Secondly, the tracks are reconstructed independently and eventually used as input for muon track reconstruction. There are steps to reconstruct the muon tracks:
 
-		\begin{itemize}
-			\item $\textbf{Standalone-muon tracks}$ : By using Kalman-filter technique\cite{Fruhwirth:1987fm} and information from subdetectors(DT,CSC,PRC), standalon-muon track is built. The reconstruction starts from seeds which are composed of sets of DT/CSC segments.
-			\item $\textbf{Tracker muon tracks}$ : They are built $"$inside-out$"$ from tracker tracks to the muon system(segments). 
-			\item $\textbf{Global muon tracks}$ : They are built $"$outside-in$"$ by matching the reconstructed standalone-muon tracks to the tracker tracks.
-		\label{PhysObj:itm:muon_track_reco}
-		\end{itemize}
+			\begin{itemize}
+				\item $\textbf{Standalone-muon tracks}$ : By using Kalman-filter technique\cite{Fruhwirth:1987fm} and information from subdetectors(DT,CSC,PRC), standalon-muon track is built. The reconstruction starts from seeds which are composed of sets of DT/CSC segments.
+				\item $\textbf{Tracker muon tracks}$ : They are built $"$inside-out$"$ from tracker tracks to the muon system(segments). 
+				\item $\textbf{Global muon tracks}$ : They are built $"$outside-in$"$ by matching the reconstructed standalone-muon tracks to the tracker tracks.
+			\label{PhysObj:itm:muon_track_reco}
+			\end{itemize}
 
-		Muons are often reconstructed as a global muons track or a tracker muons track or almost as both. It is merged to the muon canndidate that the global muon and the tracker muon share the same tracker tracks.
+			Muons are often reconstructed as a global muons track or a tracker muons track or almost as both. It is merged to the muon canndidate that the global muon and the tracker muon share the same tracker tracks.
 
-		The third one is to identify the muon.($\textbf{Muon Identification}$$\textbf{(Muon ID)}$) Sets of variables are studied and developed to be selection criteria, for example, the $\chi^2$ track fit, the $\#$ of hits in one track...,etc.(Most are based on information in muon reconstruction) The muon ID used in the analysis are listed below:
+			The third one is to identify the muon.($\textbf{Muon Identification}$$\textbf{(Muon ID)}$) Sets of variables are studied and developed to be selection criteria, for example, the $\chi^2$ track fit, the $\#$ of hits in one track...,etc.(Most are based on information in muon reconstruction) The muon ID used in the analysis are listed below:
 
-		\begin{itemize}
-			\item $\textbf{Loose muon ID}$ : A muon is selected by PF algorithm that is either a global or a tracker muon.
-			\item $\textbf{Tight muon ID}$ : The muon must be simultaneously global and tracker muon after reconstructed. The global muon fit must have goodness of fit test() with $\chi^2/d.o.f < 10$ and at least have one hit from muon chambers. A tight muon also corresponds to primary vertex compatibly, and has longitudinal impact parameter |dZ|<0.5cm and transverse impact parameter |dXY|<0.2cm.
-		\label{PhysObj:itm:muon_track_reco}
-		\end{itemize}
+			\begin{itemize}
+				\item $\textbf{Loose muon ID}$ : A muon is selected by PF algorithm that is either a global or a tracker muon.
+				\item $\textbf{Tight muon ID}$ : The muon must be simultaneously global and tracker muon after reconstructed. The global muon fit must have goodness of fit test() with $\chi^2/d.o.f < 10$ and at least have one hit from muon chambers. A tight muon also corresponds to primary vertex compatibly, and has longitudinal impact parameter |dZ|<0.5cm and transverse impact parameter |dXY|<0.2cm.
+			\label{PhysObj:itm:muon_ID}
+			\end{itemize}
 
-		The forth is to detemine the momentum of muons.
+			The forth is to detemine the momentum of muons by the tune-P algorithm\cite{collaboration_2012}. The algorithm select one of the measuring $p_T$ results by refitting. The decision is made based on level of goodness-of-fit and to reduce the tail on the events number on $p_T$ spectrum because of poor quality fits. There are $\textbf{Inner-track}$ $\textbf{fit}$, $\textbf{Tracker}$$\textbf{-Plus}$$\textbf{-First}$$\textbf{-Muon}$$\textbf{-Station}$ $\textbf{fit}$, $\textbf{Picky}$ $\textbf{fit}$, and $\textbf{Dynamic-Truncation}$ $\textbf{fit}$:
 
-		Last, muon's isolation can help distinguish prompt muons from those casued by weak decays from jets.
+			\begin{itemize}
+				\item $\textbf{Inner-Track fit}$ : Using only inner trackers' information, appropriate for low $p_T$ range.
+				\item $\textbf{Tracker-Plus-First-Muon-Station fit}$ : Starting with the global muon track, from inner tracker information and hits contained by innermost muon station(which has the best performance on momentum in the muon system), it perform the refits.
+				\item $\textbf{Picky fit}$ : Starting with the global muon track, it does the refits only with hits which are compatible with the inferred trajectory.
+				\item $\textbf{Dynamic-Truncation fit}$ : The algorithm refits from innermost stations outward to the outermost one. If there is no compatible hit found in 2 consecutive muon stations, it stops.
+			\label{PhysObj:itm:muon_p_reco}
+			\end{itemize}
 
+			Last, muons' isolation can help distinguish prompt muons from those casued by weak decays from jets. A given muon commonly uses its $p_T$ which is summed up from the energy in the geometry cone($\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \phi)^2}$) surrounding the muon. The first choice of energy addition is summing the reconstructed tracks, and the other is to use neutral particles and charged hadrons from PF isolation.
 
-		All the information and detail in section.\ref{sssec:PhysObj_MuonReco} are from ref.\cite{Sirunyan:2018fpa}.
-		%\cite{Sirunyan:2018fpa} %main
-		%\cite{Chatrchyan:2012xi}
-		
+			%\cite{Sirunyan:2018fpa} %main
+			%\cite{Chatrchyan:2012xi}
 
+			Through the complete procedure, the muons could be reconstructed. All the information and detail in section.\ref{sssec:PhysObj_MuonReco} are from ref.\cite{Sirunyan:2018fpa}. The muons passing the particle flow reconstruction should pass the selections in this analysis, and they are listed below:
+
+			\begin{itemize}
+				\item $\textbf{Selected muon criteria}$ : 
+					\begin{itemize}
+						\item $p_T$ > 30 GeV
+						\item |$\eta$| < 2.4
+						\item Pass muon ID with tight working point from Muon POG\cite{muon_POG}(\ref{PhysObj:itm:muon_ID})
+						\item PF-based combined relative isolation value < 0.15 from Muon POG\cite{muon_POG}
+					\end{itemize}
+				\item $\textbf{Veto muon criteria}$ : 
+					\begin{itemize}
+						\item $p_T$ > 15 GeV
+						\item |$\eta$| < 2.4
+						\item Pass muon ID with loose working point from Muon POG\cite{muon_POG}(\ref{PhysObj:itm:muon_ID})
+						\item PF-based combined relative isolation value < 0.25 from Muon POG\cite{muon_POG}
+					\end{itemize}
+			\label{PhysObj:itm:muon_selection}
+			\end{itemize}
+			
 		\subsubsection{Electron}
 		\label{sssec:PhysObj_ElectronReco}
 
-		\cite{2015_el_reco}
+			\cite{2015_el_reco}
 
 
-	%\subsection{Missing Transverse Energy(MET)}
-	%\label{ssec:PhysObj_met}
+			The electrons passing the particle flow reconstruction should pass the selections in this analysis, and they are listed below:
 
+			\begin{itemize}
+				\item $\textbf{Selected Electron criteria}$ : 
+					\begin{itemize}
+						\item $p_T$ > 38 GeV
+						\item |$\eta$| < 2.4 $\&$ $\notin$ [1.4442, 1.5660]
+						\item Pass electron ID with tight working point from EGamma POG\cite{egamma_POG}()
+						\item impact parameter cut from EGamma POG\cite{egamma_POG}
+					\end{itemize}
+				\item $\textbf{Veto Electron criteria}$ : 
+					\begin{itemize}
+						\item $p_T$ > 15 GeV
+						\item |$\eta$| < 2.4 $\&$ $\notin$ [1.4442, 1.5660]
+						\item Pass electron ID with loose working point from EGamma POG\cite{egamma_POG}()
+						\item impact parameter cut from EGamma POG\cite{egamma_POG}
+					\end{itemize}
+			\label{PhysObj:itm:electron_selection}
+			\end{itemize}
+
+	\subsection{Missing Transverse Energy(MET)}
+	\label{ssec:PhysObj_met}
+		The $\textbf{missing}$ $\textbf{transverse}$ $\textbf{energy}$$\textbf{(MET)}$ is a physical objects about invisible particles in CMS detector, for example, neutrino. Because of the momentum conservation before and after the collision, the kinematics of invisible stuffs would be inferred. The approach to get the missing energy is summing up the visible final physical object's momentum with a minus sign added. The x/y-direction's initial momentum($p_x$,$p_y$) are known being zero respectively, but initial momentum z-component($p_z$) is unknown because of the pileup bunches and messy collision. Therefore, the practical part of missing energy to be calculated is the transverse part(x-y plane) of momentum -- the missing transverse energy. The measurement of MET is shown below:
+
+		\begin{equation}
+		missing\;E_T = - \sum_{i}^{} \vec{p}_{T,i} \;, \; i\;for\;visible\;final\;objects
+		\label{eq:MET}
+		\end{equation}
+		\FloatBarrier
 		
 
 	\subsection{Jet}

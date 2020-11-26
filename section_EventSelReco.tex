@@ -31,9 +31,9 @@
 		For the $\textbf{Signal Region(SR)}$, the region with selection cut to extract signal in an analysis, there are the selection cuts below, with the physical objects' criteria menntioned in Chapter.\ref{sec:PhysObj}:
 
 		\begin{itemize}
-	  		\item 1 selected lepton which are a tight muon or a tight electron
-	  		\item 0 lepton pass veto criteria which are loose muon and loose electron criterion
-	  		\item $\geq$ 4 selected jets with passing medium jet criteria
+	  		\item 1 selected lepton which complys with selected muon criteria(\ref{PhysObj:itm:muon_selection}) or selected electron criteria(\ref{PhysObj:itm:electron_selection})
+	  		\item 0 lepton pass veto criteria(\ref{PhysObj:itm:muon_selection},\ref{PhysObj:itm:electron_selection})
+	  		\item $\geq$ 4 selected jets with passing selected jet criteria(\ref{PhysObj:itm:sel_jet})
 	  		\item exact 2 btagged jets(deepCSV Medium criteria) in these selected jets
 	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
 	  	\label{EventSelReco:itm:full_sel}
@@ -885,9 +885,9 @@
 		In the calculation of asymmetry of $t\bar{t}$, there are some effect from non-$t\bar{t}$ background diving in and causing spurious result. To study the background asymmetry effects from detector and reconstruction, and to subtract these effects from data's asymmetry calculation, there are 2 $\textbf{Control Region(CR)}$ samples introduced. Control region usually means a region which is orthogonal to signal region and also usually used to study the background in an analysis. The background estimation and study part is set in Chapter.\ref{sec:BkgEst}. In the analysis, the first CR is a $\textbf{W+jets-dominant CR}$ samples:
 
 		\begin{itemize}
-	  		\item 1 selected lepton which are a tight muon or a tight electron
-	  		\item 0 lepton pass veto criteria which are loose lepton criterion $\textbf{with NO isolation restriction}$*
-	  		\item $\geq$ 4 selected jets with passing medium jet criteria
+	  		\item 1 selected lepton which complys with selected muon criteria(\ref{PhysObj:itm:muon_selection}) or selected electron criteria(\ref{PhysObj:itm:electron_selection})
+	  		\item 0 lepton pass veto criteria(\ref{PhysObj:itm:muon_selection},\ref{PhysObj:itm:electron_selection}) $\textbf{with NO isolation restriction}$*
+	  		\item $\geq$ 4 selected jets with passing selected jet criteria(\ref{PhysObj:itm:sel_jet})
 	  		\item $\textbf{NO}$ btagged jets(deepCSV Loose) in these selected jets*
 	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
 	  	\label{EventSelReco:itm:full_sel_CR1}
@@ -909,9 +909,9 @@
 		There are more spike-shape happening in QCD MC samples shown in Fig.\ref{EventSelReco:fig:chi2_CR_1C_Mlb}. They come from the reason that QCD has much larger cross section than other simulation samples. In this case, if one QCD simulation event pass or fail the selection, it would be reweighed by a large value. The necessity to reweigh to luminosity leads to that one QCD simulation event's effect would cause an enormous variation showing on plots after selection. To make up this demonstration type, there is the second CR which is enriched with QCD samples:
 
 		\begin{itemize}
-	  		\item 1 selected lepton with tight lepton with $\textbf{inverse ISOlation criteria}$*
-	  		\item 0 lepton pass veto criteria which are loose lepton criterion $\textbf{with NO isolation restriction}$
-	  		\item $\geq$ 4 selected jets with passing medium jet criteria
+	  		\item 1 selected leptonwhich complys with selected muon criteria(\ref{PhysObj:itm:muon_selection}) or selected electron criteria(\ref{PhysObj:itm:electron_selection}) with $\textbf{inverse ISOlation criteria}$*
+	  		\item 0 lepton pass veto criteria(\ref{PhysObj:itm:muon_selection},\ref{PhysObj:itm:electron_selection}) $\textbf{with NO isolation restriction}$
+	  		\item $\geq$ 4 selected jets with passing selected jet criteria(\ref{PhysObj:itm:sel_jet})
 	  		\item $\textbf{NO}$ btagged jets(deepCSV Loose) in these selected jets
 	  		\item each selected jets are isolated from the selected lepton with $\Delta R$ > 0.4
 	  	\label{EventSelReco:itm:full_sel_CR2}
