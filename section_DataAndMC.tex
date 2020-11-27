@@ -63,7 +63,7 @@
 		%%% table of the MC sample's Xsec and generated events number and generator -> weight to luminosity
 
 		\begin{center}
-		\begin{longtable}{ c c c c c }
+		\begin{longtable}{ | c c c c c | }
 		\caption{Informations of simulated samples used in this analysis} \\
 		\hline
 		Process sample & Cross Section[pb] & k-factor & Events No. & Generator \\ 
@@ -111,48 +111,48 @@
 		\end{center}
 
 		\begin{center}
-		\begin{longtable}{ c c }
-		\caption{simulated process and corresponding file's name} \\
+		\begin{longtable}{ | c | }
+		\caption{Corresponding file's name with process in the same arrangement in Table.\ref{DataMC:tb:process}} \\
 		\hline
-		Process sample & File name \\ 
+		File name \\ 
 		\hline
-		$t$$\bar{t}\rightarrow b \bar{b}jjl\nu$ & TTToSemiLeptonic\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
+		TTToSemiLeptonic\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
 		\hline
-		\multirow{8}{2em}{$Z / \gamma * \rightarrow l^+ l^-$} & DYJetsToLL\_M-50\_HT-70to100\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-100to200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-200to400\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-400to600\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-600to800\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-800to1200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-1200to2500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & DYJetsToLL\_M-50\_HT-2500toInf\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-70to100\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-100to200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-200to400\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-400to600\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-600to800\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-800to1200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-1200to2500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		DYJetsToLL\_M-50\_HT-2500toInf\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
 		\hline
-		\multirow{7}{2em}{W+jets$\rightarrow l \nu$} & WJetsToLNu\_HT-100To200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & WJetsToLNu\_HT-200To400\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & WJetsToLNu\_HT-400To600\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & WJetsToLNu\_HT-600To800\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & WJetsToLNu\_HT-800To1200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & WJetsToLNu\_HT-1200To2500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & WJetsToLNu\_HT-2500ToInf\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-100To200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-200To400\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-400To600\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-600To800\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-800To1200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-1200To2500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		WJetsToLNu\_HT-2500ToInf\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
 		\hline
-		$WW$ & WW\_TuneCUETP8M1\_13TeV-pythia8 \\
-		$WZ$ & WZ\_TuneCUETP8M1\_13TeV-pythia8 \\
-		$ZZ$ & ZZ\_TuneCUETP8M1\_13TeV-pythia8 \\
+		WW\_TuneCUETP8M1\_13TeV-pythia8 \\
+		WZ\_TuneCUETP8M1\_13TeV-pythia8 \\
+		ZZ\_TuneCUETP8M1\_13TeV-pythia8 \\
 		\hline
-		\multirow{5}{2em}{SingleTop} & ST\_s-channel\_4f\_leptonDecays\_TuneCP5\_PSweights\_13TeV-amcatnlo-pythia8 \\
-		 & ST\_t-channel\_top\_4f\_inclusiveDecays\_13TeV-powhegV2-madspin-pythia8\_TuneCUETP8M1 \\
-		 & ST\_t-channel\_antitop\_4f\_InclusiveDecays\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
-		 & ST\_tW\_top\_5f\_inclusiveDecays\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
-		 & ST\_tW\_antitop\_5f\_inclusiveDecays\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
+		ST\_s-channel\_4f\_leptonDecays\_TuneCP5\_PSweights\_13TeV-amcatnlo-pythia8 \\
+		ST\_t-channel\_top\_4f\_inclusiveDecays\_13TeV-powhegV2-madspin-pythia8\_TuneCUETP8M1 \\
+		ST\_t-channel\_antitop\_4f\_InclusiveDecays\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
+		ST\_tW\_top\_5f\_inclusiveDecays\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
+		ST\_tW\_antitop\_5f\_inclusiveDecays\_TuneCP5\_PSweights\_13TeV-powheg-pythia8 \\
 		\hline
-		\multirow{8}{2em}{QCD} & QCD\_HT100to200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT200to300\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT300to500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT500to700\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT700to1000\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT1000to1500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT1500to2000\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
-		 & QCD\_HT2000toInf\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT100to200\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT200to300\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT300to500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT500to700\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT700to1000\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT1000to1500\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT1500to2000\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
+		QCD\_HT2000toInf\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8 \\
 		\hline
 		\label{DataMC:tb:filename}
 		\end{longtable}
