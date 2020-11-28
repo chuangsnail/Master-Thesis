@@ -136,25 +136,23 @@
 
 			The following is to reconstruct the electron tracks by the standard Kalman filter method in tracker. Because of the reduced hit-collection efficiency from electrons' large radiative losses and shortage of estimation of track parameters, a dedicated tracking procedure is adopted. There are twon primary parts of the procedure -- $\textbf{seeding}$ and $\textbf{tracking}$. Seeding is to find two orr three hits in the tracker from which the reconstructed track initiate. There are also two complementary algorithm for greater reconstrruction efficiency -- $\textbf{ECAL-based}$ $\textbf{seeding}$ and $\textbf{tracker-based}$ $\textbf{seeding}$. The ECAL-based algorithm helps estimating the electrrons' trajectory in the first layers of the tracker, and the method begins with the position and SC energy. The tracker-based seeding is dependent on the reconstructed tracks and extending to the SC and ECAL. The seeding steps usually uses the standard KF algorithm directly. However, if the potential presence of bremsstrahlung significantly show, it is then adopted that the $\textbf{Gaussian}$ $\textbf{sum}$ $\textbf{filter}$$\textbf{(GSF)}$ method. Then the inforrmation from KF method, GSF method, ECAL, and tracker would be poured into multi-variate analysis(MVA) to get the chosen electron seeds. After electrons' seeds are selected, they are used to initiate electron track building. The tracking is from the initial seed and then fitted with KF or GSF method. The constraints are included to reduce the increasing trajectory candidates from fitting results of increasing layers. As a result, the electron track is reconstructed.Also, the electron particle-flow clustering is driven by GSF tracks, and it is independent to the seeded way.
 
-			The electron charge is estimated by the bremsstrahlung followed by photon conversions. Because the remsstrahlung photons convert and lead to complex hit-patterns, the fitting of electron track would penetrated from the wrongly contributions from this conversion. The solving is about the sign of the GSF track curvature, and it has improvements from combination of 2 charge estimation. The first is about match between the associated KF track and a GSF track, and the second one is evaluation about SC position($\phi$ difference of vector joining the beam spot, SC and the first hit of the electron GSF track). Last, the electrons' momentum is evaluated by combination of the tracker and ECAL information. It is classified with their bremsstrahlung pattern for electrons, because the electrons' sensitivity to the emission and the conversion of photons could provide the better electron momentum measurements.
+			The electron charge is estimated by the bremsstrahlung followed by photon conversions. Because the remsstrahlung photons convert and lead to complex hit-patterns, the fitting of electron track would penetrated from the wrongly contributions from this conversion. The solving is about the sign of the GSF track curvature, and it has improvements from combination of 2 charge estimation. The first is about match between the associated KF track and a GSF track, and the second one is evaluation about SC position($\phi$ difference of vector joining the beam spot, SC and the first hit of the electron GSF track). Last, the electrons' momentum is evaluated by combination of the tracker and ECAL information. It is classified with their bremsstrahlung pattern for electrons, because the electrons are sensitive to the emission and the conversion of photons. By doing so, it could provide the better electron momentum measurements.
 
-			The details of electrons' reconstruction could be checked in ref.\cite{2015_el_reco}.
-
-			The electrons passing the particle flow reconstruction should pass the selections in this analysis, and they are listed below:
+			The details of electrons' reconstruction could be checked in ref.\cite{2015_el_reco}. Futhermore, the electrons passing the particle flow reconstruction should pass the selections in this analysis, and they are listed below:
 
 			\begin{itemize}
 				\item $\textbf{Selected Electron criteria}$ : 
 					\begin{itemize}
 						\item $p_T$ > 38 GeV
 						\item |$\eta$| < 2.4 $\&$ $\notin$ [1.4442, 1.5660]
-						\item Pass electron ID with tight working point from EGamma POG\cite{egamma_POG}()
+						\item Pass electron ID with tight working point from EGamma POG\cite{egamma_POG}
 						\item impact parameter cut from EGamma POG\cite{egamma_POG}
 					\end{itemize}
 				\item $\textbf{Veto Electron criteria}$ : 
 					\begin{itemize}
 						\item $p_T$ > 15 GeV
 						\item |$\eta$| < 2.4 $\&$ $\notin$ [1.4442, 1.5660]
-						\item Pass electron ID with loose working point from EGamma POG\cite{egamma_POG}()
+						\item Pass electron ID with loose working point from EGamma POG\cite{egamma_POG}
 						\item impact parameter cut from EGamma POG\cite{egamma_POG}
 					\end{itemize}
 			\label{PhysObj:itm:electron_selection}
