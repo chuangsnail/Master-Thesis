@@ -6,14 +6,14 @@
 \section{Asymmetry Bias}
 \label{sec:AsymBias}
 
-	In the standard model(SM), the $A_{cp}$ of $t\bar{t}$ and other background are expected to be zero, that is to say, there is no asymmetry. However, the $A'_{cp}$ value may be affected by the reconstructing and detector demonstrating, and also the particles' characteristic may interact with detector, so the $A'_{cp}$ might be different from the real $A_{cp}$. And the reconstruction effects from the detector can be studied by simulation sample. Also, the detector and reconstruction bias is expected to be the major systematic uncertainty of the analysis.
+	In the standard model(SM), the $A_{cp}$ of $t\bar{t}$ and other background are expected to be zero, that is to say, there is little asymmetry. However, the $A'_{cp}$ value may be affected by the physical objects', events' reconstructing and detector's demonstrating, and the particles' characteristic may interact with detector, so the $A'_{cp}$ might be different from the real $A_{cp}$. Then this sophisticated effects from the detector can be studied by simulation sample. Also, the detector and reconstruction bias is expected to be the major systematic uncertainty of the analysis.
 
-	The best way to estimate the detector and reconstruction issue is to see the $A'_{cp}$ bias of a sample which supposes to be zero in $A_{cp}$. And then, the standard deviation(error) of $A'_{cp}$ is taken as the detector and reconstruction bias. The sample needs to be irrelavent with the target signal of this analysis -- $t\bar{t}$ because we expect the possible source of asymmetry is in $t\bar{t}$. Accordingly, the SR background sample is appropriate to be studied for the detector and reconstruction bias since it is supposed to be without $A_{cp}$ and it is nothing relative to the signal in the analysis($t\bar{t}$). However, the SR background sample has low statistics. Therefore, the method in 8TeV analysis is using the W+jets-dominant CR data sample as the sample supposed to be without $A_{cp}$, because the W+jets CR data sample is used to data-driven the SR background sample. Yet, in this analysis, we use the analyzed data itself and a fake data method to doing this study. It is advatage of using SR data itself that the statistics is more than CR data and that the W+jets-dominant CR smaple still includes over $10\%$ $t\bar{t}$. And the chapter is to introduce the fake data method to calculate the detector and reconstruction bias.
+	The best way to estimate the detector and reconstruction issue is to see the $A'_{cp}$ bias of a sample which supposes to be zero in $A_{cp}$. And then, the standard deviation(error) of $A'_{cp}$ is taken as the detector and reconstruction bias because the expected zero value and the standard deviation is exactly represent the possible fluctuation of the value, which is seen as the detector and reconstruction bias. The sample needs to be irrelavent with the target signal of this analysis -- $t\bar{t}$ because we expect the possible source of asymmetry is in $t\bar{t}$. Accordingly, the SR background sample is appropriate to be studied for the detector and reconstruction bias since it is supposed to be without $A_{cp}$ and it is nothing relative to the signal in the analysis($t\bar{t}$). However, the SR background sample has low statistics. Therefore, the method in 8TeV analysis is using the W+jets-dominant CR data sample as the control sample supposed to be without $A_{cp}$, because the W+jets CR data sample is used to data-driven the SR background sample. Yet, in this analysis, we use the analyzed data itself and a fake data method to doing this study. It is advatage of using SR data itself that the statistics is more than CR data and that the W+jets-dominant CR smaple still includes over $10\%$ $t\bar{t}$. The chapter is to introduce the fake data method to calculate the detector and reconstruction bias.
 
 	\subsection{Asymmetry in simulation sample}
 	\label{ssec:Asym_in_sim}
 
-		There are the $A'_{cp}$ of simulated $t\bar{t}$ sample in SR with 3 different reconstruction results($\chi^2_{min}$, MVA-A, MVA-B). It is expected to have no asymmetry because of the simulation sample is generated based on standard model(SM).
+		There are the $A'_{cp}$ of simulated $t\bar{t}$ sample in SR with 3 different reconstruction strategies($\chi^2_{min}$, MVA-A, MVA-B). It is expected to have no asymmetry because the simulated sample is generated based on standard model(SM).
 
 
 		\begin{figure}[H]
@@ -44,7 +44,7 @@
 		\FloatBarrier
 
 
-		Futhermore, as previous mentioning, the $A'_{cp}$ of simulated background sample in SR is participated as a fine sample to check the detector and reconstruction bias. There are the checks whether they are has no asymmetry.
+		Futhermore, as previous mentioning, the $A'_{cp}$ of simulated background sample in SR participates as a fine sample to check the detector and reconstruction bias. There are the checks whether they have no asymmetry.
 
 		\begin{figure}[H]
 			\centering
@@ -90,7 +90,7 @@
 		\end{figure}
 		\FloatBarrier
 
-		Before applying this method on real data to make fake data, it is needed to check whether the events mixing method really mix the information of particle kinematics and really cancel out the intrinsic asymmetry factor. To check the canceling out effect, there is an artificial generated $A'_{cp}$ sample prepared by duplicating random positive events with given probability. Then apply the event mixing result on this sample, the results are shown below(Fig.\ref{AsymBias:fig:washout_artificial}), and we can confirm that the method would really cancel out the $A'_{cp}$.
+		Before applying this method on real data to make fake data, it is needed to check whether the events mixing method really mix the information of particle kinematics and really cancel out the intrinsic asymmetry factor. To check the canceling out effect, there is an artificial generated $A'_{cp}$ sample prepared by duplicating random positive events with given probability, for example, there are $10\%$ probability duplicating the whole event when the event is checked with positive observable value by generator-level information. Then apply the event mixing result on this sample, the results are shown below(Fig.\ref{AsymBias:fig:washout_artificial}), and we can confirm that the method would really cancel out the $A'_{cp}$.
 
 		\begin{figure}[H]
 		\centering{}
@@ -100,7 +100,7 @@
 		\end{figure}
 		\FloatBarrier
 
-		And then to get the reconstruction and detector bias, we generate 1000 sets of fake-data samples.Then, we measure their $A'_{cp}$, and average the 1000 results mean values and standard deviations. The derived standard deviations of 4 observables are considered as the detector and reconstruction bias also the major systematic uncertainty of the 4 observables' final results. There are the plots of reconstruction and detector bias with event mixing method under three reconstruction strategies($\chi^2_{min}$, MVA-A, MVA-B):
+		To get the reconstruction and detector bias, we generate 1000 sets of fake-data samples. Then, we measure their $A'_{cp}$, and average the 1000 results mean values and standard deviations which is the statistical uncertainty. The derived standard deviations of 4 observables are considered as the detector and reconstruction bias also the major systematic uncertainty of the 4 observables' final results. There are the plots of reconstruction and detector bias with event mixing method under three reconstruction strategies($\chi^2_{min}$, MVA-A, MVA-B):
 
 		\begin{figure}[H]
 			\centering

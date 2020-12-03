@@ -16,12 +16,12 @@
 		\subsubsection{ CEDM model}
 		\label{sssec:AcpModel_CEDM}
 
-			The simple introduction have been already shown in section.\ref{ssec:Intro_CPVpossible}. For the part of observables, the T-odd observables are only sensitive to the CEDM model's asymmtry from real part, and the T-even observables are also only sensitive to imagininary part of $d_t^g$.(T-odd and T-even will be mentioned in section\ref{ssec:AcpObs}) To generate the CEDM's sample, it is necessary to do the implementation to concretize the model lagrangian with program FeynRules\cite{Christensen:2008py}. However, because the $Im(d_t^g)$ could not be presented on the lagragian(mentioned in section.\ref{ssec:Intro_CPVpossible}), the imaginary(absorptive) part of $d_t^g$ is not allowed inputting in FeynRules. Also, the production from FeynRules are definitely the input model for MadGraph generator(which is called UFO file). Now, therefore, the MadGraph generator we use could not make CEDM sample with imaginary part of $d_t^g$. If there will be hacked into the FeynRules and successfully imsert the restricted imaginary part now, the T-even observable behavior corresponding to $Im(d_t^g)$ will be still an interesting issue.
+			The simple introduction have been already shown in section.\ref{ssec:Intro_CPVpossible}. For the part of observables, the T-odd observables are only sensitive to the CEDM model's asymmtry from real part, and the T-even observables are also only sensitive to imagininary part of $d_t^g$.(T-odd and T-even will be mentioned in section\ref{ssec:AcpObs}) To generate the CEDM's sample, it is necessary to do the implementation to concretize the model lagrangian with program FeynRules\cite{Christensen:2008py}. However, because the $Im(d_t^g)$ could not be presented on the lagragian(mentioned in section.\ref{ssec:Intro_CPVpossible}), the imaginary(absorptive) part of $d_t^g$ is not allowed inputting in FeynRules. Also, the production from FeynRules are definitely the input model for MadGraph generator(which is called UFO file). Now, therefore, the MadGraph generator we use could not make CEDM sample with imaginary part of $d_t^g$. If there will be hacked into the FeynRules and successfully inserting the restricted imaginary part now, the T-even observable behavior corresponding to $Im(d_t^g)$ will be still an interesting issue.
 
 		\subsubsection{ 2HDM model}
 		\label{sssec:AcpModel_2HDM}
 
-			The only detected neural Higgs-boson in standard model is CP and flavor conserving automatically. However, the extended Higgs sector could be allowed feature of  CP violation. The beyond standard model's 2HDM model is the probable case and one of simple case of Higgs sector with CP violation. For the top quark, because of it's heavy mass, the larger effect of CPV is expected in the Higgs sector. It is known that 2hDM extensions with natural flavour conservation at the tree level and explicit CP violation are by complex Yukawa coupling matrices which lead to a Kobayashi-Maskawa (KM) phase, and also by tree level Higgs potential V($\Phi_1$, $\Phi_2$). CP violation in the scalar potential induces blending of CP–even and –odd scalars, and in this way leading to 3 mass eigenstates but not CP eigenstates, so we have couplings:
+			The only detected neural Higgs-boson in standard model is CP and flavor conserving automatically. However, the extended Higgs sector could be allowed feature of  CP violation. The beyond standard model's 2HDM model is the probable case and one of simple case of Higgs sector with CP violation. For the top quark, because of it's heavy mass, the larger effect of CPV is expected in the Higgs sector. It is known that 2HDM extensions with natural flavour conservation at the tree level and explicit CP violation are by complex Yukawa coupling matrices which lead to a Kobayashi-Maskawa (KM) phase, and also by tree level Higgs potential V($\Phi_1$, $\Phi_2$). CP violation in the scalar potential induces blending of CP–even and –odd scalars, and in this way leading to 3 mass eigenstates but not CP eigenstates, so we have couplings:
 
 			\begin{equation}
 			\begin{split}
@@ -73,14 +73,14 @@
 	\subsection{Observables}
 	\label{ssec:AcpObs}
 
-		The probed observables are roughly classified to two type. The first one is the CP-odd observables which is T-odd and the other is CP-odd observable which is T-even. The CP-even/odd or T-even/odd means the $\hat{CP}$ or $\hat{T}$ operator's have eigenstates with eigenvalues $+1$/$-1$. The triple product type observable(for example, the $O_{3,6,12,14}$ we use in the 2016 analysis) is obviously T-odd observable because of the trriple product form(Eq.\ref{eq:triple_product_form}). The introduction of T-odd CP-odd observable is mentioned in section.\ref{ssec:Intro_TPinLHC} before. Moreover, the T-odd observables of CPV is maturely developed and extensively used. Thus, I will put emphasis on T-even observables in this section, and just make a simple test to T-odd observables in following contents.
+		The probed observables are roughly classified to two type. The first one is the CP-odd observables which is T-odd and the other is CP-odd observable which is T-even. The CP-even/odd or T-even/odd means the $\hat{CP}$ or $\hat{T}$ operator's have eigenstates with eigenvalues $+1$/$-1$. The triple product type observable(for example, the $O_{3,6,12,14}$ we use in the 2016 analysis) is obviously T-odd observable because of the trriple product form(Eq.\ref{eq:triple_product_form}). The introduction of T-odd CP-odd observable, which is maturely developed and extensively used, is mentioned in section.\ref{ssec:Intro_TPinLHC} before. Thus, I will put emphasis on T-even observables in this section, and just make a little simple test to T-odd observables in following contents.
 
 		\subsubsection{Classification and Test}
 		\label{sssec:AcpObs_class_test}
 
 			The following testing are based on some simulation sample of $t\bar{t}$ by generator Madgraph to generate parton-level's event-by-event sample. And the showering and detector simulation would be done by Pythia\cite{Sjostrand:2014zea} and Delphes\cite{Ovyn:2009tx}.
 
-			At first, following the paper\cite{Hayreter:2015ryk}'s(which is the basic of 2016 analysis) selection and model implementation, we also use Madgraph\cite{Alwall:2011uj} generator as it to generate $t\bar{t}$ sample of CEDM model to double-check the triple product observables action under CEDM model. There are generated samples at $d_t^g$ tuning to be 0 to 5.0 to see the relation between $A_{cp}$ and parameter $d_t^g$. The $O_{3}$, $O_{6}$, $O_{12}$, $O_{14}$ would be tested:
+			At first, following the paper\cite{Hayreter:2015ryk}'s(which is the basic of 2016 data analysis) selection and model implementation, we also use Madgraph\cite{Alwall:2011uj} generator as it to generate $t\bar{t}$ sample of CEDM model to double-check the triple product observables action under CEDM model. There are generated samples at $d_t^g$ tuning to be 0 to 5.0 to see the relation between $A_{cp}$ and parameter $d_t^g$. The $O_{3}$, $O_{6}$, $O_{12}$, $O_{14}$ would be tested:
 
 			\begin{figure}[H]
 			\centering
@@ -121,12 +121,10 @@
 			\end{figure}
 			\FloatBarrier
 
-			Compared to the standard model's results -- the asymmetry values are supposely drop into 2 standard deviation range, the CEDM model shows great sensitivity to the triple product observables, and the 2HDM model with default parameter setting shows a little probability to be detect.
-
-			Because of the extensive usage of triple-product-type observables, which is roughly equal to T-odd observales, to measure the asymmetry in $t\bar{t}$, we put emphasis on T-even observable here. 
+			Compared to the standard model's results -- the asymmetry values are supposely drop into 2 standard deviation range, the CEDM model shows great sensitivity to the triple product observables, and the 2HDM model with default parameter setting shows a little probability to be detect. That's the part of T-odd observables.
 
 			% Peskin
-			The first one is from \cite{PhysRevLett.69.410}. It is also researched with Higgs sector, exchange of Higgs boson $\phi$ creates CP-violating final-state interactions in $t\bar{t}$ by gluons or quarks. It is stated that the helicity conservation insists that gluons mainly produce left-handed top quarks($t_L$) accompanying with right-handed anti-top quarks($\bar{t}_R$) and vice versa($t_R$ with $\bar{t}_L$). Yet, there is also production of $t_L \bar{t}_L$ and $t_R \bar{t}_R$ going into each other under CP. The diffrence of the two production rate would be the signal of CP violation. Then it leads to a charge asymmetry in the energy distribution of decaying W from top quarks otr their decay leptons. The $t\bar{t}$ asymmetry mentioned in this paper is shown:
+			For the part of T-even observables, the first one is from \cite{PhysRevLett.69.410}. It is also researched with Higgs sector, exchange of Higgs boson $\phi$ creates CP-violating final-state interactions in $t\bar{t}$ by gluons or quarks. It states that the helicity conservation insists that gluons mainly produce left-handed top quarks($t_L$) accompanying with right-handed anti-top quarks($\bar{t}_R$) and vice versa($t_R$ with $\bar{t}_L$). Yet, there is also production of $t_L \bar{t}_L$ and $t_R \bar{t}_R$ going into each other under CP. The diffrence of the two production rate would be the signal of CP violation. Then it leads to a charge asymmetry in the energy distribution of their decay leptons from decaying W bosons who come from top quarks. The $t\bar{t}$ asymmetry mentioned in this paper is shown:
 
 			\begin{equation}
 			\Delta N_{LR} = [N(t_L \bar{t}_L)-N(t_R \bar{t}_R)]/N(all \; t\bar{t})
@@ -152,12 +150,12 @@
 			\begin{figure}[H]
 			\centering
 			    \includegraphics[width=0.45\textwidth]{Figures/Observables/SchmidPeskin.png}
-			\caption{Upper diagram shows the transverse energy distribution of positive/negative leptons of generated sample. The lower plots show the $\Delta N$ under the $E_T$ spectrum. The dashed line result is due to non-CP-violating effects and the solid line is due to CP violation.}
+			\caption{Upper diagram shows the transverse energy distribution of positive/negative leptons of generated sample. The lower plots show the $\Delta N$ under the $E_T$ spectrum. The dashed line result is due to non-CP-violating effects and the solid line is due to CP violation.(ref.\cite{PhysRevLett.69.410})}
 			\label{Obs:fig:SP_ex}
 			\end{figure}
 			\FloatBarrier
 
-			With the rough criteria, there are just some test with this lepton asymmetry observable by Madgraph generated SM, CEDM($d_t^g = 5$), 2HDM(default setting) $t\bar{t}$ samples with no selection and $10^7$ events. I test both on $t\bar{t}$ dilepton decay and semi-leptonic decay. It is just that collecting both leptons from dilepton decay and that collecting one lepton in each semileptonic decay event. 
+			With the rough criteria, there are the tests with this lepton asymmetry observable by Madgraph generated SM, CEDM($d_t^g = 5$), 2HDM(default setting) $t\bar{t}$ samples with no selection and $10^7$ events. I test both on $t\bar{t}$ dilepton decay and semi-leptonic decay. It is just that collecting both leptons from dilepton decay and that collecting one lepton in each semileptonic decay event. 
 
 			\begin{figure}[H]
 			\centering
@@ -217,7 +215,7 @@
 			\label{eq:signal_noise}
 			\end{equation}
 
-			The concept is to compare the mean of observables and its $\textbf{stadard error of mean(SEM)}\; \sigma_{<A_{i}>}$, and its definition is below:
+			The concept is to compare the mean of observables and its $\textbf{stadard}$ $\textbf{error}$ $\textbf{of}$ $\textbf{mean}$$\textbf{(SEM)}\; \sigma_{<A_{i}>}$, and its definition is below:
 
 			\begin{equation}
 			\begin{split} 
@@ -226,7 +224,7 @@
 			\label{eq:signal_noise_2}
 			\end{equation}
 
-			For $A_1$, it is simple to measure event by event and calculate their expectation value. However, for $A_2$, it is more complex to measurement on the $t\bar{t}$ semi-leptonic decay. We cannot calculate both part of the $A_2$ in an event at the same time because there is only one leptonic decay's top in an $t\bar{t}$ event. So the measurement of $A_2$ are separete to two part as two set of samples and calculate the two part seperately in both mean value and error(then propagate the error to be $A_2$'s error), they are listed at below(Eq.\ref{eq:1993_004}):
+			For $A_1$, it is simple to measure event by event and calculate their expectation value. However, for $A_2$, it is more complex to do measurement on the $t\bar{t}$ semi-leptonic decay. We cannot calculate both part of the $A_2$ in an event at the same time because there is only one leptonic decay's top in an $t\bar{t}$ event. So the measurement of $A_2$ are separete to two part as two set of samples and calculate the two part seperately in both mean value and error(then propagate the error to be $A_2$'s error), and the mean and error of $A_2$ could be gotten from calculation with the seperated parts. They are listed at below(Eq.\ref{eq:1993_004}):
 
 			\begin{equation}
 			\begin{split} 
@@ -254,7 +252,7 @@
 			\label{eq:1998_001}
 			\end{equation}
 
-			The $A_{cp}$'s form are shown below, and the dilepton decay's form(from $Q_1$) is the same as triple products' form(Eq.\ref{eq:1998_002} -1), on the other hand, the semi-leptonic decay's form(from $O_1$) is morecomplicated because $O_1$ and $\bar{O}_1$ are not totally from 2 different set of $t\bar{t}$ decay modes rather than from the same event.(Eq.\ref{eq:1998_002} -2)
+			The $A_{cp}$'s form are shown below, and the dilepton decay's form(from $Q_1$) is the same as triple products' form(Eq.\ref{eq:1998_002} -1), on the other hand, the semi-leptonic decay's form(from $O_1$) is more complicated because $O_1$ and $\bar{O}_1$ are not totally from 2 different set of $t\bar{t}$ decay modes rather than from the same event.(Eq.\ref{eq:1998_002} -2)
 
 			\begin{equation}
 			\begin{split} 
@@ -306,12 +304,12 @@
 			\end{figure}
 			\FloatBarrier
 
-			In Fig.\ref{Obs:fig:SM_2HDM_1993} and Fig.\ref{Obs:fig:SM_2HDM_1998}, although the 2HDM looks having more asymmetry than SM sometimes as expected, they are both inside the 2 standard deviation range. I think that would be the fluctuaction and not really present that the observables detect some asymmetry. It is not sure that the parameter setting of 2HDM can not lead to CP violation or the observables have bad sensitivity. The parameter setting of 2HDM is not our business, so the temperal conclusion of observables $A_1$, $A_2$, $A_{cp}(O_1)$, and $A_{cp}(Q_1)$ are that they are detectable, and if there are some exact samples with obvious CPV could be detect by T-even observables, it is valuable to test the observables' sensitivity about CPV. The work we can do now is to do the research of these observables themselves and their properties.
+			In Fig.\ref{Obs:fig:SM_2HDM_1993} and Fig.\ref{Obs:fig:SM_2HDM_1998}, although the 2HDM looks having more asymmetry than SM sometimes as expected, they are both inside the 2 standard deviation range. I think that would be the fluctuaction and not really present that the observables detect some asymmetry. It is not sure whether the parameter setting of 2HDM can lead to CP violation and whether the observables have been sensitive to the models. The parameter setting of 2HDM is not our business, so the temperal conclusion of observables $A_1$, $A_2$, $A_{cp}(O_1)$, and $A_{cp}(Q_1)$ are that they are detectable, and if there are some exact samples with obvious CPV could be detect by T-even observables, it is valuable to test the observables' sensitivity about CPV. The work we can do now is to do the research of these observables themselves and their properties.
 
 		\subsubsection{Observable property}
 		\label{sssec:AcpObs_property}
 
-			In this section, we focus on the dilution effect of T-evenn observables. However, the previous T-even observables' forms are various, the appropriate observables which can be done with studying dilution effect are $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ because of their counting the positive and negative events number rather than measuring observable's value, that is to say, they are just like the method the 2016 analysis uses with the four T-odd observables($O_3$, $O_6$, $O_{12}$, $O_{14}$). Eq.\ref{eq:four_obs}
+			In this section, we focus on the dilution effect of T-even observables. However, the previous T-even observables' forms are various, the appropriate observables which can be done with studying dilution effect are $A_{cp}(Q_1)$ and $A_{cp}(O_1)$ because of their counting the positive and negative events number rather than measuring observable's value. That is to say, they are just similar to the method the 2016 analysis uses with the four T-odd observables($O_3$, $O_6$, $O_{12}$, $O_{14}$). Eq.\ref{eq:four_obs}
 
 			To see the dilution effects, we need the simulation not only in parton level with Madgraph, but also in showering and detector level objects' simulation with Pythia and Delphes. The concept of dilution effect here is same as section.\ref{sec:Dilution} -- the effect which dilutes the $A_{cp}$ in generator-level to $A'_{cp}$ in detector-level. However, the test here is using generator-matching to match detector-level's objects and generator-level's particles, so the measured result would be purely from detector/reconstruction issue and objects' resolution, not from objects' identification like b-tagged correctness, light jets' identification. The generator-matching has been mentioned in section.\ref{sssec:mva_intro}, and the matching method is by Eq.\ref{eq:gen_matching}.
 
@@ -320,7 +318,8 @@
 			\begin{center}
 			\setlength{\tabcolsep}{12pt}
 			\begin{longtable}{ c | c c }
-			\caption{Dilution factor of }\\
+			\caption{Dilution factor of $A_{cp}(Q_1)$}\\
+			\hline
 			Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 			\hline
 			$A_{cp}(Q_1)$ & 88.12  &  76.23  \\
@@ -329,23 +328,24 @@
 			\label{Obs:tb:SM_DF}
 			\end{center}
 
-			We can validate the dilution factor by generate samples with artificial $A_{cp}$. The artificial $A_{cp}$ comes from randomly duplicate specific events in original $t\bar{t}$ sample. Take $A_{cp}(Q_1)$ for instance, we have $10\%$ probability to duplicate the $t\bar{t}$ event which has $Q_1 > 0$. There are the validation with varied artificial $A_{cp}$ and their corresponding $A'_{cp}$, then the linearly fitted line's slope would be the dilution factor.(Fig.\ref{Obs:fig:vali_SM})
+			We can also calculate the dilution factor by generate samples with artificial $A_{cp}$. The artificial $A_{cp}$ comes from randomly duplicate specific events in original $t\bar{t}$ sample. Take $A_{cp}(Q_1)$ for instance, we have $10\%$ probability to duplicate the $t\bar{t}$ event which has $Q_1 > 0$, and we need to see the change of generator-$A_{cp}$ and its corresponding detecteor-level $A'_{cp}$. There are the series of varied artificial $A_{cp}$ and their corresponding $A'_{cp}$, then the linearly fitted line's slope would be the dilution factor.(Fig.\ref{Obs:fig:vali_SM})
 
 			\begin{figure}[H]
 			\centering
 				\subfigure[$A_{cp}(Q_1)$ ($t\bar{t}$ dilepton decay)]{\includegraphics[width=0.45\textwidth]{Figures/Observables/property/text_Dilution_Obs_SM_di_dr.pdf}}
 			    \subfigure[$A_{cp}(O_1)$ ($t\bar{t}$ semi-lepton decay)]{\includegraphics[width=0.45\textwidth]{Figures/Observables/property/text_Dilution_Obs_SM_dr.pdf}}\\
-			\caption{Validation of measurred dilution factor with artificial $A_{cp}$'s $t\bar{t}$ simulation samples(SM)}
+			\caption{Validation of measured dilution factor with artificial $A_{cp}$'s $t\bar{t}$ simulation samples(SM)}
 			\label{Obs:fig:vali_SM}
 			\end{figure}
 			\FloatBarrier
 
-			The previous measurement of dilution factor is using the standard model's kinematics. However, if we believe the 2HDM sample with default parameter setting has beyond SM's CPV but do not obviously detected by these T-even observables, we may also magnify the CPV in 2HDM model with 2HDM specific kinematics by generate artificial CPV sample. The following are dilution factor calculation and artificial $A_{cp}$'s validation as previous but by 2HDM model(default) $t\bar{t}$ sample:
+			The previous measurement of dilution factor is using the standard model's kinematics. However, if we believe the 2HDM sample with default parameter setting has beyond SM's CPV but do not obviously detected by these T-even observables, we may also magnify the CPV in 2HDM model with 2HDM own kinematics by generate artificial CPV sample. The following are dilution factor calculation as previous but by 2HDM model(default parameter setting) $t\bar{t}$ sample:
 
 			\begin{center}
 			\setlength{\tabcolsep}{12pt}
 			\begin{longtable}{ c | c c }
-			\caption{}\\
+			\caption{Dilution factor of $A_{cp}(Q_1)$}\\
+			\hline
 			Observable & same sign rate[\%]($=1-\epsilon_{opp}$) & Dilution Factor[\%] \\
 			\hline
 			$A_{cp}(Q_1)$ & 88.30  &  76.61  \\

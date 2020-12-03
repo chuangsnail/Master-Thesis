@@ -61,7 +61,19 @@
 			\chi^2 = (\frac{m_{jjb}-m_{t}}{\sigma_{t}})^2 + (\frac{m_{jj}-m_{W}}{\sigma_{W}})^2
 			\label{eq:chi2}
 			\end{equation}
-			where $m_{t}$, $m_{W}$, $\sigma_{t}$ and $\sigma_{W}$ are the mean and width of top quark and W boson, coming from artificial fitting with jets corresponding to real decay quark with generator information in simulation sample(in appendix****), which are 168.15GeV, 81.25GeV, 20.6GeV and 12.1GeV seperately. Back to the part of $\chi^2$, for each combination, $m_{jjb}$ is the invariant mass of 1 b-tagged jet and 2 non-btagged jets; $m_{jj}$ is the invariat mass of 2 non b-tagged jets which are same 2 jets in $m_{jjb}$. the combination who have the minimum ${\chi}^{2}$ value in all of them is chosen as physical obsects coming from hadronically decay top.
+			where $m_{t}$, $m_{W}$, $\sigma_{t}$ and $\sigma_{W}$ are the mean and width of top quark and W boson, coming from artificial fitting with jets corresponding to real decay quark with generator information in simulation sample, which are 168.15GeV, 81.25GeV, 20.6GeV and 12.1GeV separately. The fitting procedure is to fit the generator-matching W($t$,$\bar{t}$) with Gaussians simply and get the mean and width of invariant mass under detector level. The reco-background could be from generator mis-matching or the physical objects' reconstruction.
+
+			\begin{figure}[H]
+			\centering
+				\subfigure[W bosons]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Fit/Plot_h_Mjj.pdf}}
+			    \subfigure[Top quarks]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/Fit/Plot_h_Mjjb.pdf}}\\
+			\caption{The fitted results of top quark's and W boson's invariant mass for $\chi^2_{min}$ method}
+			\label{EventSelReco:fig:fitted_mass}
+			\end{figure}
+			\FloatBarrier
+
+
+			Back to the part of $\chi^2$, for each combination, $m_{jjb}$ is the invariant mass of 1 b-tagged jet and 2 non-btagged jets; $m_{jj}$ is the invariat mass of 2 non b-tagged jets which are same 2 jets in $m_{jjb}$. the combination who have the minimum ${\chi}^{2}$ value in all of them is chosen as physical obsects coming from hadronically decay top.
 
 
 \begin{figure}[H]
@@ -84,7 +96,7 @@
 
 			\begin{itemize}
 
-				\item $\textbf{Sample}$ : signal simulation sample($t\bar{t}$ MC) with full event selection(\ref{ssec:EvtSel_SR})
+				\item Sample : signal simulation sample($t\bar{t}$ MC) with full event selection(\ref{ssec:EvtSel_SR})
 				\item Randomly half for training sample, another half for testing sample
 				\item In each event,
 				\begin{enumerate}
@@ -133,7 +145,7 @@
 				\end{enumerate}
 			\end{itemize}
 
-			With respect to the input variables for distinguishment training, we can check the seperation shows on input variables originally in advance:
+			With respect to the input variables for distinguishment training, we can check the separation shows on input variables originally in advance:
 
 			\begin{figure}[H]
 			\centering{}
@@ -150,7 +162,7 @@
 				\subfigure[BDT's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDT_sep.pdf}}
 			    \subfigure[BDTG's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_BDTG_sep.pdf}}\\
 			    \subfigure[MLP's separation result]{\includegraphics[width=0.45\textwidth]{Figures/EventSelReco/mva/a04_all_MLP_sep.pdf}}\\
-			\caption{The seperating distribution on signal and background}
+			\caption{The separating distribution on signal and background}
 			\label{EventSelReco:fig:Sep_a04}
 			\end{figure}
 			\FloatBarrier
@@ -634,7 +646,7 @@
 		\begin{figure}[H]
 		\centering
 			\includegraphics[width=0.7\textwidth]{Figures/EventSelReco/bbsep/chi2_bbsep_leptop_t.pdf}
-		\caption{The $M_{lb}$ and corresponding $b/\bar{b}$-seperation under $\chi^2_{min}$ method.}
+		\caption{The $M_{lb}$ and corresponding $b/\bar{b}$-separation under $\chi^2_{min}$ method.}
 		\label{EventSelReco:fig:chi2_bbsep_leptop}
 		\end{figure}
 		\FloatBarrier
@@ -671,7 +683,7 @@
 		\end{figure}
 		\FloatBarrier
 
-		In 8 variables and 20 variables cases, the $M_{lb}$ looks not to be seperated by $b/\bar{b}$-identification obviously, that is, it may not improve when applying $M_{lb}$ cut at 150 GeV. However, there are the $b/\bar{b}$-identified ratio after MVA(or $\chi^2$) cut and $M_{lb}$ cut.
+		In 8 variables and 20 variables cases, the $M_{lb}$ looks not to be separated by $b/\bar{b}$-identification obviously, that is, it may not improve when applying $M_{lb}$ cut at 150 GeV. However, there are the $b/\bar{b}$-identified ratio after MVA(or $\chi^2$) cut and $M_{lb}$ cut.
 
 		%% show the bbsep ratio after leptop cut 
 
@@ -711,7 +723,7 @@
 			The correct $b/\bar{b}$ ratio is $\sim 5 \%$($80.51 \%/75.56 \%$) better and the events efficiency is $\sim 4 \%$($69.26 \%/65.39 \%$) more than $\chi^2_{min}$ strategy.\\
 			This MVA result would be called $\textbf{MVA-A}$ $\textbf{strategy}$ in the following content;
 			\item $\textbf{The second}$ is only with MVA(MLP) cut at 0.22 but $M_{lb}$ cut. \\
-			Though the correct $b/\bar{b}$ ratio is just $\sim 1 \%$($76.88 \%/75.56 \%$) better, the events efficiency would be reserve $\sim 9.5 \%$($74.97 \%/65.39 \%$) more than $\chi^2_{min}$ strategy. The advantage of this is that the more statistics we retain, the precise the calculation of asymmetry eventually because the statistical and systematic uncertainty would be smaller.(Explained at Chapter****)\\
+			Though the correct $b/\bar{b}$ ratio is just $\sim 1 \%$($76.88 \%/75.56 \%$) better, the events efficiency would be reserve $\sim 9.5 \%$($74.97 \%/65.39 \%$) more than $\chi^2_{min}$ strategy. The advantage of this is that the more statistics we retain, the precise the calculation of asymmetry eventually because the statistical and systematic uncertainty would be smaller.\\
 			This MVA result would be called $\textbf{MVA-B}$ $\textbf{strategy}$ in the following content.
 		\label{EventSelReco:itm:a05_samples}
 		\end{enumerate}

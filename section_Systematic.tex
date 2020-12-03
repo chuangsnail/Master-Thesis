@@ -36,7 +36,7 @@
 	\subsection{Implementation and results}
 	\label{ssec:Syst_imp_result}
 
-		The approaches to apply the systematic uncertainty are shown below. This is expected to use 5000 pseudo data set to calculate the systematic uncertainty of $A'_{cp}$. We nneed to use the real dataset's $M_{lb}$-$A_{cp}(O_i)$ distribution(2D) to generate 5000 sets of pseudo dataset. The generated method is by Monte Carlo algorithm and adopted with yields from poisson distribution with mean is real dataset's yields. For example, Fig.\ref{Syst:fig:PD} is one of the generated pseudo dataset under $M_{lb}$-$O_{6}$ in muon channel(MVA reconstruction result). 
+		The approaches to apply the systematic uncertainty are shown below. This is expected to use 5000 pseudo datasets to calculate the systematic uncertainty of $A'_{cp}$. We need to use the real dataset's $M_{lb}$-$A_{cp}(O_i)$ distribution(2D) to generate 5000 sets of pseudo dataset. The generated method is by Monte Carlo algorithm and adopted with yields from poisson distribution with mean is real dataset's yields. For example, Fig.\ref{Syst:fig:PD} is one of the generated pseudo dataset under $M_{lb}$-$O_{6}$ in muon channel(MVA reconstruction result). 
 
 		\begin{figure}[H]
 		\centering
@@ -46,7 +46,7 @@
 		\end{figure}
 		\FloatBarrier
 
-		For each pseudo dataset, we have a series of implementation -- The illustration of systematice implementation is shown below in Fig.\ref{Syst:fig:approach}. First, we applied the one standard deviation systematic uncertainty of one kind of systematic on the signal simulation sample, then do full selection on it to get the signal template under $M_{lb}$ with systematic uncertainy. For instance, the Fig.\ref{Syst:fig:template} shows the signal template without any systematic uncertainty(nominal), the signal template with JER(+1$\sigma$) systematic uncertainty and the original background template.
+		For each pseudo dataset, we have a series of implementation -- The illustration of systematice implementation is shown below in Fig.\ref{Syst:fig:approach}. First, we applied the one standard deviation systematic uncertainty of one kind of systematic on the signal simulation sample, then do full selection on it to get the signal template under $M_{lb}$-Observables with systematic uncertainy. For instance, the Fig.\ref{Syst:fig:template} shows the signal template without any systematic uncertainty(nominal), the signal template with JER(+1$\sigma$) systematic uncertainty and the original background template.
 
 		\begin{figure}[H]
 		\centering
@@ -68,7 +68,7 @@
 		\end{figure}
 		\FloatBarrier
 
-		We repeat the previous procedure on 5000 pseudo dataset and get a collection of 5000 $\Delta A'_{cp}$ and their gathering distribution. The mean value of the distribution may be the final systematic uncertainty of the $A'_{cp}$, however, in this analysis, we consider the standard deviation of the distribution as the absolute value of systematic uncertainty, and the mean value could be used to decide the positive or negative sign of systematic uncertainty. In the process, the fitted signal/background yields in 5000 sets of pseudo dataset could be obviously differ between nominal case and systematic case. Futhermore, the fitted signal/background $\Delta$yields distribution and $\Delta A'_{cp}$ distribution between nominal and systematic cases could be fitted by a gaussian distribution. There are the example of fitted signal/background $\Delta$yields distribution(Fig.\ref{Syst:fig:deviation_sig}, \ref{Syst:fig:deviation_bkg}) and $\Delta A'_{cp}$ distribution(Fig.\ref{Syst:fig:deviation_Acp}) of JER(+1$\sigma$) systematic uncertainty of $O_6$ in muon channel.
+		We repeat the previous procedure on 5000 pseudo datasets and get a collection of 5000 $\Delta A'_{cp}$ and their gathering distribution. The mean value of the distribution may be the final systematic uncertainty of the $A'_{cp}$. However, in this analysis, we consider the standard deviation of the distribution as the absolute value of systematic uncertainty, and the mean value could be used to decide the positive or negative sign of systematic uncertainty. In the process, the fitted signal/background yields in 5000 sets of pseudo dataset could be obviously differ between nominal case and systematic case. Futhermore, the fitted signal/background $\Delta$yields distribution and $\Delta A'_{cp}$ distribution between nominal and systematic cases could be fitted by a gaussian distribution. There are the example of fitted signal/background $\Delta$yields distribution(Fig.\ref{Syst:fig:deviation_sig}, \ref{Syst:fig:deviation_bkg}) and $\Delta A'_{cp}$ distribution(Fig.\ref{Syst:fig:deviation_Acp}) of JER(+1$\sigma$) systematic uncertainty of $O_6$ in muon channel.
 
 
 		\begin{figure}[H]
@@ -247,5 +247,7 @@
 		\hline
 		\end{longtable}
 		\end{center}
+
+		The systematic uncertainty listed above are all at about order of $10^{-3}\%$($O(10^{-3}\%)$) which is tiny. It is expected that the systematic is that slight. The reason for the expectation is -- effects from systematic issues would appear both in positive and negative observables' value and the systematic effects are also expected to distribute fairly half-half on these two part, so they could be canceled out in the CP-odd asymmetry form(Eq.\ref{eq:asymmetry_form}).
 
 \FloatBarrier

@@ -10,7 +10,7 @@
 
 	It is a common and usual way to estimate background in data by using simulation samples. It depends more on the theoretical modeling and detector simulation with simulation sample. The background in simulation cannot be quite close to real data perfectly. This situation would disorder the asymmetry measurement eventually. It is suggested that in many high energy experiments' analysis to directly acquire background from real data. Therefore, the data-driven way is applied.
 	
-	In this analysis, it is found that the $M_{lb}$ variable shows really difference between signal and background in shape(Fig.\ref{BkgEst:fig:SR_sigbkg_Mlbshape}). Thus, with the diverse shape, there is an advantage to discern signal and background and then seperate them with template fit.
+	In this analysis, it is found that the $M_{lb}$ variable really shows difference between signal and background in shape(Fig.\ref{BkgEst:fig:SR_sigbkg_Mlbshape}). Thus, with diverse shapes, it is an advantage to discern signal and background and then seperate them with template fit.
 
 		\begin{figure}[H]
 		\centering
@@ -91,7 +91,7 @@
 		\label{eq:ext_likelihood_fn_this}
 		\end{equation}
 
-		Eventually, in our analysis we use binned-likelihood function as the observed mode. In other words, the $i=1,2,\ldots,N$ means that input observations are the results of N bins under the observable -- $M_{lb}$ spectrum. By contrast, the unbinned-likelihood method uses event-by-event as the observation, costing too much resource and time, so it has not been used.
+		Eventually, in our analysis we use binned-likelihood function as the observed mode. In other words, the $i=1,2,\ldots,N$ means that input observations are the the i-th bin results of N bins under the observable -- $M_{lb}$ spectrum. By contrast, the unbinned-likelihood method uses event-by-event as the observation(i means the i-th event), costing too much resource and time, so it has not been used.
 
 
 		\subsubsection{Fitting Result}
@@ -179,7 +179,7 @@
 		\end{split}
 		\end{equation}
 
-		For this analysis, to compare the 2 histogram under 1 variable's spectrum, it is usually taken the events number in any bins as independent variables. There are 1 set of real data points and 1 set of MC points which follows the fitting result. And then, to standardize all the bins' variables to be normal distribution variables, we operate them as Eq.\ref{eq:chi2_dis_this}'s first equation. After standardization, we just sum up all the bins' operated variables to be the $\chi^2$ value of these 2 set of data points (Eq.\ref{eq:chi2_dis_this}-2). The $x^d_i$ means the events number of real data in i-th bin, $x^s_i$ is the events number of MC in i-th bin. Also, the standard error for standardization is poisson error of counting events number of MC in i-th bin -- $\sqrt{x^s_i}$:
+		For this analysis, to compare the 2 histogram under 1 variable's spectrum, it is usually taken the events number in any bins as independent variables. There are 1 set of real data points and 1 set of MC points which follows the fitting result. And then, to standardize all the bins' variables to be normal distribution variables, we operate them as Eq.\ref{eq:chi2_dis_this}'s first equation. After standardization, we just sum up all the bins' operated variables to be the $\chi^2$ value of these 2 sets of data points (Eq.\ref{eq:chi2_dis_this}-2). The $x^d_i$ means the events number of real data in i-th bin, $x^s_i$ is the events number of MC in i-th bin. Also, the standard error for standardization is poisson error of counting events number of MC in i-th bin -- $\sqrt{x^s_i}$:
 
 		\begin{equation}
 		\begin{split}
