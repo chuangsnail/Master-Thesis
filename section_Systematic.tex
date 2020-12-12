@@ -3,12 +3,12 @@
 % TODO:
 % REMARK:
 
-\section{ Systematic Uncertainty}
+\section{    Systematic Uncertainty}
 \label{sec:Systematic}
 
-	Besides the statistical uncertainty, there are also some systematic uncertainty from detector's issue, reconstruction procedure, simulating process...etc. In this snalysis, the primary systematic uncertainties are from the simulation correction. 
+	Besides the statistical uncertainty, there are also some systematic uncertainty from detector's issue, reconstruction procedure, simulating process...etc. In this snalysis, there are 2 kinds of systematic uncertainty, the first one is the detector and reconstruction bias mentioned in Chapter.\ref{sec:AsymBias}, and the second one is the simulation correction which propagates through the background estimation procedure. This Chapter put emphasis on the second kind of systematic uncertainty.
 
-	\subsection{Introduction of systematic uncertainty}
+	\subsection{   Introduction of systematic uncertainty}
 	\label{ssec:Syst_type}
 		\subsubsection{Pileup re-weighting}
 		\label{sssec:Syst_PU}
@@ -17,26 +17,26 @@
 
 			Since the pileup performance under data and simulation(MC) have discrepancy, there is MC reweighing of pileup in any events which is mentioned in section.\ref{sssec:DataAndMC_PU}. However, there is also an uncertainty of pileup reweight. The pp inelastic scattering cross section is used to calculate the pileup distribution and then used to implement the pileup reweight, so this cross section has its mean value and uncertainty 69.2$mb^{-1}$ $\pm$5\%. Then the pileup reweighing factor may be affected by this cross section as the pileup reweighting systematic uncertainty.
 
-		\subsubsection{Jet energy correction and resolution}
+		\subsubsection{   Jet energy correction and resolution}
 		\label{sssec:Syst_JECJER}
 
 			The JER and JEC are mentioned in section.\ref{ssec:PhysObj_jet}, they might have shifted or smeared the energy spectrum of any reconstructed jets. That is to say, the four-momentum, invariant mass, and also $p_T$ would be affected by the adoption of JEC and JER, and the uncertainty of them would fluctuate the kinematics also affect the results of object and event selection. The correctly application of one standard deviation uncertainty of JEC and JER could cover the jet reconstruction issues also the uncertainty of MET($E_T^{miss}$, missing $E_T$).
 			
 
-		\subsubsection{b-tagged scale factor}
+		\subsubsection{   b-tagged scale factor}
 		\label{sssec:Syst_btag}
 
 			When applying the btagging reweight on each event, the btagging scale factors are included in the weight measurement(Eq.\ref{eq:btag_weight_2}). The scale factors were calculated by BTV POG, and there are the scale factors values and uncertainty being obtained from them. Therefore, the uncertainty would propagate from btagging scale factors to the btagging weight, and the uncertainty can be implemented by the weight.
 
-		\subsubsection{Lepton identification, isolation, reconstruction and trigger efficiencies}
+		\subsubsection{   Lepton identification, isolation, reconstruction and trigger efficiencies}
 		\label{sssec:Syst_lepsf}
 
 			The lepton identification, isolation, reconstruction and trigger scale factors were mentioned in section.\ref{sssec:DataAndMC_LepEffSF}. The event with specific(under corresponding $p_T$, $\eta$ values) selected lepton should be corrected by scale factor on the weight of this event. However, the scale factors are also calculated from POG with real data and simulation, so there must be uncertainty on each scale factor which is each bin's value of Fig.\ref{DataMC:fig:lepsf}.
 
-	\subsection{Implementation and results}
+	\subsection{   Implementation and results}
 	\label{ssec:Syst_imp_result}
 
-		The approaches to apply the systematic uncertainty are shown below. This is expected to use 5000 pseudo datasets to calculate the systematic uncertainty of $A'_{cp}$. We need to use the real dataset's $M_{lb}$-$A_{cp}(O_i)$ distribution(2D) to generate 5000 sets of pseudo dataset. The generated method is by Monte Carlo algorithm and adopted with yields from poisson distribution with mean is real dataset's yields. For example, Fig.\ref{Syst:fig:PD} is one of the generated pseudo dataset under $M_{lb}$-$O_{6}$ in muon channel(MVA reconstruction result). 
+		The $\textbf{pseudo-data experiment}$ is adopted to eliminate the bias in single experiment when measuring the systematic uncertainty. The reason is that the pseudo-data sets would be connsidered as the infinite statistics and the measured one would be the pure systematic effects instead of the statistical effect. The approaches to realize the pseudo-data experiment for systematic uncertainty are shown below. This is expected to use 5000 pseudo datasets to calculate the systematic uncertainty of $A'_{cp}$. We need to use the real dataset's $M_{lb}$-$A_{cp}(O_i)$ distribution(2D) to generate 5000 sets of pseudo dataset. The generated method is by Monte Carlo algorithm and adopted with yields from poisson distribution with mean is real dataset's yields. For example, Fig.\ref{Syst:fig:PD} is one of the generated pseudo dataset under $M_{lb}$-$O_{6}$ in muon channel(MVA reconstruction result). 
 
 		\begin{figure}[H]
 		\centering
